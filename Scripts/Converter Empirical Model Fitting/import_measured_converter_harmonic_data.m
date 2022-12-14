@@ -1,6 +1,6 @@
 % Function: Import CSU-characterized converter data from CSV file
 % ------------------------------------------------------------------------------
-% Imports device harmonics data for CSU-characterized AC/DC converters. Expects 
+% Imports device harmonics data for CSU-characterized AC/DC converters. Expects
 % a directory containing file 'Harmonics.csv' and with a standard CSV column
 % format (names, units).
 %
@@ -18,13 +18,13 @@
 %   data: struct containing converter characterization data
 %
 % Stephen Frank, Stephen.Frank@nrel.gov
-% 
+%
 % Based On: 'getConverterData.m' and 'generate_harmonic_load_model.m' originally
 % written by Avpreet Othee, avpreetsingh@hotmail.com
 % ------------------------------------------------------------------------------
 
 function data = import_measured_converter_harmonic_data(dataDirectory, groupColumn)
-  
+
 % Default arguments
 if (nargin < 2)
   groupColumn = 'Power Step'; % Assumed grouping column if not specified
@@ -109,10 +109,10 @@ P1_ref = zeros(size(h));
 for g = groups
   % Compute mask
   mask = (rowGroup == g) & (h == 1); % Fundamental
-  
+
   % Fundamental voltage reference for group
   V1_ref(rowGroup == g) = mean(Vin(mask));
-  
+
   % Fundamental power reference for group
   P1_ref(rowGroup == g) = mean(Pin(mask));
 end
@@ -140,18 +140,18 @@ for gg = groups
   for hh = harms
     % Advance row index
     r = r + 1;
-    
+
     % Record group, harmonic
     data.grp(r) = gg;
     data.h(r)   = hh;
-    
+
     % Grouping mask
     mask = (rowGroup == gg) & (h == hh);
-    
+
     % Averages
     data.V(r)  = mean(Vin(mask));
     data.I(r)  = mean(Iin(mask));
-    
+
     % Reference fundamental power
     data.P1(r) = mean(P1_ref(mask)); % Should all be same value
   endfor

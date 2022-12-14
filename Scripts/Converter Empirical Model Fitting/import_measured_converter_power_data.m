@@ -1,6 +1,6 @@
 % Function: Import CSU-characterized converter power data from CSV file
 % ------------------------------------------------------------------------------
-% Imports device power data for CSU-characterized AC/DC converters. Expects a 
+% Imports device power data for CSU-characterized AC/DC converters. Expects a
 % directory containing file 'Power_data.csv' and with a standard CSV column
 % format (names, units).
 %
@@ -11,13 +11,13 @@
 %   data: struct containing converter characterization data
 %
 % Stephen Frank, Stephen.Frank@nrel.gov
-% 
+%
 % Based On: 'getConverterData.m' and 'generate_harmonic_load_model.m' originally
 % written by Avpreet Othee, avpreetsingh@hotmail.com
 % ------------------------------------------------------------------------------
 
 function data = import_measured_converter_power_data(dataDirectory)
-  
+
 %% Dir structure for CSU-characterized devices
 % [parent]/
 % ├── Processed Data <- Set dataDirectory to here!!

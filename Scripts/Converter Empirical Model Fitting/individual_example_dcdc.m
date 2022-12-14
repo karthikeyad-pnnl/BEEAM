@@ -14,11 +14,11 @@ clc
 
 % Device data source directory
 %dataDirectory = fullfile('.', 'Example Data', deviceName, 'Processed Data');
-dataDirectory = fullfile('/Users/wagh847/Library/CloudStorage/OneDrive-PNNL/Anay/Projects/PoE systems/Model Data/Transition Switch/Processed Data');
-%dataDirectory = fullfile('/Users/wagh847/Library/CloudStorage/OneDrive-PNNL/Anay/Projects/PoE systems/Model Data/PoE Driver')
+%dataDirectory = fullfile('/Users/wagh847/Library/CloudStorage/OneDrive-PNNL/Anay/Projects/PoE systems/Model Data/LED Driver/Processed Data');
+dataDirectory = fullfile('/Users/wagh847/Library/CloudStorage/OneDrive-PNNL/Anay/Projects/PoE systems/Model Data/PoE Driver')
 % Device ratings
-Pnom = 920;          % W
-Vnom = 120;         % V_ac
+Pnom = 60;          % W
+Vnom = 53;         % V_ac
 Inom = Pnom / Vnom; % A_ac
 
 % Commentary: The default device used in this example, a HP 677777-002 external
@@ -33,7 +33,7 @@ hMax = 51;
 % Use helper functions to import the data from CSV
 convData = struct();
 convData.power = import_measured_converter_power_data(dataDirectory);
-convData.harmonics = import_measured_converter_harmonic_data(dataDirectory);
+##convData.harmonics = import_measured_converter_harmonic_data(dataDirectory);
 
 % Note: By default, harmonic samples are grouped and averaged by th
 % "Power Step" column in the CSV file. You can also specify the name of the
@@ -53,8 +53,7 @@ gamma = lossCoeff(3);
 
 % Modeled curves: Pout, Pin, Ploss, efficiency
 % See loss_model() documentation for how to apply alpha, beta, gamma
-mdl_Pout  = Pnom .* (0:0.01:1);
-%mdl_Pout  = Pnom .* (0.1,0.2,0.4,0.9,1,2,2.9,3.9,4.9,5.9,6.8,7.8,8.8,9.5,9.8,11.7,13.7,15.7,17.6,18.9,19.6,23.5,27.4,31.3,35.2,39.1,47.0,54.8,62.6,70.4,75.7);
+mdl_Pout  = Pnom .* (0:0.1:1);
 mdl_Pin   = mdl_Pout + Pnom .* ...
   (alpha + beta .* (mdl_Pout./Pnom) + gamma .* (mdl_Pout./Pnom).^2);
 mdl_Ploss = mdl_Pin - mdl_Pout;
@@ -82,55 +81,56 @@ ylabel('Efficiency');
 title('Efficiency');
 legend('Measurement', 'Model', 'Location', 'southeast');
 
-%% Fit Harmonic Model
-% Important! Data comes in with even and odd harmonics, but we typically want
-% only odd harmonics for surface fitting. We also may want to limit the maximum
-% harmonic present in the model, as shown here.
-
-% Get harmonic vector
-h = convData.harmonics.h;
-
-% Filter to odd harmonics only, less than or equal to maximum
-hMask = (mod(h, 2) > 0) & (h <= hMax);
-
-% Get data (filtered by values of h we want!)
-h     = convData.harmonics.h(hMask);
-Imeas = convData.harmonics.I(hMask);
-Imag  = convData.harmonics.Imag(hMask);
-Iarg  = convData.harmonics.Iarg(hMask);
-P1    = convData.harmonics.P1(hMask);
-
-% Generate interpolation table: X = harmonic, Y = fundamental power, Z = current
-[X, Y, Z_mag, Z_arg] = empirical_harmonic_model(Imeas, h, P1, Inom, Pnom);
-
-% Note: Variable names here are matched to what BEEAM expects
-
-% Plot: Magnitude
-figure
-surf(X, Y .* Pnom, Z_mag .* Inom, 'FaceAlpha', 0.75)
-xlabel('h', 'interpreter', 'tex', 'FontSize', 14)
-ylabel('P_{AC}^{(1)}', 'interpreter', 'tex', 'FontSize', 14)
-zlabel('|I^{(h)}|', 'interpreter', 'tex', 'FontSize', 14)
-title('Magnitude Model')
-
-% Plot: Phase
-figure
-surf(X, Y .* Pnom, Z_arg, 'FaceAlpha', 0.75)
-xlabel('h', 'interpreter', 'tex', 'FontSize', 14)
-ylabel('P_{AC}^{(1)}', 'interpreter', 'tex', 'FontSize', 14)
-zlabel('\angle I^{(h)}', 'interpreter', 'tex', 'FontSize', 14)
-title('Phase Model')
-
-%% Save Output
-% Demonstrates how to save a .mat file compatible with BEEAM's empirical AC/DC
-% converter model. Uncomment to run.
-
+##%% Fit Harmonic Model
+##% Important! Data comes in with even and odd harmonics, but we typically want
+##% only odd harmonics for surface fitting. We also may want to limit the maximum
+##% harmonic present in the model, as shown here.
+##
+##% Get harmonic vector
+##h = convData.harmonics.h;
+##
+##% Filter to odd harmonics only, less than or equal to maximum
+##hMask = (mod(h, 2) > 0) & (h <= hMax);
+##
+##% Get data (filtered by values of h we want!)
+##h     = convData.harmonics.h(hMask);
+##Imeas = convData.harmonics.I(hMask);
+##Imag  = convData.harmonics.Imag(hMask);
+##Iarg  = convData.harmonics.Iarg(hMask);
+##P1    = convData.harmonics.P1(hMask);
+##
+##% Generate interpolation table: X = harmonic, Y = fundamental power, Z = current
+##[X, Y, Z_mag, Z_arg] = empirical_harmonic_model(Imeas, h, P1, Inom, Pnom);
+##
+##% Note: Variable names here are matched to what BEEAM expects
+##
+##% Plot: Magnitude
+##figure
+##surf(X, Y .* Pnom, Z_mag .* Inom, 'FaceAlpha', 0.75)
+##xlabel('$h$', 'interpreter', 'latex', 'FontSize', 14)
+##ylabel('$P_{AC}^{(1)}$', 'interpreter', 'latex', 'FontSize', 14)
+##zlabel('$|I^{(h)}|$', 'interpreter', 'latex', 'FontSize', 14)
+##title('Magnitude Model')
+##
+##% Plot: Phase
+##figure
+##surf(X, Y .* Pnom, Z_arg, 'FaceAlpha', 0.75)
+##xlabel('$h$', 'interpreter', 'latex', 'FontSize', 14)
+##ylabel('$P_{AC}^{(1)}$', 'interpreter', 'latex', 'FontSize', 14)
+##zlabel('$\angle I^{(h)}$', 'interpreter', 'latex', 'FontSize', 14)
+##title('Phase Model')
+##
+##%% Save Output
+##% Demonstrates how to save a .mat file compatible with BEEAM's empirical AC/DC
+##% converter model. Uncomment to run.
+##
 % Filename
-fName = strcat([strrep('transition', ' ', '-'), '.mat']);
+fName = strcat([strrep('igor', ' ', '-'), '.mat']);
 ##
 ##% Execute save
 if exist ("OCTAVE_VERSION", "builtin") > 0
-  save('-V6', fName, 'X', 'Y', 'Z_mag', 'Z_arg', 'alpha', 'beta', 'gamma');
+  ##save('-V6', fName, 'X', 'Y', 'Z_mag', 'Z_arg', 'alpha', 'beta', 'gamma');
+  save('-V6', fName, 'alpha', 'beta', 'gamma');
 else
   % Needs to be tested w/ MATLAB
   save fName 'alpha' 'beta' 'gamma';
