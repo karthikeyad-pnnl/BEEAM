@@ -43,10 +43,10 @@ endif
 if exist ("OCTAVE_VERSION", "builtin") > 0
   % GNU Octave
   pkg load io;
-  harmonicsTable = csv2cell(fullfile(dataDirectory, 'Harmonics.csv'));
+  harmonicsTable = csv2cell(fullfile(dataDirectory, 'Harmonics1.csv'));
 else
   % MATLAB
-  harmonicsTable = readcell(fullfile(dataDirectory, 'Harmonics.csv'));
+  harmonicsTable = readcell(fullfile(dataDirectory, 'Harmonics1.csv'));
 end
 
 % Get column headers
