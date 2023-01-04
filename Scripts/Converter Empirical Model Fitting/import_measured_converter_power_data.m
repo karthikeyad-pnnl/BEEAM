@@ -31,10 +31,10 @@ function data = import_measured_converter_power_data(dataDirectory)
 if exist ("OCTAVE_VERSION", "builtin") > 0
   % GNU Octave
   pkg load io;
-  powerTable = csv2cell(fullfile(dataDirectory, 'Power_data.csv'));
+  powerTable = csv2cell(fullfile(dataDirectory, 'Power_data1.csv'));
 else
   % MATLAB
-  powerTable = readcell(fullfile(dataDirectory, 'Power_data.csv'));
+  powerTable = readcell(fullfile(dataDirectory, 'Power_data1.csv'));
 end
 
 % Get column headers
