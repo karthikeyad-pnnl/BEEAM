@@ -133,7 +133,11 @@ package Types
       gauge_600
               "600",
       gauge_POE
-              "POE")
+              "POE",
+      guage_POE_VHC
+              "POE_VHC",
+      guage_POE_Patch
+              "POE_Patch")
   "Wire gauges" annotation (
   Evaluate=true);
 

@@ -14,10 +14,10 @@ clc
 
 % Device data source directory
 %dataDirectory = fullfile('.', 'Example Data', deviceName, 'Processed Data');
-dataDirectory = fullfile('/Users/wagh847/Library/CloudStorage/OneDrive-PNNL/Anay/Projects/PoE systems/Model Data/Transition Switch/Processed Data');
+dataDirectory = fullfile('/Users/wagh847/Library/CloudStorage/OneDrive-PNNL/Anay/Projects/PoE systems/Model Data/LED Driver/Processed Data');
 %dataDirectory = fullfile('/Users/wagh847/Library/CloudStorage/OneDrive-PNNL/Anay/Projects/PoE systems/Model Data/PoE Driver')
 % Device ratings
-Pnom = 920;          % W
+Pnom = 29;          % W
 Vnom = 120;         % V_ac
 Inom = Pnom / Vnom; % A_ac
 
@@ -126,7 +126,7 @@ title('Phase Model')
 % converter model. Uncomment to run.
 
 % Filename
-fName = strcat([strrep('transition', ' ', '-'), '.mat']);
+fName = strcat([strrep('osram', ' ', '-'), '.mat']);
 ##
 ##% Execute save
 if exist ("OCTAVE_VERSION", "builtin") > 0

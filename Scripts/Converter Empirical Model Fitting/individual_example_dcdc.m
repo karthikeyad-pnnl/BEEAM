@@ -17,7 +17,7 @@ clc
 %dataDirectory = fullfile('/Users/wagh847/Library/CloudStorage/OneDrive-PNNL/Anay/Projects/PoE systems/Model Data/LED Driver/Processed Data');
 dataDirectory = fullfile('/Users/wagh847/Library/CloudStorage/OneDrive-PNNL/Anay/Projects/PoE systems/Model Data/PoE Driver')
 % Device ratings
-Pnom = 60;          % W
+Pnom = 53;          % W
 Vnom = 53;         % V_ac
 Inom = Pnom / Vnom; % A_ac
 

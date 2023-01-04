@@ -32,7 +32,7 @@ equation
 // Control DC output voltage
   DC_Port.v = VDC_nom;
 // Loss calculation
-  P_Loss = HPF.PowerConverters.HelperFunctions.homotopyTransition(P_DC, 0, P_DCmin, P_stby, P_nom * (alpha + beta * (P_DC / P_nom) + gamma * (P_DC / P_nom) ^ 2));
+  P_Loss = HPF.PowerConverters.HelperFunctions.homotopyTransition(P_DC, 0, P_DCmin, P_stby, P_nom*(alpha + beta*(P_DC/P_nom) + gamma*(P_DC/P_nom)^2));
 // Real/reactive/apparent power at fundamental
   P1 = P_AC - sum(P_h[2:1:systemDef.numHrm]);
   Q1 = 0;
@@ -40,8 +40,8 @@ equation
 // Energy balance
   P_AC = P_DC + P_Loss;
 // Current injections: fundamental
-  phaseLN.i[1].re = (P1 * phaseLN.v[1].re + Q1 * phaseLN.v[1].im) / (phaseLN.v[1].re ^ 2 + phaseLN.v[1].im ^ 2);
-  phaseLN.i[1].im = (P1 * phaseLN.v[1].im - Q1 * phaseLN.v[1].re) / (phaseLN.v[1].re ^ 2 + phaseLN.v[1].im ^ 2);
+  phaseLN.i[1].re = (P1*phaseLN.v[1].re + Q1*phaseLN.v[1].im)/(phaseLN.v[1].re^2 + phaseLN.v[1].im^2);
+  phaseLN.i[1].im = (P1*phaseLN.v[1].im - Q1*phaseLN.v[1].re)/(phaseLN.v[1].re^2 + phaseLN.v[1].im^2);
 // Current injections: harmonics h > 1
   phaseLN.i[2:1:systemDef.numHrm] = {Complex(0, 0) for i in 1:systemDef.numHrm - 1};
 // Annotation

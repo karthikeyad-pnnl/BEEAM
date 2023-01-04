@@ -51,20 +51,17 @@ protected
   
   // intermediary variables for higher current harmonics
   Complex a[systemDef.numHrm - 1] = {Complex(cos(argAdj[i]), sin(argAdj[i])) for i in 1:systemDef.numHrm - 1};
-  
 equation
-  
-  // Power draw at the fundamental
-  P1 = P - sum(loadBase.v[2:systemDef.numHrm].re .* loadBase.i[2:systemDef.numHrm].re .+ loadBase.v[2:systemDef.numHrm].im .* loadBase.i[2:systemDef.numHrm].im); // Power at harmonics > 1.
-  
-  /*
+// Power draw at the fundamental
+  P1 = P - sum(loadBase.v[2:systemDef.numHrm].re.*loadBase.i[2:systemDef.numHrm].re .+ loadBase.v[2:systemDef.numHrm].im.*loadBase.i[2:systemDef.numHrm].im);
+// Power at harmonics > 1.
+/*
     Solve for imaginary power Q_1 (fundamental). 
     power angle is negative of the model fundamental
   */
-  P1 = S1 * cos(argS1);
-  Q1 = S1 * sin(argS1);
-  
-  /*
+  P1 = S1*cos(argS1);
+  Q1 = S1*sin(argS1);
+/*
      In complex notation,
     S = P + jQ = V*conj(I)
       = (Vre*Ire + Vim*Iim) + j(Vim*Ire - Vre*Iim)
@@ -74,15 +71,15 @@ equation
     Q = (loadBase.v[1].im * loadBase.i[1].re) - (loadBase.v[1].re * loadBase.i[1].im);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
     //rewriting the power relation
   */
-  loadBase.i[1].re = (P1 * loadBase.v[1].re + Q1 * loadBase.v[1].im) / (loadBase.v[1].re ^ 2 + loadBase.v[1].im ^ 2);
-  loadBase.i[1].im = (P1 * loadBase.v[1].im - Q1 * loadBase.v[1].re) / (loadBase.v[1].re ^ 2 + loadBase.v[1].im ^ 2);
+  loadBase.i[1].re = (P1*loadBase.v[1].re + Q1*loadBase.v[1].im)/(loadBase.v[1].re^2 + loadBase.v[1].im^2);
+  loadBase.i[1].im = (P1*loadBase.v[1].im - Q1*loadBase.v[1].re)/(loadBase.v[1].re^2 + loadBase.v[1].im^2);
 /*
     current injection for the rest of the harmonics.
   */
-  loadBase.i[2:1:systemDef.numHrm] = {c[i] * a[i] for i in 1:systemDef.numHrm - 1};
+  loadBase.i[2:1:systemDef.numHrm] = {c[i]*a[i] for i in 1:systemDef.numHrm - 1};
   PLoss = P - P_DC;
-  annotation (
-    Icon(coordinateSystem(preserveAspectRatio = false), graphics={  Text(origin = {4, 0}, lineColor = {92, 53, 102}, extent = {{-184, -120}, {176, -160}}, textString = "%name"), Text(origin = {70, 115}, extent = {{-54, 15}, {54, -15}}, textString = "Ploss")}),
+  annotation(
+    Icon(coordinateSystem(preserveAspectRatio = false), graphics = {Text(origin = {4, 0}, textColor = {92, 53, 102}, extent = {{-184, -120}, {176, -160}}, textString = "%name"), Text(origin = {70, 115}, extent = {{-54, 15}, {54, -15}}, textString = "Ploss")}),
     Diagram(coordinateSystem(preserveAspectRatio = false)),
     Documentation(info = "<html><head></head><body>
 <h4>General Information</h4>
