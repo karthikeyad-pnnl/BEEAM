@@ -958,7 +958,7 @@ equation
   connect(dC_Load5.n, ground83.p) annotation(
     Line(points = {{234, 90}, {244, 90}, {244, 54}}, color = {0, 0, 255}));
   annotation (
-    Diagram(coordinateSystem(extent = {{-240, 220}, {700, -540}}, initialScale = 0.1), graphics={Text(origin = {78, 32}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Medium Office Building", fontSize = 9, horizontalAlignment = TextAlignment.Right)}),
+    Diagram(coordinateSystem(extent = {{240, 220}, {700, 540}}, initialScale = 0.1), graphics={Text(origin = {78, 32}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Medium Office Building", fontSize = 9, horizontalAlignment = TextAlignment.Right)}),
     Icon(coordinateSystem(extent = {{-300, -300}, {300, 300}}, initialScale = 0.1)),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 1),
     __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"),

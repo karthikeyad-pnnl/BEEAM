@@ -13,7 +13,8 @@ model HarmonicPQLoad "PQ load at harmonic frequencies"
     Placement(visible = true, transformation(origin = {-68, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground annotation(
     Placement(visible = true, transformation(origin = {70, -16}, extent = {{-8, -8}, {8, 8}}, rotation = 0)));
-  HPF.SinglePhase.Components.Impedance z(start_i_im = cat(1, {P[1] / nomV * sin(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_i_re = cat(1, {P[1] / nomV * cos(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), z = 1e-6 - 0.0 * j) annotation(
+  HPF.SinglePhase.Components.Impedance z(start_i_im = cat(1, {P[1] / nomV * sin(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_i_re = cat(1, {P[1] / nomV * cos(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}),
+    z=Complex(1e-6, 0))                                                                                                                                                                                                         annotation (
     Placement(visible = true, transformation(origin = {-30, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
   final parameter Real P_padded[systemDef.numHrm] = cat(1, P[:], {0.0 for i in size(P, 1)+1:systemDef.numHrm}); // zero padding Power harmonic vector
