@@ -22,9 +22,7 @@ equation
 /*
     extra constraint definition for loop breaking.
   */
- if  (Connections.isRoot(pin_p.reference)) then
   omega = 2 * Modelica.Constants.pi * systemDef.fFund;
-  end if;
 /*
    Observation: 
    Dymola is throwing error when performing arithematic operations on complex
