@@ -9,7 +9,7 @@ model Test_timeSeriesInput
   HPF.SinglePhase.Components.Impedance Z12(z = 25 + 0.3013 * j) annotation(
     Placement(visible = true, transformation(origin = {38, 38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl ACDC_Converter(V_Rect = 24, nomP = 50) annotation(
-    Placement(visible = true, transformation(origin = { 14, 8}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {14, 8}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground annotation(
     Placement(visible = true, transformation(origin = {-44, -46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground1 annotation(
@@ -18,7 +18,7 @@ model Test_timeSeriesInput
     Placement(visible = true, transformation(origin = {-44, 10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.DC.Variable_DC_Load variable_DC_Load annotation(
     Placement(visible = true, transformation(origin = {46, 4}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  Modelica.Blocks.Noise.NormalNoise timeSeriesInput(mu = 50, samplePeriod = 15, sigma = 5, useAutomaticLocalSeed = true, useGlobalSeed = true)  annotation(
+  Modelica.Blocks.Noise.NormalNoise timeSeriesInput(mu = 50, samplePeriod = 15, sigma = 5, useAutomaticLocalSeed = true, useGlobalSeed = true) annotation(
     Placement(visible = true, transformation(origin = {70, 62}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(Z01.pin_n, Z12.pin_p) annotation(
@@ -41,10 +41,9 @@ equation
     Line(points = {{46, -6}, {46, -12}}, color = {0, 0, 255}));
   connect(timeSeriesInput.y, variable_DC_Load.u) annotation(
     Line(points = {{81, 62}, {98, 62}, {98, 4}, {51, 4}}, color = {0, 0, 127}));
-
-annotation(
+  annotation(
     Documentation(info = "<html><head></head><body>Time series input testing using a random number generator.<div><br></div><div>Setup time for the time series is in the random number generator.</div><div><br></div><div><b>Setting time step = 5 sec</b></div><div><b><br></b></div><div><b><br></b></div></body></html>"),
     experiment(StartTime = 0, StopTime = 1800, Tolerance = 1e-6, Interval = 1),
-  __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",
-  __OpenModelica_simulationFlags(lv = "LOG_INIT,LOG_RES_INIT,LOG_SIMULATION,LOG_SOTI", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"));
+    __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",
+    __OpenModelica_simulationFlags(lv = "LOG_INIT,LOG_RES_INIT,LOG_SIMULATION,LOG_SOTI", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"));
 end Test_timeSeriesInput;

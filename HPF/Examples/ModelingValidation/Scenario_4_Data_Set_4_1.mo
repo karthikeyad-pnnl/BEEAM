@@ -125,10 +125,10 @@ equation
   connect(Laptop_Charger_5.hPin_P, LED_Driver_3.hPin_P) annotation(
     Line(points = {{38, -128}, {-32, -128}, {-32, -80}, {46, -80}}, color = {92, 53, 102}));
   annotation(
-    Diagram(coordinateSystem(extent = {{-280, -220}, {260, 240}}), graphics = {Text(extent = {{-258, 206}, {114, 162}}, lineColor = {28, 108, 200}, horizontalAlignment = TextAlignment.Left, textString = "Data Set 4.1
-	Load Phase a-n	Total Load - 0W	Laptop Charger 3 + LED Driver 1	No Load
-	Load Phase b-n	Total Load - 0W	Laptop Charger 4 + LED Driver 2	No Load
-	Load Phase c-n	Total Load - 0W	Laptop Charger 5 + LED Driver 3	No Load
+    Diagram(coordinateSystem(extent = {{-280, -220}, {260, 240}}), graphics = {Text(extent = {{-258, 206}, {114, 162}}, lineColor = {28, 108, 200}, horizontalAlignment = TextAlignment.Left, textString = "Data Set 4.1
+	Load Phase a-n	Total Load - 0W	Laptop Charger 3 + LED Driver 1	No Load
+	Load Phase b-n	Total Load - 0W	Laptop Charger 4 + LED Driver 2	No Load
+	Load Phase c-n	Total Load - 0W	Laptop Charger 5 + LED Driver 3	No Load
     ")}),
     Icon(coordinateSystem(extent = {{-280, -220}, {260, 240}})),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 1),

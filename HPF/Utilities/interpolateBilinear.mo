@@ -1,13 +1,14 @@
 within HPF.Utilities;
+
 function interpolateBilinear
   extends Modelica.Icons.Function;
-  /*
-        Using a MATLAB/Octave style syntax.
-        zq = interpolateBilinear(X, Y, Z, xq, yq)
-        zq : output 
-        xq, yq : query points 
-        X, Y, Z : Input data in meshgrid format 
-      */
+  /*
+          Using a MATLAB/Octave style syntax.
+          zq = interpolateBilinear(X, Y, Z, xq, yq)
+          zq : output 
+          xq, yq : query points 
+          X, Y, Z : Input data in meshgrid format 
+        */
   input Real X[:, :] "X axis input meshgrid data";
   input Real Y[:, :] "Y axis input meshgrid data";
   input Real Z[:, :] "Z axis input meshgrid data";
@@ -60,26 +61,26 @@ algorithm
   end if;
 // search forward
 // search backward
-/*
-      NOTE !! :
-      i is the index for y direction
-      j is the index for x direction
+/*
+      NOTE !! :
+      i is the index for y direction
+      j is the index for x direction
     */
 // Get interpolation data
   f_xi_yi := Z[j, i];
   f_xin_yi := Z[j, i + 1];
   f_xi_yin := Z[j + 1, i];
   f_xin_yin := Z[j + 1, i + 1];
-/* perform interpolation
-      Interpolating in x direction.
-      Then interpolating in y direction.
-      Source: Wikipedia, https://en.wikipedia.org/wiki/Bilinear_interpolation
+/* perform interpolation
+      Interpolating in x direction.
+      Then interpolating in y direction.
+      Source: Wikipedia, https://en.wikipedia.org/wiki/Bilinear_interpolation
     */
   x1 := X[j, i];
   x2 := X[j, i + 1];
   y1 := Y[j, i];
   y2 := Y[j + 1, i];
   z_q := (f_xi_yi * (x2 - x_q) * (y2 - y_q) + f_xin_yi * (x_q - x1) * (y2 - y_q) + f_xi_yin * (x2 - x_q) * (y_q - y1) + f_xin_yin * (x_q - x1) * (y_q - y1)) / ((x2 - x1) * (y2 - y1));
-  annotation (
+  annotation(
     Documentation(info = "<html><head></head><body>Perform 2D interpolation.<div><br></div><div>Ouput is a single interpolated point corresponding to the x and y query values.</div><div><br></div><div>Input data is in MATLAB/Octave meshgrid format.</div></body></html>"));
 end interpolateBilinear;

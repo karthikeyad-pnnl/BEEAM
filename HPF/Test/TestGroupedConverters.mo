@@ -1,19 +1,20 @@
 within HPF.Test;
+
 model TestGroupedConverters
   import Modelica.ComplexMath.j;
-  inner HPF.SystemDef systemDef(hrms={1,3})
-    annotation (Placement(visible = true, transformation(extent = {{-132, 80}, {-104, 104}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl converter_single1(V_Rect = 24)  annotation(
+  inner HPF.SystemDef systemDef(hrms = {1, 3}) annotation(
+    Placement(visible = true, transformation(extent = {{-132, 80}, {-104, 104}}, rotation = 0)));
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl converter_single1(V_Rect = 24) annotation(
     Placement(visible = true, transformation(origin = {32, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Sources.VoltageSource v(vArg = {0, 0}, vMag = {120, 1e-9})  annotation(
+  HPF.SinglePhase.Sources.VoltageSource v(vArg = {0, 0}, vMag = {120, 1e-9}) annotation(
     Placement(visible = true, transformation(origin = {-80, 58}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.SinglePhase.Components.Impedance z(z = 0.05 + 1e-7 * j)  annotation(
+  HPF.SinglePhase.Components.Impedance z(z = 0.05 + 1e-7 * j) annotation(
     Placement(visible = true, transformation(origin = {-52, 68}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Sensors.CurrentSensor msrI_single annotation(
     Placement(visible = true, transformation(origin = {-8, 68}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground annotation(
     Placement(visible = true, transformation(origin = {-80, 32}, extent = {{-8, -8}, {8, 8}}, rotation = 0)));
-  HPF.DC.DC_Load dC_Load(pwr = 50)  annotation(
+  HPF.DC.DC_Load dC_Load(pwr = 50) annotation(
     Placement(visible = true, transformation(origin = {64, 68}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.DC.Ground ground1 annotation(
     Placement(visible = true, transformation(origin = {58, 32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -65,10 +66,11 @@ equation
   connect(v1.pin_n, empMdl1.hPin_N) annotation(
     Line(points = {{-78, -12}, {-2, -12}, {-2, -8}, {14, -8}}, color = {117, 80, 123}));
 protected
-  annotation (Diagram(coordinateSystem(extent={{-160,-140},{160,140}})), Icon(
-        coordinateSystem(extent={{-160,-140},{160,140}})),
+  annotation(
+    Diagram(coordinateSystem(extent = {{-160, -140}, {160, 140}})),
+    Icon(coordinateSystem(extent = {{-160, -140}, {160, 140}})),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-15, Interval = 1),
-  __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian -d=initialization ",
-  __OpenModelica_simulationFlags(lv = "LOG_STATS", nls = "newton", s = "dassl", ls = "totalpivot"),
-  Documentation);
+    __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian -d=initialization ",
+    __OpenModelica_simulationFlags(lv = "LOG_STATS", nls = "newton", s = "dassl", ls = "totalpivot"),
+    Documentation);
 end TestGroupedConverters;

@@ -1,226 +1,415 @@
 within HPF.Examples.ModelingValidation;
+
 model medium_office_1
-  .HPF.SinglePhase.Components.Ground ground annotation (
-    Placement(visible = true, transformation(origin = {0.0,0.0}, extent = {{-213.0,-18.666666666666664},{-193.0,1.3333333333333357}}, rotation = 0.0)));
-  inner .HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}) annotation (
-    Placement(visible = true, transformation(origin = {0.0,0.0}, extent = {{-215.0,63.33333333333334},{-187.0,87.33333333333334}}, rotation = 0.0)));
-  .HPF.Sources.ThreePhase.VotlageSource voltageSource(vArg_phA = {0.52196, 5.0309, 3.137, 5.1211, 0.88185, 0.5405, 2.7381, 3.3571, 3.1032, 1.0556, 4.7534, 0.08957, 4.2676, 4.1244, 4.4068}, vArg_phB = {4.7098, 2.6393, 0.15983, 3.0248, 0.54992, 2.8356, 0.30425, 1.6224, 5.1955, 4.6578, 1.421, 1.561, 2.3545, 1.471, 0.6687}, vArg_phC = {2.616, 0.41259, 4.8314, 0.56289, 3.7924, 4.8133, 4.8348, -0.2768, 0.88781, 2.6372, 4.1405, 4.1314, 0.31627, 0.0998, 2.1076}, vMag_phA = {281.6099, 0.52895, 0.47049, 0.73987, 0.12572, 0.73742, 0.42769, 0.058304, 0.29207, 0.058748, 0.015748, 0.02911, 0.017013, 0.0086381, 0.017564}, vMag_phB = {281.5887, 0.66547, 0.46821, 1.1624, 0.27892, 0.72691, 0.37598, 0.030611, 0.254, 0.065578, 0.021447, 0.041925, 0.013833, 0.0068935, 0.013253}, vMag_phC = {281.39, 0.46521, 0.075759, 1.0168, 0.39967, 0.60233, 0.28322, 0.061309, 0.27537, 0.028665, 0.0058585, 0.053376, 0.017543, 0.0048111, 0.010129}) annotation (
-    Placement(visible = true, transformation(origin = {0.0,0.0}, extent = {{-213.0,17.333333333333336},{-193.0,37.333333333333336}}, rotation = 0.0)));
-  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_2(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat", nomP = 40, nomV = 277) annotation (
-    Placement(visible = true, transformation(origin = {0.0,0.0}, extent = {{31.9375,-62.33333333333336},{51.9375,-42.33333333333336}}, rotation = 0.0)));
-  .Modelica.Electrical.Analog.Basic.Ground ground4 annotation (
-    Placement(visible = true, transformation(origin = {0.0,0.0}, extent = {{71.9375,-86.33333333333336},{91.9375,-66.33333333333336}}, rotation = 0.0)));
-  .HPF.SinglePhase.Components.Ground ground6 annotation (
-    Placement(visible = true, transformation(origin = {0.0,0.0}, extent = {{66.0,116.0},{86.0,136.0}}, rotation = 0.0)));
-  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_3(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_3.mat", nomP = 35, nomV = 277) annotation (
-    Placement(visible = true, transformation(origin = {0.0,0.0}, extent = {{245.5,-487.2272727272731},{265.5,-467.2272727272731}}, rotation = 0.0)));
-  .Modelica.Electrical.Analog.Basic.Ground ground8 annotation (
-    Placement(visible = true, transformation(origin = {0.0,0.0}, extent = {{289.5,-523.2272727272731},{309.5,-503.2272727272731}}, rotation = 0.0)));
-  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_1(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 25.2, nomV = 277) annotation (
-    Placement(visible = true, transformation(origin = {97,141}, extent = {{-11, -11},{11, 11}}, rotation = 0)));
-  .Modelica.Electrical.Analog.Basic.Ground ground10 annotation (
-    Placement(visible = true, transformation(origin = {0.0,0.0}, extent = {{144.0,32.0},{164.0,52.0}}, rotation = 0.0)));
-  .HPF.SinglePhase.Components.Ground ground17 annotation (
-    Placement(visible = true, transformation(origin = {0.0,0.0}, extent = {{1.9375,-79.00000000000003},{21.9375,-59.00000000000003}}, rotation = 0.0)));
-  .HPF.SinglePhase.Components.Ground ground19 annotation (
-    Placement(visible = true, transformation(origin = {0.0,0.0}, extent = {{227.5,-525.2272727272731},{247.5,-505.2272727272731}}, rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load4(pwr = 40) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {73.9375,-54.33333333333336},rotation = -90.0)));
-    .HPF.DC.DC_Load dC_Load6(pwr = 34) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {295.5,-481.2272727272731},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_(nomV = 277,nomP = 25.2,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{87.33333333333334,94.33333333333334},{107.33333333333334,114.33333333333334}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground3 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{63.33333333333334,78.33333333333334},{83.33333333333334,98.33333333333334}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_4(nomV = 277,nomP = 25.2,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0,0},extent = {{87.3333, 59.3333},{107.333, 79.3333}},rotation = 0)));
-    .HPF.SinglePhase.Components.Ground ground5 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{63.33333333333334,43.33333333333334},{83.33333333333334,63.33333333333334}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_5(nomV = 277,nomP = 25.2,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{193.33333333333331,133.33333333333337},{213.33333333333331,153.33333333333337}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground7 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{172.0,116.0},{192.0,136.0}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_6(nomV = 277,nomP = 25.2,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{191.99999999999997,91.0},{211.99999999999997,111.0}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground9 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{167.99999999999997,75.0},{187.99999999999997,95.0}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_7(nomV = 277,nomP = 25.2,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{283.3333333333333,134.0},{303.3333333333333,154.0}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load8(pwr = 25) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {325.3333333333333,144.0},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground11 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{259.3333333333333,117.99999999999999},{279.3333333333333,138.0}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_8(nomV = 277,nomP = 25.2,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{283.3333333333333,87.99999999999999},{303.3333333333333,107.99999999999999}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load9(pwr = 25) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {325.3333333333333,97.99999999999999},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground12 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{259.3333333333333,71.99999999999999},{279.3333333333333,91.99999999999999}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_9(nomV = 277,nomP = 25.2,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{283.3333333333333,39.999999999999986},{303.3333333333333,59.999999999999986}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load10(pwr = 25) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {325.3333333333333,49.999999999999986},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground13 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{259.3333333333333,23.999999999999986},{279.3333333333333,43.999999999999986}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_10(nomV = 277,nomP = 30,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{385.3333333333335,135.0},{405.3333333333335,155.0}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load11(pwr = 28) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {427.3333333333335,145.0},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground14 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{361.3333333333335,119.0},{381.3333333333335,139.0}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_11(nomV = 277,nomP = 30,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{385.3333333333335,86.99999999999999},{405.3333333333335,106.99999999999999}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load12(pwr = 28) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {427.3333333333335,96.99999999999999},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground15 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{361.3333333333335,70.99999999999999},{381.3333333333335,90.99999999999999}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_12(nomV = 277,nomP = 30,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{385.3333333333335,41.000000000000014},{405.3333333333335,61.000000000000014}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load13(pwr = 28) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {427.3333333333335,51.000000000000014},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground16 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{361.3333333333335,25.000000000000014},{381.3333333333335,45.000000000000014}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_13(nomV = 277,nomP = 30,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{385.3333333333335,-6.999999999999986},{405.3333333333335,13.000000000000014}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load14(pwr = 28) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {427.3333333333335,3.000000000000014},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground18 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{361.3333333333335,-22.999999999999986},{381.3333333333335,-2.999999999999986}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_14(nomV = 277,nomP = 30,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{385.3333333333335,-49.00000000000004},{405.3333333333335,-29.000000000000043}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load15(pwr = 28) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {427.3333333333335,-39.00000000000004},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground20 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{361.3333333333335,-65.00000000000003},{381.3333333333335,-45.00000000000003}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_15(nomV = 277,nomP = 30,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{385.3333333333335,-90.99999999999999},{405.3333333333335,-70.99999999999999}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load16(pwr = 28) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {427.3333333333335,-80.99999999999999},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground21 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{361.3333333333335,-106.99999999999999},{381.3333333333335,-86.99999999999999}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_16(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 30,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{385.3333333333332,-133.0},{405.3333333333332,-113.0}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load17(pwr = 28) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {427.3333333333332,-123.0},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground22 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{361.3333333333332,-149.0},{381.3333333333332,-129.0}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_17(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 30,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{385.3333333333332,-181.0},{405.3333333333332,-161.0}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load18(pwr = 28) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {427.3333333333332,-171.0},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground23 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{361.3333333333332,-197.0},{381.3333333333332,-177.0}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_18(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 30,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{385.3333333333332,-227.0},{405.3333333333332,-207.0}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load19(pwr = 28) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {427.3333333333332,-217.0},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground24 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{361.3333333333332,-243.0},{381.3333333333332,-223.0}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_19(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 30,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{385.3333333333332,-275.0},{405.3333333333332,-255.0}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load20(pwr = 28) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {427.3333333333332,-265.0},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_20(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 35,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{492.4137931034481,134.89655172413794},{512.4137931034481,154.89655172413794}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load21(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {534.4137931034481,144.89655172413794},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground25 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{468.4137931034481,118.89655172413794},{488.4137931034481,138.89655172413794}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_21(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 35,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{492.4137931034481,86.89655172413791},{512.4137931034481,106.89655172413791}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load22(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {534.4137931034481,96.89655172413791},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground26 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{468.4137931034481,70.89655172413791},{488.4137931034481,90.89655172413791}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_22(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 35,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{492.4137931034481,40.896551724137936},{512.4137931034481,60.896551724137936}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load23(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {534.4137931034481,50.896551724137936},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground27 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{468.4137931034481,24.896551724137936},{488.4137931034481,44.896551724137936}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_23(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 35,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{492.4137931034481,-7.103448275862064},{512.4137931034481,12.896551724137936}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load24(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {534.4137931034481,2.896551724137936},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground28 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{468.4137931034481,-23.103448275862057},{488.4137931034481,-3.103448275862057}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_24(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 35,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{492.4137931034481,-49.103448275862114},{512.4137931034481,-29.103448275862114}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load25(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {534.4137931034481,-39.103448275862114},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground29 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{468.4137931034481,-65.10344827586209},{488.4137931034481,-45.1034482758621}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_25(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 35,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{492.4137931034481,-91.10344827586206},{512.4137931034481,-71.10344827586206}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load26(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {534.4137931034481,-81.10344827586206},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground30 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{468.4137931034481,-107.10344827586206},{488.4137931034481,-87.10344827586206}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_26(nomV = 277,nomP = 35,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{492.4137931034478,-133.10344827586206},{512.4137931034478,-113.10344827586206}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load27(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {534.4137931034478,-123.10344827586206},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground31 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{468.4137931034478,-149.10344827586206},{488.4137931034478,-129.10344827586206}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_27(nomV = 277,nomP = 35,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(transformation(extent = {{494.0,-178.0},{514.0,-158.0}},origin = {0.0,0.0},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground32 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{468.4137931034478,-197.10344827586206},{488.4137931034478,-177.10344827586206}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_28(nomV = 277,nomP = 35,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{492.4137931034478,-227.10344827586206},{512.4137931034478,-207.10344827586206}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load29(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {534.4137931034478,-217.10344827586206},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground33 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{468.4137931034478,-243.10344827586206},{488.4137931034478,-223.10344827586206}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_29(nomV = 277,nomP = 35,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{492.4137931034478,-275.1034482758621},{512.4137931034478,-255.1034482758621}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load30(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {534.4137931034478,-265.1034482758621},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_30(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 35,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{490.41379310344837,-315.103448275862},{510.41379310344837,-295.103448275862}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load31(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {532.4137931034484,-305.103448275862},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground34 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{466.41379310344837,-331.103448275862},{486.41379310344837,-311.103448275862}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_31(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 35,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{601.6029258098226,132.67502612330213},{621.6029258098226,152.67502612330213}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load32(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {643.6029258098226,142.67502612330213},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground35 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{577.6029258098226,116.67502612330213},{597.6029258098226,136.67502612330213}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_32(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 35,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{601.6029258098226,86.67502612330219},{621.6029258098226,106.67502612330219}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load33(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {643.6029258098226,96.67502612330219},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground36 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{577.6029258098226,70.67502612330219},{597.6029258098226,90.67502612330219}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_33(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 35,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{601.6029258098226,38.67502612330219},{621.6029258098226,58.67502612330219}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load34(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {643.6029258098226,48.67502612330219},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground37 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{577.6029258098226,22.67502612330219},{597.6029258098226,42.67502612330219}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_34(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 35,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{601.6029258098226,-3.324973876697868},{621.6029258098226,16.675026123302132}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load35(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {643.6029258098226,6.675026123302132},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground38 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{577.6029258098226,-19.324973876697868},{597.6029258098226,0.675026123302132}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_35(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 35,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{601.6029258098226,-45.324973876697754},{621.6029258098226,-25.324973876697754}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load36(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {643.6029258098226,-35.324973876697754},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground39 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{577.6029258098226,-61.32497387669787},{597.6029258098226,-41.32497387669787}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_36(nomV = 277,nomP = 35,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{601.6029258098223,-87.32497387669787},{621.6029258098223,-67.32497387669787}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load37(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {643.6029258098223,-77.32497387669787},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground40 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{577.6029258098223,-103.32497387669787},{597.6029258098223,-83.32497387669787}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_37(nomV = 277,nomP = 35,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{601.6029258098223,-135.32497387669787},{621.6029258098223,-115.32497387669787}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load38(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {643.6029258098223,-125.32497387669787},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground41 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{577.6029258098223,-151.32497387669787},{597.6029258098223,-131.32497387669787}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_38(nomV = 277,nomP = 35,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{601.6029258098223,-181.32497387669787},{621.6029258098223,-161.32497387669787}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load39(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {643.6029258098223,-171.32497387669787},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground42 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{577.6029258098223,-197.32497387669787},{597.6029258098223,-177.32497387669787}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_39(nomV = 277,nomP = 35,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{601.6029258098223,-229.32497387669787},{621.6029258098223,-209.32497387669787}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load40(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {643.6029258098223,-219.32497387669787},rotation = -90.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground43 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{662.0,-330.0},{682.0,-310.0}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load41(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {646.1415136587552,-256.8405732198835},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_40(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 35,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{604.1415136587552,-266.8405732198835},{624.1415136587552,-246.84057321988348}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_41(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 35,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{602.8081803254219,-309.17390655321685},{622.8081803254219,-289.17390655321685}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load42(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {644.8081803254219,-299.17390655321685},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground44 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{578.8081803254219,-325.17390655321685},{598.8081803254219,-305.17390655321685}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground45 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{582.8081803254219,-284.17390655321685},{602.8081803254219,-264.17390655321685}},rotation = 0.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_42(nomV = 277,nomP = 40,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{31.4375,-106.33333333333336},{51.4375,-86.33333333333336}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground46 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{71.4375,-130.33333333333337},{91.4375,-110.33333333333336}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground47 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{1.4375,-123.00000000000003},{21.4375,-103.00000000000003}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load43(pwr = 40) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {73.4375,-98.33333333333336},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_43(nomV = 277,nomP = 40,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{31.6875,-154.33333333333337},{51.6875,-134.33333333333337}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground48 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{71.6875,-178.33333333333337},{91.6875,-158.33333333333337}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground49 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{1.6875,-171.00000000000003},{21.6875,-151.00000000000003}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load44(pwr = 40) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {73.6875,-146.33333333333337},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_44(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat",nomP = 40,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{31.1875,-198.33333333333337},{51.1875,-178.33333333333337}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground50 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{71.1875,-222.33333333333337},{91.1875,-202.33333333333337}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground51 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{1.1875,-215.00000000000003},{21.1875,-195.00000000000003}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load45(pwr = 40) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {73.1875,-190.33333333333337},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_45(nomV = 277,nomP = 40,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{131.6875,-62.33333333333336},{151.6875,-42.33333333333336}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground52 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{171.6875,-86.33333333333336},{191.6875,-66.33333333333336}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground53 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{101.6875,-79.00000000000003},{121.6875,-59.00000000000003}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load46(pwr = 40) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {173.6875,-54.33333333333336},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_46(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat",nomP = 40,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{131.1875,-106.33333333333336},{151.1875,-86.33333333333336}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground54 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{171.1875,-130.33333333333337},{191.1875,-110.33333333333336}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground55 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{101.1875,-123.00000000000003},{121.1875,-103.00000000000003}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load47(pwr = 40) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {173.1875,-98.33333333333336},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_47(nomV = 277,nomP = 30,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{227.6875,-62.33333333333336},{247.6875,-42.33333333333336}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground56 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{267.6875,-86.33333333333336},{287.6875,-66.33333333333336}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground57 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{206.0,-78.0},{226.0,-58.0}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load48(pwr = 28) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {269.6875,-54.33333333333336},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_48(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat",nomP = 30,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{227.1875,-106.33333333333336},{247.1875,-86.33333333333336}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground58 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{267.1875,-130.33333333333337},{287.1875,-110.33333333333336}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground59 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{206.0,-124.0},{226.0,-104.0}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load49(pwr = 28) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {269.1875,-98.33333333333336},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_49(nomV = 277,nomP = 40,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{35.5,-265.22727272727303},{55.5,-245.22727272727303}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground60 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{79.5,-301.22727272727303},{99.5,-281.22727272727303}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground61 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{17.5,-303.22727272727303},{37.5,-283.22727272727303}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load50(pwr = 40) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {85.5,-259.22727272727303},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_50(nomV = 277,nomP = 40,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",V_Rect = 24) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{35.5,-321.22727272727303},{55.5,-301.22727272727303}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground62 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{79.5,-357.22727272727303},{99.5,-337.22727272727303}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground63 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{17.5,-359.22727272727303},{37.5,-339.22727272727303}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load51(pwr = 40) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {85.5,-315.22727272727303},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_51(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 40,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{37.5,-375.22727272727303},{57.5,-355.22727272727303}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground64 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{81.5,-411.22727272727303},{101.5,-391.22727272727303}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground65 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{19.5,-413.22727272727303},{39.5,-393.22727272727303}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load52(pwr = 40) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {87.5,-369.22727272727303},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_52(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 40,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{37.5,-431.22727272727303},{57.5,-411.22727272727303}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground66 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{81.5,-467.2272727272731},{101.5,-447.2272727272731}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground67 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{19.5,-469.2272727272731},{39.5,-449.2272727272731}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load53(pwr = 40) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {87.5,-425.22727272727303},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_53(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 25.2,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{137.5,-263.22727272727303},{157.5,-243.22727272727303}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground68 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{181.5,-299.22727272727303},{201.5,-279.22727272727303}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground69 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{119.5,-301.22727272727303},{139.5,-281.22727272727303}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load54(pwr = 25) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {187.5,-257.22727272727303},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_54(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 25.2,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{137.5,-319.22727272727303},{157.5,-299.22727272727303}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground70 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{181.5,-355.22727272727303},{201.5,-335.22727272727303}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground71 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{119.5,-357.22727272727303},{139.5,-337.22727272727303}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load55(pwr = 25) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {187.5,-313.22727272727303},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_55(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 35,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{243.5,-265.22727272727303},{263.5,-245.22727272727303}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground72 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{287.5,-301.22727272727303},{307.5,-281.22727272727303}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground73 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{225.5,-303.22727272727303},{245.5,-283.22727272727303}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load56(pwr = 34) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {293.5,-259.22727272727303},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_56(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 35,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{243.5,-321.22727272727303},{263.5,-301.22727272727303}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground74 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{287.5,-357.22727272727303},{307.5,-337.22727272727303}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground75 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{225.5,-359.22727272727303},{245.5,-339.22727272727303}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load57(pwr = 34) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {293.5,-315.22727272727303},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_57(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 35,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{245.5,-375.22727272727303},{265.5,-355.22727272727303}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground76 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{289.5,-411.22727272727303},{309.5,-391.22727272727303}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground77 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{227.5,-413.22727272727303},{247.5,-393.22727272727303}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load58(pwr = 34) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {295.5,-369.22727272727303},rotation = -90.0)));
-    .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_58(V_Rect = 24,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat",nomP = 35,nomV = 277) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{245.5,-431.22727272727303},{265.5,-411.22727272727303}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground78 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{289.5,-467.2272727272731},{309.5,-447.2272727272731}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground79 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{227.5,-469.2272727272731},{247.5,-449.2272727272731}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load59(pwr = 34) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {295.5,-425.22727272727303},rotation = -90.0)));
-    .HPF.SinglePhase.Components.Ground ground80 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{366.0,-292.0},{386.0,-272.0}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground81 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{472.0,-294.0},{492.0,-274.0}},rotation = 0.0)));
-    .HPF.SinglePhase.Components.Ground ground82 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{580.0,-248.0},{600.0,-228.0}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground83 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{234.0,34.0},{254.0,54.0}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground84 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{334.0,18.0},{354.0,38.0}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground85 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{440.0,-298.0},{460.0,-278.0}},rotation = 0.0)));
-    .Modelica.Electrical.Analog.Basic.Ground ground86 annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{542.0,-336.0},{562.0,-316.0}},rotation = 0.0)));
-    .HPF.DC.DC_Load dC_Load28(pwr = 31) annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},origin = {532.0,-170.0},rotation = -90.0)));
-  Modelica.Blocks.Math.MultiSum multiSumA(nu = 40)  annotation(
+  .HPF.SinglePhase.Components.Ground ground annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{-213.0, -18.666666666666664}, {-193.0, 1.3333333333333357}}, rotation = 0.0)));
+  inner .HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{-215.0, 63.33333333333334}, {-187.0, 87.33333333333334}}, rotation = 0.0)));
+  .HPF.Sources.ThreePhase.VotlageSource voltageSource(vArg_phA = {0.52196, 5.0309, 3.137, 5.1211, 0.88185, 0.5405, 2.7381, 3.3571, 3.1032, 1.0556, 4.7534, 0.08957, 4.2676, 4.1244, 4.4068}, vArg_phB = {4.7098, 2.6393, 0.15983, 3.0248, 0.54992, 2.8356, 0.30425, 1.6224, 5.1955, 4.6578, 1.421, 1.561, 2.3545, 1.471, 0.6687}, vArg_phC = {2.616, 0.41259, 4.8314, 0.56289, 3.7924, 4.8133, 4.8348, -0.2768, 0.88781, 2.6372, 4.1405, 4.1314, 0.31627, 0.0998, 2.1076}, vMag_phA = {281.6099, 0.52895, 0.47049, 0.73987, 0.12572, 0.73742, 0.42769, 0.058304, 0.29207, 0.058748, 0.015748, 0.02911, 0.017013, 0.0086381, 0.017564}, vMag_phB = {281.5887, 0.66547, 0.46821, 1.1624, 0.27892, 0.72691, 0.37598, 0.030611, 0.254, 0.065578, 0.021447, 0.041925, 0.013833, 0.0068935, 0.013253}, vMag_phC = {281.39, 0.46521, 0.075759, 1.0168, 0.39967, 0.60233, 0.28322, 0.061309, 0.27537, 0.028665, 0.0058585, 0.053376, 0.017543, 0.0048111, 0.010129}) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{-213.0, 17.333333333333336}, {-193.0, 37.333333333333336}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_2(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat", nomP = 40, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{31.9375, -62.33333333333336}, {51.9375, -42.33333333333336}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground4 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{71.9375, -86.33333333333336}, {91.9375, -66.33333333333336}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground6 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{66.0, 116.0}, {86.0, 136.0}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_3(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_3.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{245.5, -487.2272727272731}, {265.5, -467.2272727272731}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground8 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{289.5, -523.2272727272731}, {309.5, -503.2272727272731}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_1(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 25.2, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {97, 141}, extent = {{-11, -11}, {11, 11}}, rotation = 0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground10 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{144.0, 32.0}, {164.0, 52.0}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground17 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{1.9375, -79.00000000000003}, {21.9375, -59.00000000000003}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground19 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{227.5, -525.2272727272731}, {247.5, -505.2272727272731}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load4(pwr = 40) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {73.9375, -54.33333333333336}, rotation = -90.0)));
+  .HPF.DC.DC_Load dC_Load6(pwr = 34) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {295.5, -481.2272727272731}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_(nomV = 277, nomP = 25.2, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{87.33333333333334, 94.33333333333334}, {107.33333333333334, 114.33333333333334}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground3 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{63.33333333333334, 78.33333333333334}, {83.33333333333334, 98.33333333333334}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_4(nomV = 277, nomP = 25.2, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0, 0}, extent = {{87.3333, 59.3333}, {107.333, 79.3333}}, rotation = 0)));
+  .HPF.SinglePhase.Components.Ground ground5 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{63.33333333333334, 43.33333333333334}, {83.33333333333334, 63.33333333333334}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_5(nomV = 277, nomP = 25.2, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{193.33333333333331, 133.33333333333337}, {213.33333333333331, 153.33333333333337}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground7 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{172.0, 116.0}, {192.0, 136.0}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_6(nomV = 277, nomP = 25.2, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{191.99999999999997, 91.0}, {211.99999999999997, 111.0}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground9 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{167.99999999999997, 75.0}, {187.99999999999997, 95.0}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_7(nomV = 277, nomP = 25.2, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{283.3333333333333, 134.0}, {303.3333333333333, 154.0}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load8(pwr = 25) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {325.3333333333333, 144.0}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground11 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{259.3333333333333, 117.99999999999999}, {279.3333333333333, 138.0}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_8(nomV = 277, nomP = 25.2, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{283.3333333333333, 87.99999999999999}, {303.3333333333333, 107.99999999999999}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load9(pwr = 25) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {325.3333333333333, 97.99999999999999}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground12 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{259.3333333333333, 71.99999999999999}, {279.3333333333333, 91.99999999999999}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_9(nomV = 277, nomP = 25.2, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{283.3333333333333, 39.999999999999986}, {303.3333333333333, 59.999999999999986}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load10(pwr = 25) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {325.3333333333333, 49.999999999999986}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground13 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{259.3333333333333, 23.999999999999986}, {279.3333333333333, 43.999999999999986}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_10(nomV = 277, nomP = 30, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{385.3333333333335, 135.0}, {405.3333333333335, 155.0}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load11(pwr = 28) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {427.3333333333335, 145.0}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground14 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{361.3333333333335, 119.0}, {381.3333333333335, 139.0}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_11(nomV = 277, nomP = 30, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{385.3333333333335, 86.99999999999999}, {405.3333333333335, 106.99999999999999}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load12(pwr = 28) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {427.3333333333335, 96.99999999999999}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground15 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{361.3333333333335, 70.99999999999999}, {381.3333333333335, 90.99999999999999}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_12(nomV = 277, nomP = 30, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{385.3333333333335, 41.000000000000014}, {405.3333333333335, 61.000000000000014}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load13(pwr = 28) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {427.3333333333335, 51.000000000000014}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground16 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{361.3333333333335, 25.000000000000014}, {381.3333333333335, 45.000000000000014}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_13(nomV = 277, nomP = 30, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{385.3333333333335, -6.999999999999986}, {405.3333333333335, 13.000000000000014}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load14(pwr = 28) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {427.3333333333335, 3.000000000000014}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground18 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{361.3333333333335, -22.999999999999986}, {381.3333333333335, -2.999999999999986}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_14(nomV = 277, nomP = 30, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{385.3333333333335, -49.00000000000004}, {405.3333333333335, -29.000000000000043}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load15(pwr = 28) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {427.3333333333335, -39.00000000000004}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground20 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{361.3333333333335, -65.00000000000003}, {381.3333333333335, -45.00000000000003}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_15(nomV = 277, nomP = 30, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{385.3333333333335, -90.99999999999999}, {405.3333333333335, -70.99999999999999}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load16(pwr = 28) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {427.3333333333335, -80.99999999999999}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground21 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{361.3333333333335, -106.99999999999999}, {381.3333333333335, -86.99999999999999}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_16(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 30, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{385.3333333333332, -133.0}, {405.3333333333332, -113.0}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load17(pwr = 28) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {427.3333333333332, -123.0}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground22 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{361.3333333333332, -149.0}, {381.3333333333332, -129.0}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_17(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 30, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{385.3333333333332, -181.0}, {405.3333333333332, -161.0}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load18(pwr = 28) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {427.3333333333332, -171.0}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground23 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{361.3333333333332, -197.0}, {381.3333333333332, -177.0}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_18(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 30, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{385.3333333333332, -227.0}, {405.3333333333332, -207.0}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load19(pwr = 28) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {427.3333333333332, -217.0}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground24 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{361.3333333333332, -243.0}, {381.3333333333332, -223.0}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_19(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 30, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{385.3333333333332, -275.0}, {405.3333333333332, -255.0}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load20(pwr = 28) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {427.3333333333332, -265.0}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_20(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{492.4137931034481, 134.89655172413794}, {512.4137931034481, 154.89655172413794}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load21(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {534.4137931034481, 144.89655172413794}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground25 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{468.4137931034481, 118.89655172413794}, {488.4137931034481, 138.89655172413794}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_21(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{492.4137931034481, 86.89655172413791}, {512.4137931034481, 106.89655172413791}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load22(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {534.4137931034481, 96.89655172413791}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground26 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{468.4137931034481, 70.89655172413791}, {488.4137931034481, 90.89655172413791}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_22(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{492.4137931034481, 40.896551724137936}, {512.4137931034481, 60.896551724137936}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load23(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {534.4137931034481, 50.896551724137936}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground27 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{468.4137931034481, 24.896551724137936}, {488.4137931034481, 44.896551724137936}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_23(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{492.4137931034481, -7.103448275862064}, {512.4137931034481, 12.896551724137936}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load24(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {534.4137931034481, 2.896551724137936}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground28 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{468.4137931034481, -23.103448275862057}, {488.4137931034481, -3.103448275862057}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_24(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{492.4137931034481, -49.103448275862114}, {512.4137931034481, -29.103448275862114}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load25(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {534.4137931034481, -39.103448275862114}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground29 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{468.4137931034481, -65.10344827586209}, {488.4137931034481, -45.1034482758621}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_25(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{492.4137931034481, -91.10344827586206}, {512.4137931034481, -71.10344827586206}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load26(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {534.4137931034481, -81.10344827586206}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground30 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{468.4137931034481, -107.10344827586206}, {488.4137931034481, -87.10344827586206}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_26(nomV = 277, nomP = 35, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{492.4137931034478, -133.10344827586206}, {512.4137931034478, -113.10344827586206}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load27(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {534.4137931034478, -123.10344827586206}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground31 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{468.4137931034478, -149.10344827586206}, {488.4137931034478, -129.10344827586206}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_27(nomV = 277, nomP = 35, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(transformation(extent = {{494.0, -178.0}, {514.0, -158.0}}, origin = {0.0, 0.0}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground32 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{468.4137931034478, -197.10344827586206}, {488.4137931034478, -177.10344827586206}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_28(nomV = 277, nomP = 35, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{492.4137931034478, -227.10344827586206}, {512.4137931034478, -207.10344827586206}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load29(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {534.4137931034478, -217.10344827586206}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground33 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{468.4137931034478, -243.10344827586206}, {488.4137931034478, -223.10344827586206}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_29(nomV = 277, nomP = 35, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{492.4137931034478, -275.1034482758621}, {512.4137931034478, -255.1034482758621}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load30(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {534.4137931034478, -265.1034482758621}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_30(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{490.41379310344837, -315.103448275862}, {510.41379310344837, -295.103448275862}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load31(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {532.4137931034484, -305.103448275862}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground34 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{466.41379310344837, -331.103448275862}, {486.41379310344837, -311.103448275862}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_31(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{601.6029258098226, 132.67502612330213}, {621.6029258098226, 152.67502612330213}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load32(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {643.6029258098226, 142.67502612330213}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground35 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{577.6029258098226, 116.67502612330213}, {597.6029258098226, 136.67502612330213}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_32(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{601.6029258098226, 86.67502612330219}, {621.6029258098226, 106.67502612330219}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load33(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {643.6029258098226, 96.67502612330219}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground36 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{577.6029258098226, 70.67502612330219}, {597.6029258098226, 90.67502612330219}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_33(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{601.6029258098226, 38.67502612330219}, {621.6029258098226, 58.67502612330219}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load34(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {643.6029258098226, 48.67502612330219}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground37 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{577.6029258098226, 22.67502612330219}, {597.6029258098226, 42.67502612330219}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_34(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{601.6029258098226, -3.324973876697868}, {621.6029258098226, 16.675026123302132}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load35(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {643.6029258098226, 6.675026123302132}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground38 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{577.6029258098226, -19.324973876697868}, {597.6029258098226, 0.675026123302132}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_35(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{601.6029258098226, -45.324973876697754}, {621.6029258098226, -25.324973876697754}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load36(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {643.6029258098226, -35.324973876697754}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground39 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{577.6029258098226, -61.32497387669787}, {597.6029258098226, -41.32497387669787}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_36(nomV = 277, nomP = 35, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{601.6029258098223, -87.32497387669787}, {621.6029258098223, -67.32497387669787}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load37(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {643.6029258098223, -77.32497387669787}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground40 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{577.6029258098223, -103.32497387669787}, {597.6029258098223, -83.32497387669787}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_37(nomV = 277, nomP = 35, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{601.6029258098223, -135.32497387669787}, {621.6029258098223, -115.32497387669787}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load38(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {643.6029258098223, -125.32497387669787}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground41 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{577.6029258098223, -151.32497387669787}, {597.6029258098223, -131.32497387669787}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_38(nomV = 277, nomP = 35, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{601.6029258098223, -181.32497387669787}, {621.6029258098223, -161.32497387669787}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load39(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {643.6029258098223, -171.32497387669787}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground42 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{577.6029258098223, -197.32497387669787}, {597.6029258098223, -177.32497387669787}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_39(nomV = 277, nomP = 35, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{601.6029258098223, -229.32497387669787}, {621.6029258098223, -209.32497387669787}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load40(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {643.6029258098223, -219.32497387669787}, rotation = -90.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground43 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{662.0, -330.0}, {682.0, -310.0}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load41(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {646.1415136587552, -256.8405732198835}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_40(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{604.1415136587552, -266.8405732198835}, {624.1415136587552, -246.84057321988348}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_41(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{602.8081803254219, -309.17390655321685}, {622.8081803254219, -289.17390655321685}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load42(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {644.8081803254219, -299.17390655321685}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground44 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{578.8081803254219, -325.17390655321685}, {598.8081803254219, -305.17390655321685}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground45 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{582.8081803254219, -284.17390655321685}, {602.8081803254219, -264.17390655321685}}, rotation = 0.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_42(nomV = 277, nomP = 40, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{31.4375, -106.33333333333336}, {51.4375, -86.33333333333336}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground46 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{71.4375, -130.33333333333337}, {91.4375, -110.33333333333336}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground47 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{1.4375, -123.00000000000003}, {21.4375, -103.00000000000003}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load43(pwr = 40) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {73.4375, -98.33333333333336}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_43(nomV = 277, nomP = 40, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{31.6875, -154.33333333333337}, {51.6875, -134.33333333333337}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground48 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{71.6875, -178.33333333333337}, {91.6875, -158.33333333333337}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground49 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{1.6875, -171.00000000000003}, {21.6875, -151.00000000000003}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load44(pwr = 40) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {73.6875, -146.33333333333337}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_44(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat", nomP = 40, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{31.1875, -198.33333333333337}, {51.1875, -178.33333333333337}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground50 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{71.1875, -222.33333333333337}, {91.1875, -202.33333333333337}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground51 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{1.1875, -215.00000000000003}, {21.1875, -195.00000000000003}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load45(pwr = 40) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {73.1875, -190.33333333333337}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_45(nomV = 277, nomP = 40, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{131.6875, -62.33333333333336}, {151.6875, -42.33333333333336}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground52 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{171.6875, -86.33333333333336}, {191.6875, -66.33333333333336}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground53 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{101.6875, -79.00000000000003}, {121.6875, -59.00000000000003}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load46(pwr = 40) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {173.6875, -54.33333333333336}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_46(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat", nomP = 40, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{131.1875, -106.33333333333336}, {151.1875, -86.33333333333336}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground54 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{171.1875, -130.33333333333337}, {191.1875, -110.33333333333336}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground55 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{101.1875, -123.00000000000003}, {121.1875, -103.00000000000003}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load47(pwr = 40) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {173.1875, -98.33333333333336}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_47(nomV = 277, nomP = 30, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{227.6875, -62.33333333333336}, {247.6875, -42.33333333333336}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground56 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{267.6875, -86.33333333333336}, {287.6875, -66.33333333333336}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground57 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{206.0, -78.0}, {226.0, -58.0}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load48(pwr = 28) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {269.6875, -54.33333333333336}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_48(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat", nomP = 30, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{227.1875, -106.33333333333336}, {247.1875, -86.33333333333336}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground58 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{267.1875, -130.33333333333337}, {287.1875, -110.33333333333336}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground59 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{206.0, -124.0}, {226.0, -104.0}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load49(pwr = 28) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {269.1875, -98.33333333333336}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_49(nomV = 277, nomP = 40, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{35.5, -265.22727272727303}, {55.5, -245.22727272727303}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground60 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{79.5, -301.22727272727303}, {99.5, -281.22727272727303}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground61 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{17.5, -303.22727272727303}, {37.5, -283.22727272727303}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load50(pwr = 40) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {85.5, -259.22727272727303}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_50(nomV = 277, nomP = 40, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", V_Rect = 24) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{35.5, -321.22727272727303}, {55.5, -301.22727272727303}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground62 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{79.5, -357.22727272727303}, {99.5, -337.22727272727303}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground63 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{17.5, -359.22727272727303}, {37.5, -339.22727272727303}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load51(pwr = 40) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {85.5, -315.22727272727303}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_51(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 40, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{37.5, -375.22727272727303}, {57.5, -355.22727272727303}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground64 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{81.5, -411.22727272727303}, {101.5, -391.22727272727303}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground65 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{19.5, -413.22727272727303}, {39.5, -393.22727272727303}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load52(pwr = 40) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {87.5, -369.22727272727303}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_52(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 40, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{37.5, -431.22727272727303}, {57.5, -411.22727272727303}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground66 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{81.5, -467.2272727272731}, {101.5, -447.2272727272731}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground67 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{19.5, -469.2272727272731}, {39.5, -449.2272727272731}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load53(pwr = 40) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {87.5, -425.22727272727303}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_53(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 25.2, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{137.5, -263.22727272727303}, {157.5, -243.22727272727303}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground68 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{181.5, -299.22727272727303}, {201.5, -279.22727272727303}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground69 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{119.5, -301.22727272727303}, {139.5, -281.22727272727303}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load54(pwr = 25) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {187.5, -257.22727272727303}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_54(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 25.2, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{137.5, -319.22727272727303}, {157.5, -299.22727272727303}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground70 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{181.5, -355.22727272727303}, {201.5, -335.22727272727303}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground71 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{119.5, -357.22727272727303}, {139.5, -337.22727272727303}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load55(pwr = 25) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {187.5, -313.22727272727303}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_55(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{243.5, -265.22727272727303}, {263.5, -245.22727272727303}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground72 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{287.5, -301.22727272727303}, {307.5, -281.22727272727303}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground73 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{225.5, -303.22727272727303}, {245.5, -283.22727272727303}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load56(pwr = 34) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {293.5, -259.22727272727303}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_56(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{243.5, -321.22727272727303}, {263.5, -301.22727272727303}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground74 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{287.5, -357.22727272727303}, {307.5, -337.22727272727303}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground75 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{225.5, -359.22727272727303}, {245.5, -339.22727272727303}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load57(pwr = 34) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {293.5, -315.22727272727303}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_57(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{245.5, -375.22727272727303}, {265.5, -355.22727272727303}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground76 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{289.5, -411.22727272727303}, {309.5, -391.22727272727303}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground77 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{227.5, -413.22727272727303}, {247.5, -393.22727272727303}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load58(pwr = 34) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {295.5, -369.22727272727303}, rotation = -90.0)));
+  .HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_58(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 35, nomV = 277) annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{245.5, -431.22727272727303}, {265.5, -411.22727272727303}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground78 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{289.5, -467.2272727272731}, {309.5, -447.2272727272731}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground79 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{227.5, -469.2272727272731}, {247.5, -449.2272727272731}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load59(pwr = 34) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {295.5, -425.22727272727303}, rotation = -90.0)));
+  .HPF.SinglePhase.Components.Ground ground80 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{366.0, -292.0}, {386.0, -272.0}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground81 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{472.0, -294.0}, {492.0, -274.0}}, rotation = 0.0)));
+  .HPF.SinglePhase.Components.Ground ground82 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{580.0, -248.0}, {600.0, -228.0}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground83 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{234.0, 34.0}, {254.0, 54.0}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground84 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{334.0, 18.0}, {354.0, 38.0}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground85 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{440.0, -298.0}, {460.0, -278.0}}, rotation = 0.0)));
+  .Modelica.Electrical.Analog.Basic.Ground ground86 annotation(
+    Placement(visible = true, transformation(origin = {0.0, 0.0}, extent = {{542.0, -336.0}, {562.0, -316.0}}, rotation = 0.0)));
+  .HPF.DC.DC_Load dC_Load28(pwr = 31) annotation(
+    Placement(transformation(extent = {{-10.0, -10.0}, {10.0, 10.0}}, origin = {532.0, -170.0}, rotation = -90.0)));
+  Modelica.Blocks.Math.MultiSum multiSumA(nu = 40) annotation(
     Placement(visible = true, transformation(origin = {325, 335}, extent = {{-31, -31}, {31, 31}}, rotation = 90)));
-  Modelica.Blocks.Math.Gain gain(k = -1)  annotation(
+  Modelica.Blocks.Math.Gain gain(k = -1) annotation(
     Placement(visible = true, transformation(origin = {-142, 116}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Math.MultiSum multiSumB(nu = 8)  annotation(
+  Modelica.Blocks.Math.MultiSum multiSumB(nu = 8) annotation(
     Placement(visible = true, transformation(origin = {-120, -80}, extent = {{-22, -22}, {22, 22}}, rotation = 180)));
-  Modelica.Blocks.Math.MultiSum multiSumC(nu = 11)  annotation(
+  Modelica.Blocks.Math.MultiSum multiSumC(nu = 11) annotation(
     Placement(visible = true, transformation(origin = {-123, -287}, extent = {{-21, -21}, {21, 21}}, rotation = 180)));
-  Modelica.Blocks.Math.MultiSum multiSum(nu = 3)  annotation(
+  Modelica.Blocks.Math.MultiSum multiSum(nu = 3) annotation(
     Placement(visible = true, transformation(origin = {8, 298}, extent = {{-18, -18}, {18, 18}}, rotation = 0)));
   Modelica.Blocks.Math.Division division annotation(
     Placement(visible = true, transformation(origin = {80, 298}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -957,8 +1146,8 @@ equation
     Line(points = {{234, 130}, {244, 130}, {244, 54}}, color = {0, 0, 255}));
   connect(dC_Load5.n, ground83.p) annotation(
     Line(points = {{234, 90}, {244, 90}, {244, 54}}, color = {0, 0, 255}));
-  annotation (
-    Diagram(coordinateSystem(extent = {{240, 220}, {700, 540}}, initialScale = 0.1), graphics={Text(origin = {78, 32}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Medium Office Building", fontSize = 9, horizontalAlignment = TextAlignment.Right)}),
+  annotation(
+    Diagram(coordinateSystem(extent = {{240, 220}, {700, 540}}, initialScale = 0.1), graphics = {Text(origin = {78, 32}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Medium Office Building", fontSize = 9, horizontalAlignment = TextAlignment.Right)}),
     Icon(coordinateSystem(extent = {{-300, -300}, {300, 300}}, initialScale = 0.1)),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 1),
     __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"),

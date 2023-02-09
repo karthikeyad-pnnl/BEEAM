@@ -16,13 +16,13 @@ model TestGroupedConverters2
     Placement(visible = true, transformation(extent = {{-52, -90}, {-36, -74}}, rotation = 0)));
   HPF.SinglePhase.Components.Impedance impedance(z = 0.05 + 1e-7 * j) annotation(
     Placement(visible = true, transformation(extent = {{-86, -54}, {-66, -34}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.GroupedConverters.EmpMdl converter_grouped(V_Rect = 24, nomP = 100, numConvs = 2)  annotation(
+  HPF.PowerConverters.SinglePhase.GroupedConverters.EmpMdl converter_grouped(V_Rect = 24, nomP = 100, numConvs = 2) annotation(
     Placement(visible = true, transformation(origin = {14, -52}, extent = {{-10, -18}, {13, 18}}, rotation = 0)));
-  HPF.DC.DC_Load dC_Load(pwr = 100)  annotation(
+  HPF.DC.DC_Load dC_Load(pwr = 100) annotation(
     Placement(visible = true, transformation(origin = {52, -44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.DC.Ground ground1 annotation(
     Placement(visible = true, transformation(origin = {78, -70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl converter1(V_Rect = 24)  annotation(
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl converter1(V_Rect = 24) annotation(
     Placement(visible = true, transformation(origin = {14, 40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.DC.DC_Load dC_Load1(pwr = 50) annotation(
     Placement(visible = true, transformation(origin = {48, 48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -30,7 +30,7 @@ model TestGroupedConverters2
     Placement(visible = true, transformation(origin = {78, -12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.DC.DC_Load dC_Load2(pwr = 50) annotation(
     Placement(visible = true, transformation(origin = {50, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl converter2(V_Rect = 24)  annotation(
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl converter2(V_Rect = 24) annotation(
     Placement(visible = true, transformation(origin = {16, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Add Ploss_converters annotation(
     Placement(visible = true, transformation(origin = {96, 68}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

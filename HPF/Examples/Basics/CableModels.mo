@@ -1,7 +1,7 @@
 within HPF.Examples.Basics;
 
 model CableModels
-extends Modelica.Icons.Example;
+  extends Modelica.Icons.Example;
   Loads.SinglePhase.HarmonicPQLoad harmonicPQLoad(P = {100}, Q = {5}) annotation(
     Placement(visible = true, transformation(origin = {54, 80}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   SinglePhase.Components.Ground ground annotation(

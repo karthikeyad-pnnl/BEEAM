@@ -7,7 +7,7 @@ model AC2DC_Simple_Inverter_Grid_Forming_3P
     Placement(visible = true, transformation(origin = {-78, 82}, extent = {{-14, -14}, {14, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground Ground_DC annotation(
     Placement(visible = true, transformation(origin = {-22, -48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.PowerConverters.ThreePhase.ACDC_3pInverterSimpleGridForming Simple_Inverter_Grid_Forming(P_ACmin = 50,P_nom = 1000, P_stby = 5, VAC_nom = 120, VDC_nom = 48, alpha = 0.03, beta = 0.02, gamma = 0.01, vAngle = 0.5235987755982988, vArg_ref = 0.5235987755982988, vMag_ref = 120)  annotation(
+  HPF.PowerConverters.ThreePhase.ACDC_3pInverterSimpleGridForming Simple_Inverter_Grid_Forming(P_ACmin = 50, P_nom = 1000, P_stby = 5, VAC_nom = 120, VDC_nom = 48, alpha = 0.03, beta = 0.02, gamma = 0.01, vAngle = 0.5235987755982988, vArg_ref = 0.5235987755982988, vMag_ref = 120) annotation(
     Placement(visible = true, transformation(origin = {0, -10}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground Ground_AC annotation(
     Placement(visible = true, transformation(origin = {-76, -96}, extent = {{-8, -8}, {8, 8}}, rotation = 0)));
@@ -21,7 +21,7 @@ model AC2DC_Simple_Inverter_Grid_Forming_3P
     Placement(visible = true, transformation(origin = {40, -50}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.Loads.SinglePhase.AC_LoadIdeal1P Phase_C_Load(P_nom = 200, Q_nom = 100, V_nom = 120, vAngle_init = 4.71238898038469) annotation(
     Placement(visible = true, transformation(origin = {50, -72}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  Modelica.ComplexBlocks.Sources.ComplexStep Phase_A_Control(height = Complex(50, 25), offset = Complex(25, 10), startTime = 1)  annotation(
+  Modelica.ComplexBlocks.Sources.ComplexStep Phase_A_Control(height = Complex(50, 25), offset = Complex(25, 10), startTime = 1) annotation(
     Placement(visible = true, transformation(origin = {-2, 82}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.ComplexBlocks.Sources.ComplexStep Phase_B_Control(height = Complex(100, 50), offset = Complex(25, 25), startTime = 2) annotation(
     Placement(visible = true, transformation(origin = {-2, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -68,7 +68,7 @@ protected
   annotation(
     Icon(coordinateSystem(preserveAspectRatio = false)),
     Diagram(coordinateSystem(preserveAspectRatio = false)),
-    Documentation(info = "<html><head></head><body><p>This example demonstrates a simple grid-following 3-phase DC to AC inverter (no harmonic distortion, fixed power factor). Power supplied is balanced among the AC phases.</p>
+    Documentation(info = "<html><head></head><body><p>This example demonstrates a simple grid-following 3-phase DC to AC inverter (no harmonic distortion, fixed power factor). Power supplied is balanced among the AC phases.</p>
 </body></html>"),
     experiment(StartTime = 0, StopTime = 4, Tolerance = 1e-06, Interval = 0.04),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",

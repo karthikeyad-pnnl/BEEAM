@@ -1,22 +1,23 @@
 within HPF.Examples.ModelingValidation;
+
 model Design_for_DC_all_AC
-  inner HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}, numPh = 1) annotation (
+  inner HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}, numPh = 1) annotation(
     Placement(visible = true, transformation(origin = {-249.333, 262.667}, extent = {{-32.6667, -32.6667}, {32.6667, 23.3333}}, rotation = 0)));
-  HPF.SinglePhase.Sources.VoltageSource input_source(start_v_re = {120, 0, 0, 0, 0, 0, 0, 0, 0, 0}, vArg = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, vMag = {120, 0, 0, 0, 0, 0, 0, 0, 0, 0})  annotation(
+  HPF.SinglePhase.Sources.VoltageSource input_source(start_v_re = {120, 0, 0, 0, 0, 0, 0, 0, 0, 0}, vArg = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, vMag = {120, 0, 0, 0, 0, 0, 0, 0, 0, 0}) annotation(
     Placement(visible = true, transformation(origin = {-276, 44}, extent = {{-36, -36}, {36, 36}}, rotation = -90)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_driver_1( V_Rect = 45,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/osram.mat", nomP = 29)  annotation(
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_driver_1(V_Rect = 45, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/osram.mat", nomP = 29) annotation(
     Placement(visible = true, transformation(origin = {-30, 191}, extent = {{-30, -29}, {30, 29}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_driver_3(V_Rect = 45,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Osram-Oti-48-120-277-2A0.mat", nomP = 29)  annotation(
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_driver_3(V_Rect = 45, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Osram-Oti-48-120-277-2A0.mat", nomP = 29) annotation(
     Placement(visible = true, transformation(origin = {-30, -29}, extent = {{-30, -29}, {30, 29}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_driver_4(V_Rect = 45,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Osram-Oti-48-120-277-2A0.mat", nomP = 29)  annotation(
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_driver_4(V_Rect = 45, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Osram-Oti-48-120-277-2A0.mat", nomP = 29) annotation(
     Placement(visible = true, transformation(origin = {-28, -129}, extent = {{-30, -29}, {30, 29}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_driver_2(V_Rect = 45,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Osram-Oti-48-120-277-2A0.mat", nomP = 29)  annotation(
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_driver_2(V_Rect = 45, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Osram-Oti-48-120-277-2A0.mat", nomP = 29) annotation(
     Placement(visible = true, transformation(origin = {-30, 87}, extent = {{-30, -29}, {30, 29}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground annotation(
     Placement(visible = true, transformation(origin = {-276, -182}, extent = {{-16, -16}, {16, 16}}, rotation = 0)));
   HPF.DC.Ground ground1 annotation(
     Placement(visible = true, transformation(origin = {69, -181}, extent = {{-13, -13}, {13, 13}}, rotation = 0)));
-  HPF.Cables.NEC_CableModel AC_cable(length = 60, wireGaugeAC = HPF.Types.WireGaugeAC.gauge_12)  annotation(
+  HPF.Cables.NEC_CableModel AC_cable(length = 60, wireGaugeAC = HPF.Types.WireGaugeAC.gauge_12) annotation(
     Placement(visible = true, transformation(origin = {-276, 190}, extent = {{-24, -24}, {24, 24}}, rotation = -90)));
   HPF.DC.Variable_DC_Load LED_1 annotation(
     Placement(visible = true, transformation(origin = {40, 192}, extent = {{-22, -22}, {22, 22}}, rotation = -90)));
@@ -26,7 +27,7 @@ model Design_for_DC_all_AC
     Placement(visible = true, transformation(origin = {40, -28}, extent = {{-22, -22}, {22, 22}}, rotation = -90)));
   HPF.DC.Variable_DC_Load LED_4 annotation(
     Placement(visible = true, transformation(origin = {38, -130}, extent = {{-22, -22}, {22, 22}}, rotation = -90)));
-  Modelica.Blocks.Sources.CombiTimeTable schedule(fileName = "/media/sf_Project_Codes/BEEAM/HPF/Data/load_profiles/schedule.txt", tableName = "schedule", tableOnFile = true)  annotation(
+  Modelica.Blocks.Sources.CombiTimeTable schedule(fileName = "/media/sf_Project_Codes/BEEAM/HPF/Data/load_profiles/schedule.txt", tableName = "schedule", tableOnFile = true) annotation(
     Placement(visible = true, transformation(origin = {142, 256}, extent = {{-30, -30}, {30, 30}}, rotation = -90)));
 equation
   connect(LED_driver_1.hPin_P, AC_cable.pin_p) annotation(
@@ -81,7 +82,7 @@ equation
     Line(points = {{142, 224}, {52, 224}, {52, -28}}, color = {0, 0, 127}));
   connect(schedule.y[1], LED_4.u) annotation(
     Line(points = {{142, 224}, {50, 224}, {50, -130}}, color = {0, 0, 127}));
-  annotation (
+  annotation(
     Diagram(coordinateSystem(extent = {{-300, -300}, {300, 300}}, initialScale = 0.1)),
     Icon(coordinateSystem(extent = {{-300, -300}, {300, 300}}, initialScale = 0.1)),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 1),

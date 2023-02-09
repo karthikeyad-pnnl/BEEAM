@@ -35,7 +35,7 @@ equation
   annotation(
     Icon(coordinateSystem(preserveAspectRatio = false)),
     Diagram(coordinateSystem(preserveAspectRatio = false)),
-    Documentation(info = "<html><head></head><body><p>This example demonstrates a simple AC to DC bidirectional converter (no harmonic distortion, fixed power factor). The DC output is voltage-controlled and can either source or sink DC current.</p>
+    Documentation(info = "<html><head></head><body><p>This example demonstrates a simple AC to DC bidirectional converter (no harmonic distortion, fixed power factor). The DC output is voltage-controlled and can either source or sink DC current.</p>
 </body></html>"),
     experiment(StartTime = 0, StopTime = 2, Tolerance = 1e-06, Interval = 0.02),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",

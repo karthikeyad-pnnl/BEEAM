@@ -173,7 +173,7 @@ equation
   connect(Laptop_Charger_3.hPin_P, LED_Driver_1.hPin_P) annotation(
     Line(points = {{-32, 80}, {-78, 80}, {-78, 172}, {-32, 172}}, color = {92, 53, 102}));
   annotation(
-    Diagram(coordinateSystem(extent = {{-300, -220}, {260, 240}}, initialScale = 0.1), graphics = {Text(origin = {-56, -16}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Scenario 2 | Data Set 2.1
+    Diagram(coordinateSystem(extent = {{-300, -220}, {260, 240}}, initialScale = 0.1), graphics = {Text(origin = {-56, -16}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Scenario 2 | Data Set 2.1
 No Load", fontSize = 9, horizontalAlignment = TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-300, -220}, {260, 240}})),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 1),

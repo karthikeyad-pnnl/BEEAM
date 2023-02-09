@@ -1,8 +1,9 @@
 within HPF.Examples.ModelingValidation;
+
 model Design_for_DC_Distributed_DC
-  inner HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}, numPh = 1) annotation (
+  inner HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}, numPh = 1) annotation(
     Placement(visible = true, transformation(origin = {-249.333, 262.667}, extent = {{-32.6667, -32.6667}, {32.6667, 23.3333}}, rotation = 0)));
-  HPF.SinglePhase.Sources.VoltageSource input_source(start_v_re = {120, 0, 0, 0, 0, 0, 0, 0, 0, 0}, vArg = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, vMag = {120, 0, 0, 0, 0, 0, 0, 0, 0, 0})  annotation(
+  HPF.SinglePhase.Sources.VoltageSource input_source(start_v_re = {120, 0, 0, 0, 0, 0, 0, 0, 0, 0}, vArg = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, vMag = {120, 0, 0, 0, 0, 0, 0, 0, 0, 0}) annotation(
     Placement(visible = true, transformation(origin = {-362, 42}, extent = {{-36, -36}, {36, 36}}, rotation = -90)));
   HPF.SinglePhase.Components.Ground ground annotation(
     Placement(visible = true, transformation(origin = {-276, -182}, extent = {{-16, -16}, {16, 16}}, rotation = 0)));
@@ -10,11 +11,11 @@ model Design_for_DC_Distributed_DC
     Placement(visible = true, transformation(origin = {69, -181}, extent = {{-13, -13}, {13, 13}}, rotation = 0)));
   HPF.DC.Variable_DC_Load LED_1 annotation(
     Placement(visible = true, transformation(origin = {40, 192}, extent = {{-22, -22}, {22, 22}}, rotation = -90)));
-  Modelica.Blocks.Sources.CombiTimeTable schedule(fileName = "/media/sf_Project_Codes/BEEAM/HPF/Data/load_profiles/schedule.txt", tableName = "schedule", tableOnFile = true)  annotation(
+  Modelica.Blocks.Sources.CombiTimeTable schedule(fileName = "/media/sf_Project_Codes/BEEAM/HPF/Data/load_profiles/schedule.txt", tableName = "schedule", tableOnFile = true) annotation(
     Placement(visible = true, transformation(origin = {142, 256}, extent = {{-30, -30}, {30, 30}}, rotation = -90)));
-  HPF.PowerConverters.SinglePhase.ACDC_1pRectifierSimple PoE_switch(P_DCmin = 1.2, P_nom = 480, P_stby = 9.2, VAC_nom = 120, VDC_nom = 53, alpha = 0.022145, beta = 0.078036, gamma = -4.3962e-3)  annotation(
+  HPF.PowerConverters.SinglePhase.ACDC_1pRectifierSimple PoE_switch(P_DCmin = 1.2, P_nom = 480, P_stby = 9.2, VAC_nom = 120, VDC_nom = 53, alpha = 0.022145, beta = 0.078036, gamma = -4.3962e-3) annotation(
     Placement(visible = true, transformation(origin = {-190, 42}, extent = {{-42, -42}, {42, 42}}, rotation = 0)));
-  HPF.DC.DC2DC_Converters.StepDown PoE_driver_1(modelData = igor_PoE_Driver)  annotation(
+  HPF.DC.DC2DC_Converters.StepDown PoE_driver_1(modelData = igor_PoE_Driver) annotation(
     Placement(visible = true, transformation(origin = {-23, 187}, extent = {{-23, -23}, {23, 23}}, rotation = 0)));
   parameter HPF.Data.ConverterModels.DC2DC_StepDown.Igor_PoE_Driver_53W igor_PoE_Driver annotation(
     Placement(visible = true, transformation(origin = {257, 249}, extent = {{-31, -31}, {31, 31}}, rotation = 0)));
@@ -30,15 +31,15 @@ model Design_for_DC_Distributed_DC
     Placement(visible = true, transformation(origin = {40, -18}, extent = {{-22, -22}, {22, 22}}, rotation = -90)));
   HPF.DC.Variable_DC_Load LED_4 annotation(
     Placement(visible = true, transformation(origin = {40, -122}, extent = {{-22, -22}, {22, 22}}, rotation = -90)));
-  HPF.Cables.NEC_CableModelDC PoE_cable_1(length = 5, wireGaugeDC = HPF.Types.WireGaugeDC.guage_POE_Patch)  annotation(
+  HPF.Cables.NEC_CableModelDC PoE_cable_1(length = 5, wireGaugeDC = HPF.Types.WireGaugeDC.guage_POE_Patch) annotation(
     Placement(visible = true, transformation(origin = {-86, 210}, extent = {{-24, -24}, {24, 24}}, rotation = 0)));
-  HPF.Cables.NEC_CableModelDC PoE_cable_2(length = 5, wireGaugeDC = HPF.Types.WireGaugeDC.gauge_POE)  annotation(
+  HPF.Cables.NEC_CableModelDC PoE_cable_2(length = 5, wireGaugeDC = HPF.Types.WireGaugeDC.gauge_POE) annotation(
     Placement(visible = true, transformation(origin = {-84, 114}, extent = {{-24, -24}, {24, 24}}, rotation = 0)));
-  HPF.Cables.NEC_CableModelDC PoE_cable_3(length = 5, wireGaugeDC = HPF.Types.WireGaugeDC.gauge_POE)  annotation(
+  HPF.Cables.NEC_CableModelDC PoE_cable_3(length = 5, wireGaugeDC = HPF.Types.WireGaugeDC.gauge_POE) annotation(
     Placement(visible = true, transformation(origin = {-90, -2}, extent = {{-24, -24}, {24, 24}}, rotation = 0)));
-  HPF.Cables.NEC_CableModelDC PoE_cable_4(length = 5, wireGaugeDC = HPF.Types.WireGaugeDC.gauge_POE)  annotation(
+  HPF.Cables.NEC_CableModelDC PoE_cable_4(length = 5, wireGaugeDC = HPF.Types.WireGaugeDC.gauge_POE) annotation(
     Placement(visible = true, transformation(origin = {-86, -100}, extent = {{-24, -24}, {24, 24}}, rotation = 0)));
-  Modelica.Electrical.Analog.Basic.Resistor resistor(R = 0)  annotation(
+  Modelica.Electrical.Analog.Basic.Resistor resistor(R = 0) annotation(
     Placement(visible = true, transformation(origin = {-134, 174}, extent = {{-16, -16}, {16, 16}}, rotation = 90)));
   Modelica.Electrical.Analog.Basic.Resistor resistor1(R = 0) annotation(
     Placement(visible = true, transformation(origin = {-124, 92}, extent = {{-16, -16}, {16, 16}}, rotation = 90)));
@@ -46,7 +47,7 @@ model Design_for_DC_Distributed_DC
     Placement(visible = true, transformation(origin = {-122, 32}, extent = {{-16, 16}, {16, -16}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Resistor resistor111(R = 0) annotation(
     Placement(visible = true, transformation(origin = {-136, -86}, extent = {{-16, 16}, {16, -16}}, rotation = -90)));
-  HPF.Cables.NEC_CableModel AC_cable(length = 60, wireGaugeAC = HPF.Types.WireGaugeAC.gauge_12)  annotation(
+  HPF.Cables.NEC_CableModel AC_cable(length = 60, wireGaugeAC = HPF.Types.WireGaugeAC.gauge_12) annotation(
     Placement(visible = true, transformation(origin = {-293, 79}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
 equation
   connect(ground.pin, input_source.pin_n) annotation(
@@ -123,7 +124,7 @@ equation
     Line(points = {{-276, 80}, {-232, 80}, {-232, 76}}, color = {117, 80, 123}));
   connect(input_source.pin_p, AC_cable.pin_p) annotation(
     Line(points = {{-362, 78}, {-337, 78}, {-337, 80}, {-310, 80}}, color = {92, 53, 102}));
-  annotation (
+  annotation(
     Diagram(coordinateSystem(extent = {{-300, -300}, {300, 300}}, initialScale = 0.1)),
     Icon(coordinateSystem(extent = {{-300, -300}, {300, 300}}, initialScale = 0.1)),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 1),

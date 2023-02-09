@@ -28,7 +28,7 @@ model HarmonicPQLoad_convergence
     Placement(visible = true, transformation(origin = {-68, -38}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.Loads.SinglePhase.HarmonicPQLoad Heater_2B(P = {193.350}, Q = {0.5}, vAngle = -2.0944) annotation(
     Placement(visible = true, transformation(origin = {68, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.Impedance z(z = 10 - 0.0 * j)  annotation(
+  HPF.SinglePhase.Components.Impedance z(z = 10 - 0.0 * j) annotation(
     Placement(visible = true, transformation(origin = {12, 24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground5 annotation(
     Placement(visible = true, transformation(origin = {40, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -69,10 +69,10 @@ equation
     Line(points = {{16, 40}, {-28, 40}, {-28, 8}, {-96, 8}, {-96, 8}}, color = {92, 53, 102}));
 protected
   annotation(
-    Diagram(coordinateSystem(extent = {{-280, -220}, {260, 240}}, initialScale = 0.1), graphics = {Text(lineColor = {28, 108, 200}, extent = {{-258, 182}, {182, 136}}, textString = "Data Set 4.3
-	Load Phase a-n	Total Load - 300W	Laptop Charger 3 + LED Driver 1	Load Bank 1 (78W), LED 1 (22W), Heater 1 - A (200W)
-	Load Phase b-n	Total Load - 500W	Laptop Charger 4 + LED Driver 2	Load Bank 2 (78W), LED 2 (22W), Heater 2 - B (400W)
-	Load Phase c-n	Total Load - 700W	Laptop Charger 5 + LED Driver 3	Load Bank 3 (78W), LED 3 (22W), Heater 1 - C (200W), Heater 2 - C (400W)
+    Diagram(coordinateSystem(extent = {{-280, -220}, {260, 240}}, initialScale = 0.1), graphics = {Text(lineColor = {28, 108, 200}, extent = {{-258, 182}, {182, 136}}, textString = "Data Set 4.3
+	Load Phase a-n	Total Load - 300W	Laptop Charger 3 + LED Driver 1	Load Bank 1 (78W), LED 1 (22W), Heater 1 - A (200W)
+	Load Phase b-n	Total Load - 500W	Laptop Charger 4 + LED Driver 2	Load Bank 2 (78W), LED 2 (22W), Heater 2 - B (400W)
+	Load Phase c-n	Total Load - 700W	Laptop Charger 5 + LED Driver 3	Load Bank 3 (78W), LED 3 (22W), Heater 1 - C (200W), Heater 2 - C (400W)
     ", horizontalAlignment = TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-280, -220}, {260, 240}})),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 1),

@@ -5,19 +5,19 @@ partial model ACDC_3pConverterBase
   // Harmonic system definition
   outer SystemDef systemDef;
   // Device Ratings
-  parameter Modelica.SIunits.Power P_nom = 100 "Nominal power" annotation(
+  parameter Modelica.Units.SI.Power P_nom = 100 "Nominal power" annotation(
     Dialog(group = "Device Ratings"));
-  parameter Modelica.SIunits.Voltage VAC_nom = 277 "Nominal AC operating voltage (line-neutral)" annotation(
+  parameter Modelica.Units.SI.Voltage VAC_nom = 277 "Nominal AC operating voltage (line-neutral)" annotation(
     Dialog(group = "Device Ratings"));
-  parameter Modelica.SIunits.Voltage VDC_nom = 24 "Nominal DC operating voltage" annotation(
+  parameter Modelica.Units.SI.Voltage VDC_nom = 24 "Nominal DC operating voltage" annotation(
     Dialog(group = "Device Ratings"));
-  final parameter Modelica.SIunits.Current IAC_nom = P_nom / 3 / VAC_nom "Nominal AC line current";
-  final parameter Modelica.SIunits.Current IDC_nom = P_nom / VDC_nom "Nominal DC current";
+  final parameter Modelica.Units.SI.Current IAC_nom = P_nom / 3 / VAC_nom "Nominal AC line current";
+  final parameter Modelica.Units.SI.Current IDC_nom = P_nom / VDC_nom "Nominal DC current";
   // Initialization
-  parameter Modelica.SIunits.Angle vAngle = 0 "Nominal phase A voltage angle for solver init" annotation(
+  parameter Modelica.Units.SI.Angle vAngle = 0 "Nominal phase A voltage angle for solver init" annotation(
     Dialog(group = "Initialization"));
-  final parameter Modelica.SIunits.Angle vAngle_B = vAngle - Modelica.SIunits.Conversions.from_deg(120);
-  final parameter Modelica.SIunits.Angle vAngle_C = vAngle + Modelica.SIunits.Conversions.from_deg(120);
+  final parameter Modelica.Units.SI.Angle vAngle_B = vAngle - Modelica.Units.Conversions.from_deg(120);
+  final parameter Modelica.Units.SI.Angle vAngle_C = vAngle + Modelica.Units.Conversions.from_deg(120);
   // AC terminals
   HPF.SinglePhase.Interface.HPin_P hPin_A(h = systemDef.numHrm) annotation(
     Placement(visible = true, transformation(origin = {-80, 80}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(extent = {{-110, 70}, {-90, 90}}, rotation = 0)));

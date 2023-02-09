@@ -25,13 +25,13 @@ equation
   annotation(
     Icon(coordinateSystem(preserveAspectRatio = false)),
     Diagram(coordinateSystem(preserveAspectRatio = false), graphics = {Text(origin = {-4, 79}, extent = {{-14, 9}, {98, -11}}, textString = "Required: This block sets the system parameters.\n(Not including this would throw an error.)", horizontalAlignment = TextAlignment.Left), Ellipse(origin = {-57, 37}, lineColor = {239, 41, 41}, pattern = LinePattern.Dash, extent = {{-15, 15}, {15, -15}}, endAngle = 360), Line(points = {{-20, 74}, {-42, 52}}, color = {0, 0, 0}, smooth = Smooth.Bezier), Polygon(points = {{-42, 54}, {-46, 48}, {-40, 52}, {-42, 54}}, lineColor = {0, 0, 0}, fillColor = {0, 0, 0}, fillPattern = FillPattern.Solid)}),
-    Documentation(info = "<html>
-<p>Example demonstrating a simple harmonic load. The harmonic load is modeled as a harmonics injecting current source. The harmonic injection spectra is derived from a typical AC to DC converter. The load acts as a current sink at the fundamental harmonic and as a current source at higher harmonics.</p>
-<p>Harmonic injection spectra for the harmonic load is shown in Figure 1.</p>
-<p><img src=\"modelica://HPF/Resources/images/Examples/Basics/SimpleHarmonicLoad/fig_injectionSpectra.png\"/></p>
-<p>Figure 1. Harmonic producing load injection spectra.</p>
+    Documentation(info = "<html>
+<p>Example demonstrating a simple harmonic load. The harmonic load is modeled as a harmonics injecting current source. The harmonic injection spectra is derived from a typical AC to DC converter. The load acts as a current sink at the fundamental harmonic and as a current source at higher harmonics.</p>
+<p>Harmonic injection spectra for the harmonic load is shown in Figure 1.</p>
+<p><img src=\"modelica://HPF/Resources/images/Examples/Basics/SimpleHarmonicLoad/fig_injectionSpectra.png\"/></p>
+<p>Figure 1. Harmonic producing load injection spectra.</p>
 </html>"),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 1),
-  __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",
-  __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl"));
+    __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",
+    __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl"));
 end SimpleHarmonicLoad;

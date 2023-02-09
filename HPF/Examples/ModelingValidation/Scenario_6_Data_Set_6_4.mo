@@ -11,7 +11,7 @@ model Scenario_6_Data_Set_6_4
     Placement(visible = true, transformation(origin = {-82, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Transformers.ThreePhase.Symmetric.D1Y deltaWye(Rc = 15117.5, Rp = 8.333, Rs = 1.4404E-01, Xm = 2.3311e+03, Xp = 3.3002, Xs = 0.6197) annotation(
     Placement(visible = true, transformation(extent = {{-106, -6}, {-86, 14}}, rotation = 0)));
-  PowerConverters.SinglePhase.ACDC_EmpMdl NextekHub(P1(start = 1500), S1(start = 1500),  V_Rect = 25, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Nextek-PHD16-ACDC-DIM-P-24-6-208V.mat", nomP = 1600, nomV = 208) annotation(
+  PowerConverters.SinglePhase.ACDC_EmpMdl NextekHub(P1(start = 1500), S1(start = 1500), V_Rect = 25, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Nextek-PHD16-ACDC-DIM-P-24-6-208V.mat", nomP = 1600, nomV = 208) annotation(
     Placement(visible = true, transformation(origin = {-2, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground3 annotation(
     Placement(visible = true, transformation(origin = {96, -14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -93,12 +93,12 @@ equation
   connect(deltaWye.pinSec_B, NextekHub.hPin_N) annotation(
     Line(points = {{-86, 8}, {-26, 8}, {-26, 4}, {-12, 4}}, color = {92, 53, 102}));
   annotation(
-    Diagram(coordinateSystem(extent = {{-280, -220}, {260, 240}}, initialScale = 0.1), graphics = {Text(lineColor = {28, 108, 200}, extent = {{-256, 64}, {-250, 64}}, textString = "Edit Here"), Text(lineColor = {28, 108, 200}, extent = {{-234, 200}, {150, 150}}, textString = "Data Set 4.4
-        Load Phase a-n        Total Load - 700W        Laptop Charger 3 + LED Driver 1        Load Bank 1 (78W), LED 1 (22W), Heater 1 - A (200W), Heater 2 - A (400W)
-        Load Phase b-n        Total Load - 500W        Laptop Charger 4 + LED Driver 2        Load Bank 2 (78W), LED 2 (22W), Heater 2 - B (400W)
-        Load Phase c-n        Total Load - 100W        Laptop Charger 5 + LED Driver 3        Load Bank 2 (78W), LED 2 (22W)
-    ", horizontalAlignment = TextAlignment.Left), Text(lineColor = {28, 108, 200}, extent = {{174, -126}, {234, -146}}, textString = "PhD 25V outputs
-    "), Text(lineColor = {28, 108, 200}, extent = {{88, -28}, {160, -42}}, textString = "Lumping together all DC loads 
+    Diagram(coordinateSystem(extent = {{-280, -220}, {260, 240}}, initialScale = 0.1), graphics = {Text(lineColor = {28, 108, 200}, extent = {{-256, 64}, {-250, 64}}, textString = "Edit Here"), Text(lineColor = {28, 108, 200}, extent = {{-234, 200}, {150, 150}}, textString = "Data Set 4.4
+        Load Phase a-n        Total Load - 700W        Laptop Charger 3 + LED Driver 1        Load Bank 1 (78W), LED 1 (22W), Heater 1 - A (200W), Heater 2 - A (400W)
+        Load Phase b-n        Total Load - 500W        Laptop Charger 4 + LED Driver 2        Load Bank 2 (78W), LED 2 (22W), Heater 2 - B (400W)
+        Load Phase c-n        Total Load - 100W        Laptop Charger 5 + LED Driver 3        Load Bank 2 (78W), LED 2 (22W)
+    ", horizontalAlignment = TextAlignment.Left), Text(lineColor = {28, 108, 200}, extent = {{174, -126}, {234, -146}}, textString = "PhD 25V outputs
+    "), Text(lineColor = {28, 108, 200}, extent = {{88, -28}, {160, -42}}, textString = "Lumping together all DC loads 
 (LEDs, resistors ...)", horizontalAlignment = TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-280, -220}, {260, 240}})),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 1),

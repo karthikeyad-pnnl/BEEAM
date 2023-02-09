@@ -11,7 +11,7 @@ model AC2DC_Simple_Bidirectional_3P
     Placement(visible = true, transformation(origin = {40, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground Ground_AC annotation(
     Placement(visible = true, transformation(origin = {-20, -48}, extent = {{-8, -8}, {8, 8}}, rotation = 0)));
-  HPF.PowerConverters.ThreePhase.ACDC_3pBidirectionalSimple Simple_Bidirectional_3phase(P_nom = 500, VAC_nom = 120, VDC_nom = 48, alpha_ACDC = 0.01, alpha_DCAC = 0.03, beta_ACDC = 0.02, beta_DCAC = 0.02, gamma_ACDC = 0.03, gamma_DCAC = 0.01)  annotation(
+  HPF.PowerConverters.ThreePhase.ACDC_3pBidirectionalSimple Simple_Bidirectional_3phase(P_nom = 500, VAC_nom = 120, VDC_nom = 48, alpha_ACDC = 0.01, alpha_DCAC = 0.03, beta_ACDC = 0.02, beta_DCAC = 0.02, gamma_ACDC = 0.03, gamma_DCAC = 0.01) annotation(
     Placement(visible = true, transformation(origin = {8, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.DC.Variable_DC_Load DC_Load(u(start = -500)) annotation(
     Placement(visible = true, transformation(origin = {60, 6}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -39,7 +39,7 @@ equation
   annotation(
     Icon(coordinateSystem(preserveAspectRatio = false)),
     Diagram(coordinateSystem(preserveAspectRatio = false)),
-    Documentation(info = "<html><head></head><body><p>This example demonstrates a simple 3-phase&nbsp;AC to DC bidirectional converter&nbsp;(no harmonic distortion, fixed power factor). Power draw is balanced among the AC phases. The DC output is voltage-controlled and can either source or sink DC current.</p>
+    Documentation(info = "<html><head></head><body><p>This example demonstrates a simple 3-phase&nbsp;AC to DC bidirectional converter&nbsp;(no harmonic distortion, fixed power factor). Power draw is balanced among the AC phases. The DC output is voltage-controlled and can either source or sink DC current.</p>
 </body></html>"),
     experiment(StartTime = 0, StopTime = 2, Tolerance = 1e-06, Interval = 0.02),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",

@@ -9,9 +9,9 @@ model MultiSensor "Power sensor (along with voltage and current sense)"
   HPF.SinglePhase.Interface.HPin_N hPin_NV(h = systemDef.numHrm) annotation(
     Placement(visible = true, transformation(origin = {0, -100}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, -100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput P annotation(
-  Placement(visible = true, transformation(origin = {-69, 95}, extent = {{-9, -9}, {9, 9}}, rotation = 0), iconTransformation(origin = {0, 110}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+    Placement(visible = true, transformation(origin = {-69, 95}, extent = {{-9, -9}, {9, 9}}, rotation = 0), iconTransformation(origin = {0, 110}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   Modelica.Blocks.Interfaces.RealOutput iMag[systemDef.numHrm] "Current magnitude" annotation(
-  Placement(visible = true, transformation(origin = {-38, 94}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {128, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-38, 94}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {128, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput iArg[systemDef.numHrm] "Current phase angle" annotation(
     Placement(visible = true, transformation(origin = {-32, 82}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {130, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput vMag[systemDef.numHrm] "Voltage magnitude" annotation(
@@ -23,8 +23,8 @@ model MultiSensor "Power sensor (along with voltage and current sense)"
   HPF.SinglePhase.Interface.HPin_N hPin_NC(h = systemDef.numHrm) annotation(
     Placement(visible = true, transformation(origin = {100, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
-  
-  P = sum(voltageSensor.v[:].re .* currentSensor.i[:].re + voltageSensor.v[:].im .* currentSensor.i[:].im); // S = P + jQ = V*conj(I) = (Vre*Ire + Vim*Iim) + j(Vim*Ire - Vre*Iim)
+  P = sum(voltageSensor.v[:].re .* currentSensor.i[:].re + voltageSensor.v[:].im .* currentSensor.i[:].im);
+// S = P + jQ = V*conj(I) = (Vre*Ire + Vim*Iim) + j(Vim*Ire - Vre*Iim)
   iMag[:] = currentSensor.iMag[:];
   iArg[:] = currentSensor.iArg[:];
   vMag[:] = voltageSensor.vMag[:];

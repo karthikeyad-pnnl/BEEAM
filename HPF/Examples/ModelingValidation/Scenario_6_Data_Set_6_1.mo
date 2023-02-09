@@ -11,7 +11,7 @@ model Scenario_6_Data_Set_6_1
     Placement(visible = true, transformation(origin = {-82, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Transformers.ThreePhase.Symmetric.D1Y deltaWye(Rc = 15117.5, Rp = 8.333, Rs = 1.4404E-01, Xm = 2.3311e+03, Xp = 3.3002, Xs = 0.6197) annotation(
     Placement(visible = true, transformation(extent = {{-106, -6}, {-86, 14}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl NextekHub(P1(start = 50), S1(start = 50),  V_Rect = 25, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Nextek-PHD16-ACDC-DIM-P-24-6-208V.mat", nomP = 1600, nomV = 208) annotation(
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl NextekHub(P1(start = 50), S1(start = 50), V_Rect = 25, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Nextek-PHD16-ACDC-DIM-P-24-6-208V.mat", nomP = 1600, nomV = 208) annotation(
     Placement(visible = true, transformation(origin = {-4, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground3 annotation(
     Placement(visible = true, transformation(origin = {96, -14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -87,8 +87,8 @@ equation
   connect(deltaWye.pinSec_B, NextekHub.hPin_N) annotation(
     Line(points = {{-86, 8}, {-32, 8}, {-32, 4}, {-14, 4}}, color = {92, 53, 102}));
   annotation(
-    Diagram(coordinateSystem(extent = {{-280, -220}, {260, 240}}, initialScale = 0.1), graphics = {Text(lineColor = {28, 108, 200}, extent = {{-256, 64}, {-250, 64}}, textString = "Edit Here"), Text(origin = {-38, 72}, lineColor = {28, 108, 200}, extent = {{174, -126}, {234, -146}}, textString = "PhD 25V outputs
-    "), Text(origin = {2, 0},lineColor = {28, 108, 200}, extent = {{88, -28}, {228, -44}}, textString = "Lumping together all DC loads 
+    Diagram(coordinateSystem(extent = {{-280, -220}, {260, 240}}, initialScale = 0.1), graphics = {Text(lineColor = {28, 108, 200}, extent = {{-256, 64}, {-250, 64}}, textString = "Edit Here"), Text(origin = {-38, 72}, lineColor = {28, 108, 200}, extent = {{174, -126}, {234, -146}}, textString = "PhD 25V outputs
+    "), Text(origin = {2, 0}, lineColor = {28, 108, 200}, extent = {{88, -28}, {228, -44}}, textString = "Lumping together all DC loads 
 (LEDs, resistors ...)", horizontalAlignment = TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-280, -220}, {260, 240}})),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 1),

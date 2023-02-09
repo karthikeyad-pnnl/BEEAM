@@ -7,11 +7,11 @@ model VoltageSensor "Voltage sensor"
   Modelica.Blocks.Interfaces.RealOutput vArg[systemDef.numHrm](each unit = "rad") annotation(
     Placement(visible = true, transformation(origin = {38, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {50, 110}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
 equation
-  vMag = Modelica.ComplexMath.'abs'(v);
+  vMag = Modelica.ComplexMath.abs(v);
   vArg = Modelica.ComplexMath.arg(v);
-/*
-    A voltmeter is an infinite impedance device connected in parallel.
-    Therefore it draws no current. Hence i = 0.
+/*
+    A voltmeter is an infinite impedance device connected in parallel.
+    Therefore it draws no current. Hence i = 0.
   */
   i[:].re = {0.0 for i in 1:1:systemDef.numHrm};
   i[:].im = {0.0 for i in 1:1:systemDef.numHrm};

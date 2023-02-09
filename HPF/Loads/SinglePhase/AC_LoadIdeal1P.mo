@@ -12,7 +12,6 @@ equation
   phaseLN.i[1] = Modelica.ComplexMath.conj(S_load / phaseLN.v[1]);
 // Current injections: harmonics h > 1
   phaseLN.i[2:1:systemDef.numHrm] = {Complex(0, 0) for i in 2:systemDef.numHrm};
-
-annotation(
+  annotation(
     Icon(graphics = {Line(origin = {75, 0}, points = {{-15, 0}, {15, 0}}), Rectangle(origin = {7, 10}, extent = {{-67, 20}, {53, -40}}), Line(origin = {-76, 0}, points = {{-16, 0}, {16, 0}}), Text(origin = {4, 82}, lineColor = {92, 53, 102}, extent = {{-184, -120}, {176, -160}}, textString = "%name")}));
 end AC_LoadIdeal1P;

@@ -6,24 +6,22 @@ model HarmonicPQLoad "PQ load at harmonic frequencies"
   parameter Real P[:] = {0} "Real power {.}";
   parameter Real Q[:] = {0} "Imaginary power {.}";
   parameter Real nomV = 120 "Nominal operating voltage";
-  parameter Modelica.SIunits.Angle vAngle = 0.0 "Voltage angle for initialization";
+  parameter Modelica.Units.SI.Angle vAngle = 0.0 "Voltage angle for initialization";
   HPF.SinglePhase.Interface.LoadBase loadBase(start_v_re = cat(1, {nomV * cos(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_v_im = cat(1, {nomV * sin(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_i_re = cat(1, {P[1] / nomV * cos(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_i_im = cat(1, {P[1] / nomV * sin(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1})) annotation(
     Placement(visible = true, transformation(origin = {2, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Interface.HPin_P hPin_P(h = systemDef.numHrm) annotation(
     Placement(visible = true, transformation(origin = {-68, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground annotation(
     Placement(visible = true, transformation(origin = {70, -16}, extent = {{-8, -8}, {8, 8}}, rotation = 0)));
-  HPF.SinglePhase.Components.Impedance z(start_i_im = cat(1, {P[1] / nomV * sin(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_i_re = cat(1, {P[1] / nomV * cos(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}),
-    z=Complex(1e-6, 0))                                                                                                                                                                                                         annotation (
+  HPF.SinglePhase.Components.Impedance z(start_i_im = cat(1, {P[1] / nomV * sin(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_i_re = cat(1, {P[1] / nomV * cos(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), z = Complex(1e-6, 0)) annotation(
     Placement(visible = true, transformation(origin = {-30, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-
-  final parameter Real P_padded[systemDef.numHrm] = cat(1, P[:], {0.0 for i in size(P, 1)+1:systemDef.numHrm}); // zero padding Power harmonic vector
-  final parameter Real Q_padded[systemDef.numHrm] = cat(1, Q[:], {0.0 for i in size(P, 1)+1:systemDef.numHrm});
+  final parameter Real P_padded[systemDef.numHrm] = cat(1, P[:], {0.0 for i in size(P, 1) + 1:systemDef.numHrm});
+  // zero padding Power harmonic vector
+  final parameter Real Q_padded[systemDef.numHrm] = cat(1, Q[:], {0.0 for i in size(P, 1) + 1:systemDef.numHrm});
 equation
-
-  loadBase.i[:].re = (P_padded[:] .* loadBase.v[:].re + Q_padded[:] .* loadBase.v[:].im) ./ (loadBase.v[:].re .^ 2 + loadBase.v[:].im .^ 2); // concatenating the vectors and assigning higher harmonics to zero
+  loadBase.i[:].re = (P_padded[:] .* loadBase.v[:].re + Q_padded[:] .* loadBase.v[:].im) ./ (loadBase.v[:].re .^ 2 + loadBase.v[:].im .^ 2);
+// concatenating the vectors and assigning higher harmonics to zero
   loadBase.i[:].im = (P_padded[:] .* loadBase.v[:].im - Q_padded[:] .* loadBase.v[:].re) ./ (loadBase.v[:].re .^ 2 + loadBase.v[:].im .^ 2);
-   
   connect(z.pin_n, loadBase.pin_p) annotation(
     Line(points = {{-20, 0}, {-8, 0}, {-8, 0}, {-8, 0}}, color = {117, 80, 123}));
   connect(z.pin_p, hPin_P) annotation(
