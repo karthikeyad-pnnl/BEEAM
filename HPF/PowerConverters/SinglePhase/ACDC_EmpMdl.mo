@@ -34,7 +34,9 @@ model ACDC_EmpMdl "AC to DC converter empirical model"
   Real Q1(start = 1) "Imaginary power at fundamental";
   Modelica.Blocks.Interfaces.RealOutput PLoss annotation (
     Placement(visible = true, transformation(origin = {10, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 110},extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+  //constant Modelica.SIunits.Voltage V_low = 1e-3;
 
+ 
 protected
     
     // Power axis lookup is now normalized to nominal power (nomP) and magnitude output must be scaled by nominal current (nomI)
@@ -68,9 +70,10 @@ equation
 
     //Complex(P, Q) = loadBase.v[1] * Modelica.ComplexMath.conj(loadBase.i[1]);
     P = (loadBase.v[1].re * loadBase.i[1].re) + (loadBase.v[1].im * loadBase.i[1].im);
-    Q = (loadBase.v[1].im * loadBase.i[1].re) - (loadBase.v[1].re * loadBase.i[1].im);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+    Q = (loadBase.v[1].im * loadBase.i[1].re) - (loadBase.v[1].re * loadBase.i[1].im);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
     //rewriting the power relation
   */
+    
   loadBase.i[1].re = (P1*loadBase.v[1].re + Q1*loadBase.v[1].im)/(loadBase.v[1].re^2 + loadBase.v[1].im^2);
   loadBase.i[1].im = (P1*loadBase.v[1].im - Q1*loadBase.v[1].re)/(loadBase.v[1].re^2 + loadBase.v[1].im^2);
 /*

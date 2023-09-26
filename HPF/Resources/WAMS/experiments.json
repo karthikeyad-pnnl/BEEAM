@@ -1,0 +1,76 @@
+{
+  "HPF.MELs_Models.light_lvl1_ckt1A" : [ {
+    "created" : "2023-07-10T16:31:31.479Z",
+    "lastModified" : "2023-07-10T16:31:31.479Z",
+    "name" : "Experiment 1",
+    "expressions" : [ ],
+    "model" : "HPF.MELs_Models.light_lvl1_ckt1A",
+    "settings" : {
+      "dynamic" : {
+        "stopTime" : 8760.0,
+        "interval" : 0.25,
+        "solver" : "CVode"
+      },
+      "steadyState" : { },
+      "custom" : { },
+      "simulationType" : "dynamic"
+    },
+    "filters" : [ ],
+    "isDefault" : true
+  }, {
+    "created" : "2023-07-10T16:31:39.346Z",
+    "lastModified" : "2023-07-10T16:31:39.346Z",
+    "name" : "Experiment 2",
+    "expressions" : [ ],
+    "model" : "HPF.MELs_Models.light_lvl1_ckt1A",
+    "settings" : {
+      "dynamic" : {
+        "stopTime" : 10.0,
+        "interval" : 0.25,
+        "solver" : "CVode"
+      },
+      "steadyState" : { },
+      "custom" : { },
+      "simulationType" : "dynamic"
+    },
+    "filters" : [ ],
+    "isDefault" : false
+  } ],
+  "HPF.Examples.ModelingValidation.Design_for_DC_Distributed_DC" : [ {
+    "created" : "2023-09-26T15:28:45.866Z",
+    "lastModified" : "2023-09-26T15:28:45.866Z",
+    "name" : "Experiment 1",
+    "expressions" : [ ],
+    "model" : "HPF.Examples.ModelingValidation.Design_for_DC_Distributed_DC",
+    "settings" : {
+      "dynamic" : {
+        "tolerance" : 1.0E-5,
+        "interval" : 1.0
+      },
+      "steadyState" : { },
+      "custom" : { },
+      "simulationType" : "dynamic"
+    },
+    "filters" : [ ],
+    "isDefault" : true
+  } ],
+  "HPF.Examples.ModelingValidation.Design_for_DC_all_AC" : [ {
+    "created" : "2023-09-26T15:34:01.884Z",
+    "lastModified" : "2023-09-26T15:34:01.884Z",
+    "name" : "Experiment 1",
+    "expressions" : [ ],
+    "model" : "HPF.Examples.ModelingValidation.Design_for_DC_all_AC",
+    "settings" : {
+      "dynamic" : {
+        "stopTime" : 100000.0,
+        "tolerance" : 1.0E-10,
+        "interval" : 10.0
+      },
+      "steadyState" : { },
+      "custom" : { },
+      "simulationType" : "dynamic"
+    },
+    "filters" : [ ],
+    "isDefault" : true
+  } ]
+}
