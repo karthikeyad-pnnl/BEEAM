@@ -1,7 +1,7 @@
 within HPF.Examples.ModelingValidation;
 model commonTemplate
     inner .HPF.SystemDef systemDef(numPh = 1,hrms = {i for i in 1:2:20},fs = 10e3) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{-120.97591428571431,261.2145642857143},{-55.64251428571433,317.2145642857143}},rotation = 0.0)));
-    parameter Integer nTra = 1 
+    parameter Integer nTra = 1
         "Number of AC-DC transformers to be used";
     .HPF.SinglePhase.Sources.VoltageSource input_source(vMag = {120,0,0,0,0,0,0,0,0,0},vArg = {0,0,0,0,0,0,0,0,0,0},start_v_re = {120,0,0,0,0,0,0,0,0,0}) annotation(Placement(visible = true,transformation(origin = {-114.0,-24.0},extent = {{-36.0,-36.0},{36.0,36.0}},rotation = -90.0)));
     HPF.SinglePhase.Interface.ACDC_ConverterBase[nTra] ACDC_EmpTra(nomP = 29,modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/osram.mat",V_Rect = 45) annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{48.0,81.0},{108.0,139.0}},rotation = 0.0)));

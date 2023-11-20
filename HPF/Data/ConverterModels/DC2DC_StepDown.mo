@@ -8,7 +8,8 @@ package DC2DC_StepDown "DC to DC step down converter model data record"
       Converter characteristics
         - output voltage
     */
-    parameter Modelica.SIunits.Voltage V = 5.0 annotation (Dialog(group = "Converter characteristics"));
+    parameter Modelica.Units.SI.Voltage V=5.0
+      annotation (Dialog(group="Converter characteristics"));
     /*
       Converter model stuff    
     */
@@ -51,15 +52,15 @@ package DC2DC_StepDown "DC to DC step down converter model data record"
 </html>"));
 
   end Laptop_18V_90W_LapChrg6;
-  
+
   record Igor_PoE_Driver_53W
     extends HPF.Data.ConverterModels.DC2DC_StepDown.ModelData(final V = 30, final Pnom = 53, final alpha = 0.022093, final beta = 0.012605, final gamma = 0.043602);
     annotation (defaultComponentPrefixes = "parameter",
-     defaultComponentName ="igor_PoE_Driver",
+     defaultComponentName= "igor_PoE_Driver",
       Documentation(info="<html>
   <p>BiXPower DD90X DC/DC laptop charger.&nbsp;</p>
   <p><br><br>Experimental setup converter alias: DC/DC converters Laptop Charger 6</p>
   </html>"));
-  
+
   end Igor_PoE_Driver_53W;
 end DC2DC_StepDown;

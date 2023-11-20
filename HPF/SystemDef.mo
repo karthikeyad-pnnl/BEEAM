@@ -1,5 +1,4 @@
 within HPF;
-
 class SystemDef "System Definition block"
   import Modelica.ComplexMath.j;
   parameter Integer hrms[:] = {1} "Harmonics to simulate";
@@ -10,8 +9,8 @@ class SystemDef "System Definition block"
           Also, numHrm cannot be initialized as Real.
         */
   final parameter Integer numHrm = size(hrms, 1) "Number of harmonics. (Automatically generated from hrms.)";
-  parameter Modelica.SIunits.Frequency fFund = 60 "Fundamental frequency (Hz)";
-  parameter Modelica.SIunits.Frequency fs = 5e3 "Sampling frequency (Hz)";
+  parameter Modelica.Units.SI.Frequency fFund=60 "Fundamental frequency (Hz)";
+  parameter Modelica.Units.SI.Frequency fs=5e3 "Sampling frequency (Hz)";
   final parameter Integer N = integer(floor(fs / fFund)) "Size of FFT";
   parameter Integer numPh = 3 "Number of phases";
 initial algorithm
@@ -40,7 +39,7 @@ algorithm
       This ensures no other instance of SystemDef class is created. 
       Can be any of these values: "info", "diagram", "text" 
       */
-  annotation(
+  annotation (
     preferredView = "info",
     defaultComponentName = "systemDef",
     defaultComponentPrefixes = "inner",

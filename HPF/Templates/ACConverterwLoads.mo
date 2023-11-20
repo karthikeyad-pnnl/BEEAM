@@ -3,8 +3,10 @@ model ACConverterwLoads
     parameter Integer nConverter=1;
     parameter Integer nStepDown=2;
     .HPF.Templates.LoadwStepDown loadwStepDown[nStepDown](nLoad = 3,redeclare replaceable HPF.DC.DC2DC_Converters.StepDown twoPort,redeclare replaceable HPF.DC.Variable_DC_Load onePort) annotation(Placement(transformation(extent = {{20.0,20.0},{40.0,40.0}},origin = {0.0,0.0},rotation = 0.0)));
-    replaceable .HPF.SinglePhase.Interface.ACDC_ConverterBase aCDC_ConverterBase[nConverter] constrainedby .HPF.SinglePhase.Interface.ACDC_ConverterBase annotation(Placement(transformation(extent = {{-40.0,18.0},{-20.0,38.0}},origin = {0.0,0.0},rotation = 0.0)));
-    replaceable .HPF.SinglePhase.Interface.Source source constrainedby .HPF.SinglePhase.Interface.Source annotation(Placement(transformation(extent = {{-94,22},{-74,42}},origin = {0,0},rotation = 0)));
+    replaceable .HPF.SinglePhase.Interface.ACDC_ConverterBase aCDC_ConverterBase[nConverter] constrainedby
+    .HPF.SinglePhase.Interface.ACDC_ConverterBase                                                                                                        annotation(Placement(transformation(extent = {{-40.0,18.0},{-20.0,38.0}},origin = {0.0,0.0},rotation = 0.0)));
+    replaceable .HPF.SinglePhase.Interface.Source source constrainedby .HPF.SinglePhase.Interface.Source
+                                                                                                         annotation(Placement(transformation(extent = {{-94,22},{-74,42}},origin = {0,0},rotation = 0)));
     .HPF.SinglePhase.Components.Ground ground annotation(Placement(visible = true,transformation(origin = {0.0,0.0},extent = {{-90.0,-56.0},{-58.0,-24.0}},rotation = 0.0)));
 equation
     connect(aCDC_ConverterBase.pin_p,loadwStepDown.p) annotation(Line(points = {{-20,36},{-10,36},{-10,30},{20,30}},color = {0,0,255}));
