@@ -1,8 +1,9 @@
 within HPF.DC;
 
 model DC_Load
-  extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  HPF.Utilities.ComponentProperties properties(ComponentType = "DC_Load");
+  extends HPF.DC.Interface.DCLoad(
+    final loadType = HPF.DC.DCLoadTypes.ConstantLoad);
+    
   parameter Modelica.SIunits.Power pwr(start = 1) = 1 "Power (watts)";
 equation
   i = pwr / v;

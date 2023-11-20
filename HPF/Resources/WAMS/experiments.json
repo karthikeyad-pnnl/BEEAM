@@ -1,0 +1,57 @@
+{
+  "HPF.Examples.Basics.AC2DC_Converter" : [ {
+    "created" : "2023-05-17T00:44:25.067Z",
+    "lastModified" : "2023-05-17T00:44:25.067Z",
+    "name" : "Experiment 1",
+    "expressions" : [ ],
+    "model" : "HPF.Examples.Basics.AC2DC_Converter",
+    "settings" : {
+      "dynamic" : {
+        "stopTime" : 3600.0,
+        "tolerance" : 1.0E-6,
+        "interval" : 1.0
+      },
+      "steadyState" : { },
+      "custom" : { },
+      "simulationType" : "dynamic"
+    },
+    "filters" : [ ],
+    "isDefault" : true
+  } ],
+  "HPF.Examples.ModelingValidation.Scenario_6_Data_Set_6_4" : [ {
+    "created" : "2023-05-17T00:57:39.175Z",
+    "lastModified" : "2023-05-17T00:57:39.175Z",
+    "name" : "Experiment 1",
+    "expressions" : [ ],
+    "model" : "HPF.Examples.ModelingValidation.Scenario_6_Data_Set_6_4",
+    "settings" : {
+      "dynamic" : {
+        "stopTime" : 60.0,
+        "tolerance" : 1.0E-10,
+        "interval" : 1.0
+      },
+      "steadyState" : { },
+      "custom" : { },
+      "simulationType" : "dynamic"
+    },
+    "filters" : [ ],
+    "isDefault" : true
+  } ],
+  "HPF.Templates.Examples.LoadwStepDown" : [ {
+    "created" : "2023-11-13T00:04:24.101Z",
+    "lastModified" : "2023-11-13T00:04:24.101Z",
+    "name" : "Experiment 1",
+    "expressions" : [ ],
+    "model" : "HPF.Templates.Examples.LoadwStepDown",
+    "settings" : {
+      "dynamic" : {
+        "stopTime" : 3600.0
+      },
+      "steadyState" : { },
+      "custom" : { },
+      "simulationType" : "dynamic"
+    },
+    "filters" : [ ],
+    "isDefault" : true
+  } ]
+}

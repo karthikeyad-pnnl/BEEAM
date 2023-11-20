@@ -3,7 +3,7 @@ model Design_for_DC_Distributed_DC
   inner HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}, numPh = 1) annotation (
     Placement(visible = true, transformation(origin = {-249.333, 262.667}, extent = {{-32.6667, -32.6667}, {32.6667, 23.3333}}, rotation = 0)));
   HPF.SinglePhase.Sources.VoltageSource input_source(start_v_re = {120, 0, 0, 0, 0, 0, 0, 0, 0, 0}, vArg = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, vMag = {120, 0, 0, 0, 0, 0, 0, 0, 0, 0})  annotation(
-    Placement(visible = true, transformation(origin = {-362, 42}, extent = {{-36, -36}, {36, 36}}, rotation = -90)));
+    Placement(visible = true, transformation(origin = {-362.0,44.0}, extent = {{-36.0,-36.0},{36.0,36.0}}, rotation = -90.0)));
   HPF.SinglePhase.Components.Ground ground annotation(
     Placement(visible = true, transformation(origin = {-276, -182}, extent = {{-16, -16}, {16, 16}}, rotation = 0)));
   HPF.DC.Ground ground1 annotation(
@@ -35,7 +35,7 @@ model Design_for_DC_Distributed_DC
   HPF.Cables.NEC_CableModelDC PoE_cable_2(length = 5, wireGaugeDC = HPF.Types.WireGaugeDC.gauge_POE)  annotation(
     Placement(visible = true, transformation(origin = {-84, 114}, extent = {{-24, -24}, {24, 24}}, rotation = 0)));
   HPF.Cables.NEC_CableModelDC PoE_cable_3(length = 5, wireGaugeDC = HPF.Types.WireGaugeDC.gauge_POE)  annotation(
-    Placement(visible = true, transformation(origin = {-90, -2}, extent = {{-24, -24}, {24, 24}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {0.0,0.0}, extent = {{-114.0,-36.0},{-66.0,12.0}}, rotation = 0.0)));
   HPF.Cables.NEC_CableModelDC PoE_cable_4(length = 5, wireGaugeDC = HPF.Types.WireGaugeDC.gauge_POE)  annotation(
     Placement(visible = true, transformation(origin = {-86, -100}, extent = {{-24, -24}, {24, 24}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Resistor resistor(R = 0)  annotation(
@@ -50,7 +50,7 @@ model Design_for_DC_Distributed_DC
     Placement(visible = true, transformation(origin = {-293, 79}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
 equation
   connect(ground.pin, input_source.pin_n) annotation(
-    Line(points = {{-276, -166}, {-276, -79}, {-362, -79}, {-362, 6}}, color = {92, 53, 102}));
+    Line(points = {{-276,-166},{-276,-79},{-362,-79},{-362,8}}, color = {92, 53, 102}));
   connect(LED_1.n, ground1.p) annotation(
     Line(points = {{40, 170}, {70, 170}, {70, -168}}, color = {0, 0, 255}));
   connect(schedule.y[1], LED_1.u) annotation(
@@ -60,7 +60,7 @@ equation
   connect(PoE_driver_1.n2, LED_1.n) annotation(
     Line(points = {{0, 164}, {40, 164}, {40, 170}}, color = {0, 0, 255}));
   connect(input_source.pin_n, PoE_switch.hPin_N) annotation(
-    Line(points = {{-362, 6}, {-255, 6}, {-255, 8}, {-232, 8}}, color = {117, 80, 123}));
+    Line(points = {{-362,8},{-232,8}}, color = {117, 80, 123}));
   connect(PoE_switch.pin_n, PoE_driver_1.n1) annotation(
     Line(points = {{-148, 8}, {-68, 8}, {-68, 164}, {-46, 164}}, color = {0, 0, 255}));
   connect(PoE_switch.pin_n, PoE_driver_2.n1) annotation(
@@ -100,7 +100,7 @@ equation
   connect(PoE_cable_2.n, PoE_driver_2.p1) annotation(
     Line(points = {{-60, 114}, {-46, 114}}, color = {0, 0, 255}));
   connect(PoE_cable_3.n, PoE_driver_3.p1) annotation(
-    Line(points = {{-66, -2}, {-54, -2}, {-54, 4}, {-46, 4}}, color = {0, 0, 255}));
+    Line(points = {{-66,-12},{-54,-12},{-54,4},{-46,4}}, color = {0, 0, 255}));
   connect(PoE_cable_4.n, PoE_driver_4.p1) annotation(
     Line(points = {{-62, -100}, {-46, -100}}, color = {0, 0, 255}));
   connect(PoE_switch.pin_p, resistor.p) annotation(
@@ -114,7 +114,7 @@ equation
   connect(PoE_switch.pin_p, resistor11.p) annotation(
     Line(points = {{-148, 76}, {-122, 76}, {-122, 48}}, color = {0, 0, 255}));
   connect(resistor11.n, PoE_cable_3.p) annotation(
-    Line(points = {{-122, 16}, {-122, -2}, {-114, -2}}, color = {0, 0, 255}));
+    Line(points = {{-122,16},{-122,-12},{-114,-12}}, color = {0, 0, 255}));
   connect(PoE_switch.pin_p, resistor111.p) annotation(
     Line(points = {{-148, 76}, {-136, 76}, {-136, -70}}, color = {0, 0, 255}));
   connect(resistor111.n, PoE_cable_4.p) annotation(
@@ -122,7 +122,7 @@ equation
   connect(AC_cable.pin_n, PoE_switch.hPin_L) annotation(
     Line(points = {{-276, 80}, {-232, 80}, {-232, 76}}, color = {117, 80, 123}));
   connect(input_source.pin_p, AC_cable.pin_p) annotation(
-    Line(points = {{-362, 78}, {-337, 78}, {-337, 80}, {-310, 80}}, color = {92, 53, 102}));
+    Line(points = {{-362,80},{-310,80}}, color = {92, 53, 102}));
   annotation (
     Diagram(coordinateSystem(extent = {{-300, -300}, {300, 300}}, initialScale = 0.1)),
     Icon(coordinateSystem(extent = {{-300, -300}, {300, 300}}, initialScale = 0.1)),

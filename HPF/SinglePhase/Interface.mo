@@ -66,8 +66,8 @@ package Interface
       Dialog(tab = "Initialization"));
     parameter Real start_i_im[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for current imag part" annotation(
       Dialog(tab = "Initialization"));
-    Complex v[systemDef.numHrm](re(start = start_v_re, each fixed = false), im(start = start_v_im)) "Complex voltage";
-    Complex i[systemDef.numHrm](re(start = start_i_re, each fixed = false), im(start = start_i_im)) "Complex current";
+    Complex v[systemDef.numHrm] "Complex voltage";
+    Complex i[systemDef.numHrm] "Complex current";
     /*
           Defining omega for the overconstrained system workaround.
           omega would the derivative of alpha. ( additional constraint,
@@ -110,7 +110,7 @@ package Interface
     extends HPF.SinglePhase.Interface.TwoPinBase;
   
   equation
-    Connections.root(pin_p.reference); //Defining root for the graph, root node in a virtual connection graph.
+    Connections.potentialRoot(pin_p.reference); //Defining root for the graph, root node in a virtual connection graph.
     annotation(
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})),

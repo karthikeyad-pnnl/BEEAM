@@ -1,8 +1,8 @@
 within HPF.DC;
 
 model Variable_DC_Load "Variable DC Load"
-  extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  HPF.Utilities.ComponentProperties properties(ComponentType = "DC_Load");
+  extends HPF.DC.Interface.DCLoad(
+    final loadType = HPF.DC.DCLoadTypes.VariableLoad);
   Modelica.Blocks.Interfaces.RealInput u(start = 0) "Input Power" annotation(
     Placement(visible = true, transformation(extent = {{-22, 58}, {18, 98}}, rotation = 0), iconTransformation(origin = {2, 50}, extent = {{-20, -20}, {20, 20}}, rotation = -90)));
 equation
