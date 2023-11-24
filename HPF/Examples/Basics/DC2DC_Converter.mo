@@ -48,7 +48,7 @@ equation
     Line(points = {{30, 30}, {30, 20}, {6, 20}}, color = {0, 0, 255}));
   connect(resistor1.n, ground1.p) annotation (
     Line(points={{54,20},{54,0}},                          color = {0, 0, 255}));
-annotation(
+annotation (
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 1),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",
   __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl"));
