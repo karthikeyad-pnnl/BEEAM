@@ -46,7 +46,6 @@ equation
   phaseLN.i[2:1:systemDef.numHrm] = {Complex(0, 0) for i in 1:systemDef.numHrm - 1};
 // Annotation
   annotation (
-    Icon,
     Documentation(info = "<html><head></head><body>
 <p>Simple single-phase AC/DC converter (rectifier) model.</p><p><h3>Harmonics Model</h3></p><p>This device operates with zero harmonic distortion and unity power factor. Harmonic currents are zero for all h &gt; 1.</p><h3>Efficiency Model</h3><p>This device uses a two-stage efficiency model:</p>
 <p><img src=\"modelica://HPF/Resources/images/PowerConverters/eq_2stagelossmodel.png\"></p>

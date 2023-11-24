@@ -1,7 +1,7 @@
 within HPF.DC;
 model DC_Load
   extends HPF.DC.Interface.DCLoad(
-    loadType = HPF.DC.DCLoadTypes.ConstantLoad);
+    final loadType = HPF.DC.DCLoadTypes.ConstantLoad);
 
   parameter Modelica.Units.SI.Power pwr(start=1) = 1 "Power (watts)";
 equation

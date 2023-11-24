@@ -1,4 +1,5 @@
 within HPF.DC;
 type DCLoadTypes = enumeration(
-    VariableLoad                          "Variable DC load",
-    ConstantLoad                                                           "Constant DC load");
+    ConstantLoad
+               "Constant DC load",
+    VariableLoad "Variable DC load");

@@ -47,5 +47,9 @@ equation
   connect(DC_Port.n, pin_n) annotation (
     Line(points = {{30, -20}, {30, -60}, {80, -60}}, color = {0, 0, 255}));
   annotation (
-    Icon(graphics = {Line(origin = {-47.7858, -4.01698}, points = {{-44.9518, 25.9597}, {-40.9518, 41.9597}, {-34.9518, 57.9597}, {-26.9518, 65.9597}, {-16.9518, 61.9597}, {-10.9518, 45.9597}, {-6.95182, 27.9597}, {-2.95182, 7.9597}, {5.04818, -8.0403}, {15.0482, -14.0403}, {27.0482, -4.0403}, {33.0482, 11.9597}, {37.0482, 25.9596}}, smooth = Smooth.Bezier), Line(origin = {57.1355, -5.36942}, points = {{-25, 0}, {25, 0}}), Line(origin = {1.01175, 2.8636e-05}, points = {{-101, -100}, {99, 100}}), Line(origin = {57.5095, -28.0427}, points = {{-25, 0}, {25, 0}}, pattern = LinePattern.Dash), Rectangle(origin = {-1, 0}, extent = {{-99, 100}, {101, -100}}), Text(origin = {50, 117}, extent = {{-54, 15}, {54, -15}}, textString = "Loss")}));
+    Icon(graphics={  Rectangle(
+          extent={{-100,100},{100,-100}},
+          lineColor={28,108,200},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),Line(origin = {-47.7858, -4.01698}, points = {{-44.9518, 25.9597}, {-40.9518, 41.9597}, {-34.9518, 57.9597}, {-26.9518, 65.9597}, {-16.9518, 61.9597}, {-10.9518, 45.9597}, {-6.95182, 27.9597}, {-2.95182, 7.9597}, {5.04818, -8.0403}, {15.0482, -14.0403}, {27.0482, -4.0403}, {33.0482, 11.9597}, {37.0482, 25.9596}}, smooth = Smooth.Bezier), Line(origin = {57.1355, -5.36942}, points = {{-25, 0}, {25, 0}}), Line(origin = {1.01175, 2.8636e-05}, points = {{-101, -100}, {99, 100}}), Line(origin = {57.5095, -28.0427}, points = {{-25, 0}, {25, 0}}, pattern = LinePattern.Dash), Rectangle(origin = {-1, 0}, extent = {{-99, 100}, {101, -100}}), Text(origin = {50, 117}, extent = {{-54, 15}, {54, -15}}, textString = "Loss")}));
 end ACDC_1pConverterBase;

@@ -1,30 +1,80 @@
 within HPF.Templates.Examples;
 model LoadwStepDown
   extends Modelica.Icons.Example;
-    HPF.Templates.Examples.Trial.LoadwStepDown loadwStepDown(nLoad = 3) annotation(Placement(transformation(extent = {{4.0,26.0},{24.0,46.0}},origin = {0.0,0.0},rotation = 0.0)));
-    .HPF.Sources.DC.FixedVoltage_FixedCurrent fixedVoltage_FixedCurrent(v_out = 120,i_out = 10) annotation(Placement(transformation(extent = {{-54.0,6.0},{-34.0,26.0}},origin = {0.0,0.0},rotation = 0.0)));
-    .HPF.DC.Ground ground annotation(Placement(transformation(extent = {{-70.0,-30.0},{-50.0,-10.0}},origin = {0.0,0.0},rotation = 0.0)));
-    .Modelica.Blocks.Sources.Constant const(k = 10) annotation(Placement(transformation(extent = {{-60,50},{-40,70}},origin = {0,0},rotation = 0)));
-    .HPF.Templates.LoadwStepDown loadwStepDown2(
-    redeclare replaceable DC.DC2DC_Converters.DummyShort twoPort "No step down",                               nLoad = 2,
-    redeclare replaceable DC.DC_Load onePort "Constant DC load",                                                                                                      hasVariableLoad = false) annotation(Placement(transformation(extent = {{-2.0,-38.0},{18.0,-18.0}},origin = {0.0,0.0},rotation = 0.0)));
+    .Modelica.Blocks.Sources.Constant const[loadwStepDown2.nLoad](k=10)
+    annotation (Placement(transformation(
+        extent={{-60,50},{-40,70}},
+        origin={0,0},
+        rotation=0)));
+  HPF.Templates.LoadwStepDown loadwStepDown2(
+    nLoad = 2,
+    redeclare replaceable DC.DC2DC_Converters.StepDown dcdc_Converter(modelData=
+         igor_PoE_Driver) "DC step down",
+    redeclare replaceable DC.Variable_DC_Load onePort "Variable DC load",
+    modelData=igor_PoE_Driver)
+    annotation(Placement(transformation(extent = {{-2.0,-38.0},{18.0,-18.0}},origin = {0.0,0.0},rotation = 0.0)));
+  Modelica.Electrical.Analog.Basic.Resistor resistor11(R=5)   annotation (
+    Placement(visible = true, transformation(origin={-38,-4},     extent={{-10,10},
+            {10,-10}})));
+  Cables.NEC_CableModelDC     PoE_cable_3(length=30, wireGaugeDC=HPF.Types.WireGaugeDC.guage_POE_VHC)      annotation (
+    Placement(visible = true, transformation(origin={-2,-4},     extent={{-10,-10},
+            {10,10}},                                                                             rotation = 0)));
+  PowerConverters.SinglePhase.ACDC_1pRectifierSimple     PoE_switch(
+    P_DCmin=1,
+    P_nom=820,
+    P_stby=37,
+    VAC_nom=120,
+    VDC_nom=53,
+    alpha=0.043076,
+    beta=0.069259,
+    gamma=0.080952)                                                                                                                                                                           annotation (
+    Placement(visible = true, transformation(origin={-75,-9},     extent={{-11,-11},
+            {11,11}},                                                                              rotation = 0)));
+  Cables.NEC_CableModel     AC_cable(length=6, wireGaugeAC=HPF.Types.WireGaugeAC.gauge_12)      annotation (
+    Placement(visible = true, transformation(origin={-108,4},     extent={{-10,-10},
+            {10,10}},                                                                              rotation = 0)));
+  SinglePhase.Sources.VoltageSource     input_source(
+    start_v_re={120,0,0,0,0,0,0,0,0,0},
+    vArg={0,0,0,0,0,0,0,0,0,0},
+    vMag={120,0,0,0,0,0,0,0,0,0})                                                                                                                                                    annotation (
+    Placement(visible = true, transformation(origin={-125,-21},   extent={{-15,-15},
+            {15,15}},                                                                              rotation = -90)));
+  SinglePhase.Components.Ground     ground annotation (
+    Placement(visible = true, transformation(origin={-124,-56},     extent={{-10,-10},
+            {10,10}},                                                                                rotation = 0)));
+  DC.Ground     ground1 annotation (
+    Placement(visible = true, transformation(origin={-58,-64},    extent={{-10,-10},
+            {10,10}},                                                                              rotation = 0)));
+  inner SystemDef     systemDef(
+    fs=10e3,
+    hrms={i for i in 1:2:20},
+    numPh=1)                                                                      annotation (
+    Placement(visible = true, transformation(origin={-75.9998,31.6668},    extent={{
+            -11.9998,-11.6666},{11.9998,8.33324}},                                                                              rotation = 0)));
+  parameter Data.ConverterModels.DC2DC_StepDown.Igor_PoE_Driver_53W
+    igor_PoE_Driver
+    annotation (Placement(transformation(extent={{40,40},{60,60}})));
 equation
-    connect(fixedVoltage_FixedCurrent.n,loadwStepDown.p) annotation(Line(points = {{-34,16},{4,16},{4,36}},color = {0,0,255}));
-    connect(loadwStepDown.n,fixedVoltage_FixedCurrent.p) annotation(Line(points = {{24,36},{24,0},{-60,0},{-60,16},{-54,16}},color = {0,0,255}));
-    connect(ground.p,fixedVoltage_FixedCurrent.p) annotation(Line(points = {{-60,-10},{-60,16},{-54,16}},color = {0,0,255}));
-    if loadwStepDown.hasVariableLoad then
-    for i in 1:loadwStepDown.nLoad loop
-    connect(const.y,loadwStepDown.u[i]) annotation(Line(points={{-39,60},{2,60},
-              {2,44}},                                                                        color = {0,0,127}));
-    end for;
-    end if;
-    connect(fixedVoltage_FixedCurrent.n,loadwStepDown2.p) annotation(Line(points = {{-34,16},{-22,16},{-22,-28},{-2,-28}},color = {0,0,255}));
-    connect(loadwStepDown2.n,ground.p) annotation(Line(points = {{18,-28},{26,-28},{26,-4},{-60,-4},{-60,-10}},color = {0,0,255}));
-    if loadwStepDown2.hasVariableLoad then
-    for i in 1:loadwStepDown2.nLoad loop
-    connect(const.y,loadwStepDown2.u[i]) annotation(Line(points = {{-39,60},{-4,60},{-4,-20}},color = {0,0,127}));
-    end for;
-    end if;
-    annotation(Icon(coordinateSystem(preserveAspectRatio = false,extent = {{-100.0,-100.0},{100.0,100.0}}),graphics={                                                                                                                            Text(lineColor={0,0,255},extent={{-150,150},{150,110}},textString=
-                                                                                                                                                                                                        "%name")}));
+  connect(const.y, loadwStepDown2.u) annotation (Line(points={{-39,60},{-20,60},
+          {-20,-20},{-4,-20}}, color={0,0,127}));
+  connect(PoE_cable_3.p, resistor11.n)
+    annotation (Line(points={{-12,-4},{-28,-4}}, color={0,0,255}));
+  connect(input_source.pin_p, AC_cable.pin_p) annotation (Line(points={{-125,-6},
+          {-122,-6},{-122,4},{-118,4}}, color={92,53,102}));
+  connect(AC_cable.pin_n, PoE_switch.hPin_L) annotation (Line(points={{-98,4},{-94,
+          4},{-94,-0.2},{-86,-0.2}}, color={117,80,123}));
+  connect(ground.pin, input_source.pin_n) annotation (Line(points={{-124,-46},{-125,
+          -46},{-125,-36}}, color={92,53,102}));
+  connect(input_source.pin_n, PoE_switch.hPin_N) annotation (Line(points={{-125,
+          -36},{-106,-36},{-106,-17.8},{-86,-17.8}}, color={117,80,123}));
+  connect(PoE_switch.pin_p, resistor11.p) annotation (Line(points={{-64,-0.2},{-56,
+          -0.2},{-56,-4},{-48,-4}}, color={0,0,255}));
+  connect(PoE_cable_3.n, loadwStepDown2.p) annotation (Line(points={{8,-4},{18,-4},
+          {18,-14},{-18,-14},{-18,-28},{-2,-28}}, color={0,0,255}));
+  connect(loadwStepDown2.n, PoE_switch.pin_n) annotation (Line(points={{18,-28},
+          {34,-28},{34,-40},{-60,-40},{-60,-17.8},{-64,-17.8}}, color={0,0,255}));
+  connect(PoE_switch.pin_n, ground1.p) annotation (Line(points={{-64,-17.8},{-62,
+          -17.8},{-62,-54},{-58,-54}}, color={0,0,255}));
+    annotation(Icon(coordinateSystem(preserveAspectRatio = false,extent = {{-100.0,-100.0},{100.0,100.0}}),graphics={                                                                                                                            Text(lineColor={0,0,255},extent={{-150,150},{150,110}},textString
+            =                                                                                                                                                                                                        "%name")}));
 end LoadwStepDown;
