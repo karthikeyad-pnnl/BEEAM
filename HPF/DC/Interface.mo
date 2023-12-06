@@ -4,7 +4,7 @@ package Interface
     partial model DCLoad
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter HPF.DC.DCLoadTypes loadType
-      annotation(Dialog(enable=false));
+        annotation(Dialog(enable=false));
       final parameter Boolean hasVariableLoad = loadType == HPF.DC.DCLoadTypes.VariableLoad;
 
 

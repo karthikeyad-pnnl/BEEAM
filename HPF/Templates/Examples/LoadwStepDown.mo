@@ -8,11 +8,11 @@ model LoadwStepDown
         rotation=0)));
   HPF.Templates.LoadwStepDown loadwStepDown2(
     nLoad = 2,
-    redeclare replaceable DC.DC2DC_Converters.StepDown dcdc_Converter(modelData=
-         igor_PoE_Driver) "DC step down",
-    redeclare replaceable DC.Variable_DC_Load onePort "Variable DC load",
-    modelData=igor_PoE_Driver)
-    annotation(Placement(transformation(extent = {{-2.0,-38.0},{18.0,-18.0}},origin = {0.0,0.0},rotation = 0.0)));
+    redeclare replaceable DC.DC2DC_Converters.StepDown dcdc_Converter
+      "DC step down",
+    redeclare replaceable VariableLoad onePort "Variable DC load",
+    modelData(stepDownData=igor_PoE_Driver))
+    annotation(Placement(transformation(extent = {{-2.0,-38.0},{18.0,-18.0}},origin={62,24},    rotation = 0.0)));
   Modelica.Electrical.Analog.Basic.Resistor resistor11(R=5)   annotation (
     Placement(visible = true, transformation(origin={-38,-4},     extent={{-10,10},
             {10,-10}})));
@@ -51,12 +51,11 @@ model LoadwStepDown
     numPh=1)                                                                      annotation (
     Placement(visible = true, transformation(origin={-75.9998,31.6668},    extent={{
             -11.9998,-11.6666},{11.9998,8.33324}},                                                                              rotation = 0)));
-  parameter Data.ConverterModels.DC2DC_StepDown.Igor_PoE_Driver_53W
-    igor_PoE_Driver
+  parameter .HPF.Data.ConverterModels.DC2DC_StepDown.Igor_PoE_Driver_53W igor_PoE_Driver
     annotation (Placement(transformation(extent={{40,40},{60,60}})));
+  Interfaces.LoadBus bus[2] annotation (Placement(transformation(extent={{-16,
+            40},{24,80}}), iconTransformation(extent={{-124,8},{-84,48}})));
 equation
-  connect(const.y, loadwStepDown2.u) annotation (Line(points={{-39,60},{-20,60},
-          {-20,-20},{-4,-20}}, color={0,0,127}));
   connect(PoE_cable_3.p, resistor11.n)
     annotation (Line(points={{-12,-4},{-28,-4}}, color={0,0,255}));
   connect(input_source.pin_p, AC_cable.pin_p) annotation (Line(points={{-125,-6},
@@ -69,12 +68,20 @@ equation
           -36},{-106,-36},{-106,-17.8},{-86,-17.8}}, color={117,80,123}));
   connect(PoE_switch.pin_p, resistor11.p) annotation (Line(points={{-64,-0.2},{-56,
           -0.2},{-56,-4},{-48,-4}}, color={0,0,255}));
-  connect(PoE_cable_3.n, loadwStepDown2.p) annotation (Line(points={{8,-4},{18,-4},
-          {18,-14},{-18,-14},{-18,-28},{-2,-28}}, color={0,0,255}));
-  connect(loadwStepDown2.n, PoE_switch.pin_n) annotation (Line(points={{18,-28},
-          {34,-28},{34,-40},{-60,-40},{-60,-17.8},{-64,-17.8}}, color={0,0,255}));
+  connect(PoE_cable_3.n, loadwStepDown2.p) annotation (Line(points={{8,-4},{60,
+          -4}},                                   color={0,0,255}));
+  connect(loadwStepDown2.n, PoE_switch.pin_n) annotation (Line(points={{80,-4},
+          {90,-4},{90,-40},{-62,-40},{-62,-17.8},{-64,-17.8}},  color={0,0,255}));
   connect(PoE_switch.pin_n, ground1.p) annotation (Line(points={{-64,-17.8},{-62,
           -17.8},{-62,-54},{-58,-54}}, color={0,0,255}));
+  connect(bus, loadwStepDown2.bus) annotation (Line(
+      points={{4,60},{32,60},{32,-5.4},{59.2,-5.4}},
+      color={255,204,51},
+      thickness=0.5), Text(
+      string="%first",
+      index=-1,
+      extent={{-6,3},{-6,3}},
+      horizontalAlignment=TextAlignment.Right));
     annotation(Icon(coordinateSystem(preserveAspectRatio = false,extent = {{-100.0,-100.0},{100.0,100.0}}),graphics={                                                                                                                            Text(lineColor={0,0,255},extent={{-150,150},{150,110}},textString
             =                                                                                                                                                                                                        "%name")}));
 end LoadwStepDown;
