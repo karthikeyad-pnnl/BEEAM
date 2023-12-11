@@ -7,8 +7,8 @@ model StepDown
       Output port: v2, i2
     */
   extends HPF.DC.DC2DC_Converters.Interface;
-  Modelica.Blocks.Interfaces.RealOutput PLoss = abs(v1*i1) - abs(v2*i2) annotation (
-    Placement(visible = true, transformation(origin = {-108, 116}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 148}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+  //Modelica.Blocks.Interfaces.RealOutput PLoss = abs(v1*i1) - abs(v2*i2) annotation (
+    //Placement(visible = true, transformation(origin = {-108, 116}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 148}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
 equation
 /*
   Converter output voltage will be dependent on the input voltage?

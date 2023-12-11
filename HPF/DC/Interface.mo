@@ -1,23 +1,42 @@
 within HPF.DC;
 package Interface
   extends Modelica.Icons.InterfacesPackage;
-    partial model DCLoad
+    model DCLoad_configurable
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      parameter HPF.DC.DCLoadTypes loadType
-        annotation(Dialog(enable=false));
-      final parameter Boolean hasVariableLoad = loadType == HPF.DC.DCLoadTypes.VariableLoad;
-
-
-      Modelica.Blocks.Interfaces.RealInput u(start = 0) if hasVariableLoad
+      parameter Boolean hasVariableLoad;
+      parameter Modelica.SIunits.Power pwr_value(
+        final min=0)=1;
+      Modelica.Blocks.Interfaces.RealInput u if hasVariableLoad
         "Input Power"
         annotation (
-        Placement(visible = true, transformation(extent = {{-22, 58}, {18, 98}}, rotation = 0), iconTransformation(origin = {2, 50}, extent = {{-20, -20}, {20, 20}}, rotation = -90)));
+          Placement(visible = true,
+          transformation(extent = {{-22, 58}, {18, 98}}, rotation = 0),
+          iconTransformation(origin={-120,80}, extent = {{-20, -20}, {20, 20}})));
 
       HPF.Utilities.ComponentProperties properties(ComponentType = "DC_Load");
-        annotation(Icon(coordinateSystem(preserveAspectRatio = false,extent = {{-100.0,-100.0},{100.0,100.0}}),graphics={  Rectangle(lineColor={0,0,0},fillColor={230,230,230},
-                fillPattern =                                                                                                                                                              FillPattern.Solid,extent={{-100.0,-100.0},{100.0,100.0}}),Text(lineColor={0,0,255},extent={{-150,150},{150,110}},textString
-              =                                                                                                                                                                                                        "%name")}));
-    end DCLoad;
+
+      Modelica.Blocks.Interfaces.RealOutput P
+        "Measured power consumption";
+
+    equation
+      if  hasVariableLoad then
+        connect(P,u);
+      else
+        P=pwr_value;
+      end if;
+      P=i*v;
+
+        annotation(Icon(coordinateSystem(initialScale = 0.1),
+          graphics={  Rectangle(origin = {7, 10},
+          extent = {{-67, 20}, {53, -40}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+          Line(origin = {-76, 0}, points = {{-16, 0}, {16, 0}}),
+          Line(origin = {75, 0}, points = {{-15, 0}, {15, 0}}),
+          Text(origin = {-4, -20}, extent = {{-150, 60}, {150, 100}},
+          textString = "%name")}));
+    end DCLoad_configurable;
 
   annotation (
     Icon(coordinateSystem(grid = {0, 0})),
