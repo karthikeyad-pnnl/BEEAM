@@ -4,7 +4,7 @@ record LoadwStepDown
   //Load data
   parameter Integer nLoad(
     final min=1)=1;
-  parameter Boolean hasVariableLoad[nLoad];
+  parameter Boolean hasVariableLoad[nLoad]=false;
   parameter Modelica.SIunits.Power pwr_value[nLoad](
     final min=fill(0, nLoad))=fill(1, nLoad);
 
