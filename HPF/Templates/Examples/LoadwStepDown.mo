@@ -1,8 +1,7 @@
 within HPF.Templates.Examples;
 model LoadwStepDown
   extends Modelica.Icons.Example;
-    .Modelica.Blocks.Sources.Constant const[loadwStepDown2.modelData.nLoad](k=10)
-    annotation (Placement(transformation(
+    .Modelica.Blocks.Sources.Constant const[loadwStepDown2.modelData.nLoad](k = fill(10, loadwStepDown2.nLoad)) annotation (Placement(transformation(
         extent={{-60,50},{-40,70}},
         origin={0,0},
         rotation=0)));
@@ -20,7 +19,7 @@ model LoadwStepDown
             {10,10}},                                                                             rotation = 0)));
   parameter .HPF.Data.ConverterModels.DC2DC_StepDown.Igor_PoE_Driver_53W igor_PoE_Driver
     annotation (Placement(transformation(extent={{40,40},{60,60}})));
-  Interfaces.ComponentBus bus[loadwStepDown2.modelData.nLoad] annotation (
+  Interfaces.ComponentBus bus[loadwStepDown2.nLoad] annotation (
       Placement(transformation(extent={{-20,38},{20,78}}), iconTransformation(
           extent={{-228,-58},{-188,-18}})));
   DC.Ground ground
