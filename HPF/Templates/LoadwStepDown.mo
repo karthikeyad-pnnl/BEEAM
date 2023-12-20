@@ -34,6 +34,11 @@ model LoadwStepDown
   Modelica.Blocks.Interfaces.RealInput u[modelData.nLoad] "Input Power"
     annotation (Placement(transformation(extent={{-140,60},{-100,100}}),
         iconTransformation(origin={-120,80}, extent={{-20,-20},{20,20}})));
+  Cables.NEC_CableModelDC     PoE_cable_1(length=5, wireGaugeDC=HPF.Types.WireGaugeDC.guage_POE_Patch)
+                                                                                                            annotation (
+    Placement(visible = true, transformation(origin={-88,52},     extent = {{-24, -24}, {24, 24}}, rotation = 0)));
+  Modelica.Electrical.Analog.Basic.Resistor resistor(R=0)    annotation (
+    Placement(visible = true, transformation(origin={-136,16},     extent = {{-16, -16}, {16, 16}}, rotation = 90)));
 equation
   //hasVariableLoad= Modelica.Math.BooleanVectors.anyTrue(onePort.loadType == fill(HPF.DC.DCLoadTypes.VariableLoad, nLoad));
     for i in 1:modelData.nLoad loop
@@ -44,17 +49,20 @@ equation
       annotation (Line(points={{-30,11.3333},{-22,11.3333},{-22,20},{30,20}},
         color={0,0,255}));
     end for;
-    connect(p,dcdc_Converter.p1)
-      annotation(Line(points = {{-100,0},{-100,17.333333333333336},{-50,17.333333333333336},{-50,11.333333333333334}},
-        color = {0,0,255}));
     connect(dcdc_Converter.n1,n)
       annotation(Line(points = {{-50,-8.666666666666666},{-50,-24},{100,-24},{100,0}},
         color = {0,0,255}));
 
   connect(u, onePort.u)
-    annotation (Line(points={{-120,80},{38,80},{38,22}}, color={0,0,127}));
+    annotation (Line(points={{-120,80},{35,80},{35,9.8}},color={0,0,127}));
   connect(ground1.p, dcdc_Converter.n2) annotation (Line(points={{77,-56},{77,
           -8.66667},{-30,-8.66667}}, color={0,0,255}));
+  connect(resistor.n,PoE_cable_1. p) annotation (
+    Line(points={{-136,32},{-138,32},{-138,52},{-112,52}},              color = {0, 0, 255}));
+  connect(p, resistor.p)
+    annotation (Line(points={{-100,0},{-136,0}}, color={0,0,255}));
+  connect(PoE_cable_1.n, dcdc_Converter.p1) annotation (Line(points={{-64,52},{
+          -58,52},{-58,11.3333},{-50,11.3333}}, color={0,0,255}));
     annotation(Icon(coordinateSystem(preserveAspectRatio = false,extent = {{-100.0,-100.0},{100.0,100.0}}),graphics={  Rectangle(lineColor={0,0,0},fillColor={230,230,230},
             fillPattern =                                                                                                                                                              FillPattern.Solid,extent={{-100.0,-100.0},{100.0,100.0}}),Text(lineColor={0,0,255},extent={{-150,150},{150,110}},textString
             =                                                                                                                                                                                                        "%name")}));
