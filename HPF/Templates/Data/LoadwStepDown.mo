@@ -4,9 +4,6 @@ record LoadwStepDown
   //Load data
   parameter Integer nLoad(
     final min=1)=1;
-  parameter Boolean hasVariableLoad[nLoad]=fill(false, nLoad);
-  parameter Modelica.SIunits.Power pwr_value[nLoad](
-    final min=fill(0, nLoad))=fill(1, nLoad);
 
   //Step down data
   parameter HPF.Data.ConverterModels.DC2DC_StepDown.ModelData stepDownData

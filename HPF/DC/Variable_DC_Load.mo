@@ -1,17 +1,29 @@
 within HPF.DC;
 model Variable_DC_Load "Variable DC Load"
-  extends HPF.DC.Interface.DCLoad_configurable(
-    final hasVariableLoad=true);
+  extends Modelica.Electrical.Analog.Interfaces.OnePort;
+  Modelica.Blocks.Interfaces.RealInput u "Input Power"
+    annotation (Placement(transformation(extent = {{-22, 58}, {18, 98}}),
+      iconTransformation(origin={-120,80}, extent = {{-20, -20}, {20, 20}})));
 
-  annotation (
-    Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1),
-    graphics={  Line(origin = {-0.58, -1.98},
-    points = {{26.5789, -24.0161}, {-11.4211, 1.98388}, {16.5789, 1.98388}, {-21.4211, 23.9839}},
-    arrow = {Arrow.None, Arrow.Filled}, arrowSize = 2),
-    Rectangle(origin = {7, 10}, extent = {{-67, 20}, {53, -40}}),
-    Line(origin = {-76, 0}, points = {{-16, 0}, {16, 0}}),
-    Line(origin = {75, 0}, points = {{-15, 0}, {15, 0}}),
-    Text(origin = {0, -140}, lineColor = {0, 0, 255}, extent = {{-150, 60}, {150, 100}}, textString = "%name")}),
-    Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})),
-  Documentation(info = "<html><head></head><body>Variable DC load. Input power is set using the RealInput port.</body></html>"));
+  HPF.Utilities.ComponentProperties properties(ComponentType = "DC_Load");
+
+  Modelica.Blocks.Interfaces.RealOutput Pow
+    "Measured power consumption"
+    annotation (Placement(transformation(extent={{100,60},{140,100}}),
+      iconTransformation(origin={120,80},  extent = {{-20, -20}, {20, 20}})));
+
+equation
+  connect(Pow,u);
+  Pow=i*v;
+
+  annotation(Icon(coordinateSystem(initialScale = 0.1),
+      graphics={  Rectangle(origin = {7, 10},
+      extent = {{-67, 20}, {53, -40}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+      Line(origin = {-76, 0}, points = {{-16, 0}, {16, 0}}),
+      Line(origin = {75, 0}, points = {{-15, 0}, {15, 0}}),
+      Text(origin = {-4, -20}, extent = {{-150, 60}, {150, 100}},
+      textString = "%name")}));
 end Variable_DC_Load;

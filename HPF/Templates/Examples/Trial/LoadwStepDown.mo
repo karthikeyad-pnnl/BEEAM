@@ -1,8 +1,6 @@
 within HPF.Templates.Examples.Trial;
 model LoadwStepDown
-    extends HPF.Templates.LoadwStepDown(
-      redeclare HPF.DC.DC2DC_Converters.StepDown dcdc_Converter(
-        final modelData=modelData.stepDownData));
+    extends HPF.Templates.LoadwStepDown;
 
     annotation(Icon(
       coordinateSystem(preserveAspectRatio = false,

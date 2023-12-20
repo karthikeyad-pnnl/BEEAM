@@ -5,12 +5,11 @@ package Interface
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter Boolean hasVariableLoad;
       parameter Modelica.SIunits.Power pwr_value(
-        final min=0)=1;
+        final min=0)=1
+        annotation(Dialog(enable=not hasVariableLoad));
       Modelica.Blocks.Interfaces.RealInput u if hasVariableLoad
         "Input Power"
-        annotation (
-          Placement(visible = true,
-          transformation(extent = {{-22, 58}, {18, 98}}, rotation = 0),
+        annotation (Placement(transformation(extent = {{-22, 58}, {18, 98}}),
           iconTransformation(origin={-120,80}, extent = {{-20, -20}, {20, 20}})));
 
       HPF.Utilities.ComponentProperties properties(ComponentType = "DC_Load");
