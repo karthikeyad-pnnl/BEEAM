@@ -7,8 +7,6 @@ model StepDown
       Output port: v2, i2
     */
   extends HPF.DC.DC2DC_Converters.Interface;
-  Modelica.Blocks.Interfaces.RealOutput PLoss = abs(v1*i1) - abs(v2*i2) annotation (
-    Placement(visible = true, transformation(origin = {-108, 116}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 148}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
 equation
 /*
   Converter output voltage will be dependent on the input voltage?
@@ -30,12 +28,13 @@ equation
   we got to set the i2, i2 = -i1 / D;
   */
   v2 = modelData.V;
+  PPri = v1*i1;
 /*
   Efficiency modeling
   Pin = Pout + alpha + beta*Pout + gamma*Pout^2
   effi = Pout / Pin
   */
-  v1 * i1 = v2 * abs(i2) + modelData.Pnom*(modelData.alpha + (v2 * abs(i2)/modelData.Pnom)* modelData.beta + modelData.gamma * (v2 * i2/modelData.Pnom) ^ 2);
+  PPri = v2 * abs(i2) + modelData.Pnom*(modelData.alpha + (v2 * abs(i2)/modelData.Pnom)* modelData.beta + modelData.gamma * (v2 * i2/modelData.Pnom) ^ 2);
   annotation (
     Icon(coordinateSystem(initialScale = 0.1), graphics={  Rectangle(origin = {0, -1}, extent = {{-90, 139}, {90, -139}}), Line(origin = {-56.3552, 13.1638}, points = {{-13, 0}, {27, 0}}), Line(origin = {-56.6, -11.5877}, points = {{-13, 0}, {27, 0}}, pattern = LinePattern.Dash), Line(origin = {7.77913, 28.8419}, points = {{-49, -90}, {35, 34}}), Line(origin = {42.1208, 13.1638}, points = {{-13, 0}, {27, 0}}), Line(origin = {41.876, -11.5877}, points = {{-13, 0}, {27, 0}}, pattern = LinePattern.Dash), Text(origin = {0, -240}, lineColor = {92, 53, 102}, extent = {{-180, 60}, {180, 100}}, textString = "%name"), Text(origin = {182, 78}, extent = {{-180, 60}, {-86, 82}}, textString = "PLoss")}),
     Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})),
