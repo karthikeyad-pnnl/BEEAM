@@ -15,7 +15,7 @@ package Interface
     flow Real iIm[h]; // Imaginary part
     flow Real iRe[h]; // Real part
     annotation (
-      Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Rectangle(extent = {{-100, 100}, {100, -100}})}),
+      Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Rectangle(extent = {{-100, 100}, {100, -100}})}),
       Diagram(coordinateSystem(grid = {0, 0})),
       __OpenModelica_commandLineOptions = "",
   Documentation(info = "<html><head></head><body>Specialized connector for the harmonic power flow. HPin, where H is for harmonics. The name signifies the special nature of the connector and its intended usage. <i>h</i> specifies the maximum harmonics to be simulated. The default value is used when user does not explicitly specify.&nbsp;</body></html>"));
@@ -31,17 +31,19 @@ package Interface
     extends HPin;
     HPF.Types.Reference reference "Reference";
     annotation (
-      Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Rectangle(lineColor = {92, 53, 102}, fillColor = {92, 53, 102}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}})}),
+      Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Rectangle(lineColor = {92, 53, 102}, fillColor = {92, 53, 102},
+              fillPattern =                                                                                                                               FillPattern.Solid, extent = {{-100, 100}, {100, -100}})}),
       __OpenModelica_commandLineOptions = "",
-      Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Text(origin = {-81, 258}, extent = {{-45, 22}, {197, -260}}, textString = "%name"), Rectangle(extent = {{-100, 100}, {-100, 100}}), Rectangle(extent = {{100, -100}, {-100, 100}})}));
+      Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Text(origin = {-81, 258}, extent = {{-45, 22}, {197, -260}}, textString = "%name"), Rectangle(extent = {{-100, 100}, {-100, 100}}), Rectangle(extent = {{100, -100}, {-100, 100}})}));
   end HPin_P;
 
   connector HPin_N "Negative Terminal"
     extends HPin;
     Types.Reference reference "Reference";
     annotation (
-      Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Rectangle(lineColor = {117, 80, 123}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}})}),
-      Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Rectangle(extent = {{-100, 100}, {100, -100}}), Text(origin = {-99, 189}, extent = {{-47, 33}, {261, -123}}, textString = "%name")}),
+      Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Rectangle(lineColor = {117, 80, 123}, fillColor = {255, 255, 255},
+              fillPattern =                                                                                                                                  FillPattern.Solid, extent = {{-100, 100}, {100, -100}})}),
+      Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Rectangle(extent = {{-100, 100}, {100, -100}}), Text(origin = {-99, 189}, extent = {{-47, 33}, {261, -123}}, textString = "%name")}),
       __OpenModelica_commandLineOptions = "");
   end HPin_N;
 
@@ -57,13 +59,13 @@ package Interface
         lead to solver failing to solve. Nominal value of one 
         seems to work! 
       */
-    parameter Real start_v_re[systemDef.numHrm] = {1.0 for i in 1:systemDef.numHrm} "Start value for voltage real part" annotation(
+    parameter Real start_v_re[systemDef.numHrm] = {1.0 for i in 1:systemDef.numHrm} "Start value for voltage real part" annotation (
       Dialog(tab = "Initialization"));
     parameter Real start_v_im[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for voltage imag part" annotation (
       Dialog(tab = "Initialization"));
-    parameter Real start_i_re[systemDef.numHrm] = {0.1 for i in 1:systemDef.numHrm} "Start value for current real part" annotation(
+    parameter Real start_i_re[systemDef.numHrm] = {0.1 for i in 1:systemDef.numHrm} "Start value for current real part" annotation (
       Dialog(tab = "Initialization"));
-    parameter Real start_i_im[systemDef.numHrm] = {0.1 for i in 1:systemDef.numHrm} "Start value for current imag part" annotation(
+    parameter Real start_i_im[systemDef.numHrm] = {0.1 for i in 1:systemDef.numHrm} "Start value for current imag part" annotation (
       Dialog(tab = "Initialization"));
     Complex v[systemDef.numHrm](re(start=start_v_re, each fixed = false), im(start=start_v_im)) "Complex voltage";
     Complex i[systemDef.numHrm](re(start=start_i_re, each fixed = false), im(start=start_i_im)) "Complex current";
@@ -110,7 +112,7 @@ package Interface
 
   equation
     Connections.potentialRoot(pin_p.reference); //Defining root for the graph, root node in a virtual connection graph.
-    annotation(
+    annotation (
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})),
   Documentation(info = "<html><head></head><body>Partial model class for voltage sources. This partial model extends the two pin base partial model to include the additional type used in the loop reduction algorithm (overconstrained connection based equation systems)</body></html>"));
@@ -192,6 +194,8 @@ package Interface
   partial model ACDC_ConverterBase
     outer SystemDef systemDef;
 
+    parameter String name="";
+
     // Ratings
     parameter Modelica.Units.SI.Voltage V_Rect(start=0) = 1
       "Rectifier DC output" annotation (Dialog(group="Device Ratings"));
@@ -238,7 +242,7 @@ package Interface
     connect(vDC.n, pin_n) annotation (
       Line(points = {{20, -22}, {20, -60}, {80, -60}}, color = {0, 0, 255}));
     annotation (
-      Icon(graphics = {Line(origin = {-47.7858, -4.01698}, points = {{-44.9518, 25.9597}, {-40.9518, 41.9597}, {-34.9518, 57.9597}, {-26.9518, 65.9597}, {-16.9518, 61.9597}, {-10.9518, 45.9597}, {-6.95182, 27.9597}, {-2.95182, 7.9597}, {5.04818, -8.0403}, {15.0482, -14.0403}, {27.0482, -4.0403}, {33.0482, 11.9597}, {37.0482, 25.9596}}, smooth = Smooth.Bezier), Line(origin = {-4, 68}, points = {{0, 4}, {0, -24}}), Line(origin = {23, 68}, points = {{0, -10}, {0, -24}}), Line(origin = {57.1355, -5.36942}, points = {{-25, 0}, {25, 0}}), Line(origin = {-3.63854, 43.8449}, rotation = -90, points = {{0, 36}, {0, -24}}), Line(origin = {1.01175, 2.8636e-05}, points = {{-101, -100}, {99, 100}}), Line(origin = {14, 68}, points = {{0, -6}, {0, -24}}), Line(origin = {-22.41, 68}, points = {{0, 24}, {0, -24}}), Line(origin = {5, 68}, points = {{0, -2}, {0, -24}}), Line(origin = {-13, 68}, points = {{0, 14}, {0, -24}}), Line(origin = {57.5095, -28.0427}, points = {{-25, 0}, {25, 0}}, pattern = LinePattern.Dash), Rectangle(origin = {-1, 0}, extent = {{-99, 100}, {101, -100}})}));
+      Icon(graphics={  Line(origin = {-47.7858, -4.01698}, points = {{-44.9518, 25.9597}, {-40.9518, 41.9597}, {-34.9518, 57.9597}, {-26.9518, 65.9597}, {-16.9518, 61.9597}, {-10.9518, 45.9597}, {-6.95182, 27.9597}, {-2.95182, 7.9597}, {5.04818, -8.0403}, {15.0482, -14.0403}, {27.0482, -4.0403}, {33.0482, 11.9597}, {37.0482, 25.9596}}, smooth = Smooth.Bezier), Line(origin = {-4, 68}, points = {{0, 4}, {0, -24}}), Line(origin = {23, 68}, points = {{0, -10}, {0, -24}}), Line(origin = {57.1355, -5.36942}, points = {{-25, 0}, {25, 0}}), Line(origin = {-3.63854, 43.8449}, rotation = -90, points = {{0, 36}, {0, -24}}), Line(origin = {1.01175, 2.8636e-05}, points = {{-101, -100}, {99, 100}}), Line(origin = {14, 68}, points = {{0, -6}, {0, -24}}), Line(origin = {-22.41, 68}, points = {{0, 24}, {0, -24}}), Line(origin = {5, 68}, points = {{0, -2}, {0, -24}}), Line(origin = {-13, 68}, points = {{0, 14}, {0, -24}}), Line(origin = {57.5095, -28.0427}, points = {{-25, 0}, {25, 0}}, pattern = LinePattern.Dash), Rectangle(origin = {-1, 0}, extent = {{-99, 100}, {101, -100}})}));
   end ACDC_ConverterBase;
   annotation (
     Icon(coordinateSystem(grid = {0, 0})),

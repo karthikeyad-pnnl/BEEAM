@@ -7,11 +7,8 @@ model LoadwStepDown
         origin={0,0},
         rotation=0)));
   HPF.Templates.LoadwStepDown loadwStepDown2(
-    nLoad = 2,
-    redeclare replaceable DC.DC2DC_Converters.StepDown dcdc_Converter
-      "DC step down",
-    redeclare replaceable VariableLoad onePort "Variable DC load",
-    modelData(stepDownData=igor_PoE_Driver))
+    nLoad = 2, redeclare replaceable DC.DC2DC_Converters.DummyShort
+      dcdc_Converter(modelData=igor_PoE_Driver) "No step down")
     annotation(Placement(transformation(extent = {{-2.0,-38.0},{18.0,-18.0}},origin={62,24},    rotation = 0.0)));
   Modelica.Electrical.Analog.Basic.Resistor resistor11(R=5)   annotation (
     Placement(visible = true, transformation(origin={-38,-4},     extent={{-10,10},
@@ -74,14 +71,8 @@ equation
           {90,-4},{90,-40},{-62,-40},{-62,-17.8},{-64,-17.8}},  color={0,0,255}));
   connect(PoE_switch.pin_n, ground1.p) annotation (Line(points={{-64,-17.8},{-62,
           -17.8},{-62,-54},{-58,-54}}, color={0,0,255}));
-  connect(bus, loadwStepDown2.bus) annotation (Line(
-      points={{4,60},{32,60},{32,-5.4},{59.2,-5.4}},
-      color={255,204,51},
-      thickness=0.5), Text(
-      string="%first",
-      index=-1,
-      extent={{-6,3},{-6,3}},
-      horizontalAlignment=TextAlignment.Right));
+  connect(const.y, loadwStepDown2.u) annotation (Line(points={{-39,60},{-20,60},
+          {-20,1},{70.2,1}}, color={0,0,127}));
     annotation(Icon(coordinateSystem(preserveAspectRatio = false,extent = {{-100.0,-100.0},{100.0,100.0}}),graphics={                                                                                                                            Text(lineColor={0,0,255},extent={{-150,150},{150,110}},textString
             =                                                                                                                                                                                                        "%name")}));
 end LoadwStepDown;

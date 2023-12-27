@@ -10,8 +10,9 @@ package Interface
       parameter Modelica.Units.SI.Power pwr=1
         annotation(Dialog(enable=not hasVariableLoad));
 
-      Modelica.Blocks.Interfaces.RealInput u(start = 0)
-        "Input Power"
+      parameter String name="";
+
+      Modelica.Blocks.Interfaces.RealInput u(start = 0) "Input Power"
         annotation (
         Placement(visible = true, transformation(extent = {{-22, 58}, {18, 98}}, rotation = 0), iconTransformation(origin = {2, 50}, extent = {{-20, -20}, {20, 20}}, rotation = -90)));
 
