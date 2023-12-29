@@ -3,7 +3,7 @@ record ACConverterwLoads
   extends Modelica.Icons.Record;
   parameter Integer nConverter=1;
   parameter Integer stepDown_indices[nConverter]={1};
-  final parameter Integer nStepDown=sum(stepDown_indices);
+  parameter Integer nStepDown=sum(stepDown_indices);
   parameter Modelica.Units.SI.Resistance R[nStepDown]=fill(1,nStepDown)
     "Resistance at temperature T_ref";
   parameter Types.WireGaugeDC wireGaugeDC[nStepDown]=fill(HPF.Types.WireGaugeDC.gauge_1,nStepDown);

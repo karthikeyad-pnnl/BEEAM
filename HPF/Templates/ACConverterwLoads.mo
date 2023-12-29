@@ -18,7 +18,7 @@ model ACConverterwLoads
   HPF.SinglePhase.Components.Ground ground
     annotation(Placement(visible = true,
       transformation(extent={{-56.25,-35},{-36.25,-15}})));
-  Data.ACConverterwLoads modelData
+  replaceable parameter Data.ACConverterwLoads modelData
     annotation (Placement(transformation(extent={{60,60},{80,80}})));
 
   DC.Ground ground1
@@ -114,8 +114,7 @@ equation
   connect(deltaWye.pinSec_B, terminate.hPin_P) annotation (Line(points={{-78,42},
           {-74,42},{-74,8.57143},{-72.8571,8.57143}},   color={92,53,102}));
     annotation(Icon(coordinateSystem(preserveAspectRatio = false,extent={{-100,-100},
-            {100,100}}),                                                                                   graphics={  Rectangle(lineColor={0,0,0},fillColor={230,230,230},
-            fillPattern =                                                                                                                                                              FillPattern.Solid,extent={{-100.0,-100.0},{100.0,100.0}}),Text(lineColor={0,0,255},extent={{-150,150},{150,110}},textString
+            {100,100}}),                                                                                   graphics={                                                                                                                            Text(lineColor={0,0,255},extent={{-150,150},{150,110}},textString
             =                                                                                                                                                                                                        "%name")}),
       Diagram(coordinateSystem(extent={{-160,-100},{160,100}})));
 end ACConverterwLoads;
