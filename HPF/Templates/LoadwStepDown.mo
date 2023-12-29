@@ -34,12 +34,6 @@ model LoadwStepDown
         extent={{-10,-10},{10,10}},
         rotation=-90)));
 
-  Cables.NEC_CableModelDC PoE_cable[nLoad](length=modelData.length, wireGaugeDC=
-       modelData.wireGaugeDC)
-                     annotation (Placement(visible=true, transformation(
-        origin={30,30},
-        extent={{-10,-10},{10,10}},
-        rotation=0)));
 equation
     for i in 1:nLoad loop
     connect(dcdc_Converter.n2,onePort[i].n)
@@ -59,10 +53,8 @@ equation
           {-22,-8.66667},{-30,-8.66667}}, color={0,0,255}));
   connect(schedule.y[1], onePort.u) annotation (Line(points={{-50,59},{-50,40},{
           76,40},{76,0},{65,0},{65,-0.2}}, color={0,0,127}));
-  connect(resistor11.n, PoE_cable.p)
-    annotation (Line(points={{10,30},{20,30}}, color={0,0,255}));
-  connect(PoE_cable.n, onePort.p)
-    annotation (Line(points={{40,30},{60,30},{60,10}}, color={0,0,255}));
+  connect(resistor11.n, onePort.p)
+    annotation (Line(points={{10,30},{60,30},{60,10}}, color={0,0,255}));
     annotation(Icon(coordinateSystem(
       preserveAspectRatio = false,
       extent = {{-100.0,-100.0},{100.0,100.0}}),
