@@ -10,7 +10,7 @@ package Interface
       parameter Modelica.Units.SI.Power pwr=1
         annotation(Dialog(enable=not hasVariableLoad));
 
-      parameter String name="";
+      String name="";
 
       Modelica.Blocks.Interfaces.RealInput u(start = 0) "Input Power"
         annotation (

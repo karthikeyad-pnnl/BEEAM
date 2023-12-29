@@ -35,9 +35,7 @@ model ACDC_EmpMdl "AC to DC converter empirical model"
   Modelica.Blocks.Interfaces.RealOutput PLoss annotation (
     Placement(visible = true, transformation(origin = {10, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 110},extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   //constant Modelica.SIunits.Voltage V_low = 1e-3;
- 
-protected
-    
+
     // Power axis lookup is now normalized to nominal power (nomP) and magnitude output must be scaled by nominal current (nomI)
 
     // Query arg interplation in 2D at harmonics h>1, at power level P
@@ -73,7 +71,7 @@ equation
     Q = (loadBase.v[1].im * loadBase.i[1].re) - (loadBase.v[1].re * loadBase.i[1].im);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
     //rewriting the power relation
   */
-    
+
   loadBase.i[1].re = (P1*loadBase.v[1].re + Q1*loadBase.v[1].im)/(loadBase.v[1].re^2 + loadBase.v[1].im^2);
   loadBase.i[1].im = (P1*loadBase.v[1].im - Q1*loadBase.v[1].re)/(loadBase.v[1].re^2 + loadBase.v[1].im^2);
 /*
@@ -82,7 +80,7 @@ equation
   loadBase.i[2:1:systemDef.numHrm] = {c[i]*a[i] for i in 1:systemDef.numHrm - 1};
   PLoss = P - P_DC;
   annotation (
-    Icon(coordinateSystem(preserveAspectRatio = false), graphics = {Text(origin = {4, 0}, textColor = {92, 53, 102}, extent = {{-184, -120}, {176, -160}}, textString = "%name"), Text(origin = {70, 115}, extent = {{-54, 15}, {54, -15}}, textString = "Ploss")}),
+    Icon(coordinateSystem(preserveAspectRatio = false), graphics={  Text(origin = {4, 0}, textColor = {92, 53, 102}, extent = {{-184, -120}, {176, -160}}, textString = "%name"), Text(origin = {70, 115}, extent = {{-54, 15}, {54, -15}}, textString = "Ploss")}),
     Diagram(coordinateSystem(preserveAspectRatio = false)),
     Documentation(info = "<html><head></head><body>
 <h4>General Information</h4>

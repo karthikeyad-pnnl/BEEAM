@@ -48,7 +48,7 @@ package Interface
   end HPin_N;
 
   partial model TwoPinBase
-    outer SystemDef systemDef; // instantiate systemDef as outer for global scope
+    inner outer SystemDef systemDef; // instantiate systemDef as outer for global scope
     /*
         Complex v(re(start = 0), im(start = 0));
         Note on start and nominal value:
