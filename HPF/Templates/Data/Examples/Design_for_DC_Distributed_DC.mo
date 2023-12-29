@@ -1,8 +1,8 @@
 within HPF.Templates.Data.Examples;
-record Design_for_DC_all_AC
+record Design_for_DC_Distributed_DC
   extends HPF.Templates.Data.ACConverterwLoads(
-      nConverter=4,
-      stepDown_indices={1,1,1,1},
+      nConverter=1,
+      stepDown_indices={4},
       loadwStepDown={HPF.Templates.Data.LoadwStepDown(
           loadNames={"load1"},
           stepDownName="stepDown1",
@@ -25,4 +25,4 @@ record Design_for_DC_all_AC
           HPF.Templates.Data.ACConverter(name="converter4")});
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)));
-end Design_for_DC_all_AC;
+end Design_for_DC_Distributed_DC;
