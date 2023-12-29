@@ -7,8 +7,8 @@ package Partials
       Dialog(tab = "Converter Model"));
 
   protected
-    final parameter String resourceRetValue = Modelica.Utilities.Files.loadResource("./" + modelFileName);
-    final parameter Integer matDim[2] = Modelica.Utilities.Streams.readMatrixSize(resourceRetValue, "X");
+    final parameter String resourceRetValue = Modelica.Utilities.Files.loadResource("modelica://" + modelFileName);
+    final parameter Integer matDim[2] = pure(Modelica.Utilities.Streams.readMatrixSize(resourceRetValue, "X"));
     // assuming matrices have same dimension
     final parameter Real mdl_H[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "X", matDim[1], matDim[2]);
     final parameter Real mdl_P_h1[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "Y", matDim[1], matDim[2]);

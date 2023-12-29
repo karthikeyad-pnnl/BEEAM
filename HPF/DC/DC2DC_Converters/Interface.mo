@@ -8,7 +8,7 @@ partial model Interface
   parameter Data.ConverterModels.DC2DC_StepDown.ModelData modelData
     annotation (Placement(transformation(extent={{60,72},{80,92}})));
   parameter String name="";
-  Modelica.Blocks.Interfaces.RealOutput PLoss=abs(v1*i1) - abs(v2*i2)
+  Modelica.Blocks.Interfaces.RealOutput PLoss=abs(PPri) - abs(v2*i2)
     annotation (Placement(visible = true,
       transformation(origin={110,80},extent = {{-10, -10}, {10, 10}}),
       iconTransformation(origin = {0, 148},

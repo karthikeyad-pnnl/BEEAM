@@ -6,7 +6,7 @@ record ACConverterwLoads
   parameter Integer nStepDown=sum(stepDown_indices);
   parameter Modelica.Units.SI.Resistance R[nStepDown]=fill(1,nStepDown)
     "Resistance at temperature T_ref";
-  parameter Types.WireGaugeDC wireGaugeDC[nStepDown]=fill(HPF.Types.WireGaugeDC.gauge_1,nStepDown);
+  parameter Types.WireGaugeDC wireGaugeDC[nStepDown]=fill(HPF.Types.WireGaugeDC.gauge_POE,nStepDown);
   parameter Real length[nStepDown]=fill(1,nStepDown) "Length of wire";
 
   parameter LoadwStepDown loadwStepDown[nStepDown]
