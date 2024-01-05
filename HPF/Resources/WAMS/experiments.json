@@ -89,5 +89,23 @@
     },
     "filters" : [ ],
     "isDefault" : true
+  } ],
+  "HPF.Templates.Examples.Design_for_DC_all_AC" : [ {
+    "created" : "2024-01-04T23:36:02.351Z",
+    "lastModified" : "2024-01-04T23:36:02.351Z",
+    "name" : "Experiment 1",
+    "expressions" : [ ],
+    "model" : "HPF.Templates.Examples.Design_for_DC_all_AC",
+    "settings" : {
+      "dynamic" : {
+        "stopTime" : 86400.0,
+        "interval" : 900.0
+      },
+      "steadyState" : { },
+      "custom" : { },
+      "simulationType" : "dynamic"
+    },
+    "filters" : [ ],
+    "isDefault" : true
   } ]
 }
