@@ -11,6 +11,8 @@ record ACConverterwLoads
 
   parameter LoadwStepDown loadwStepDown[nStepDown]
     annotation (Placement(transformation(extent={{60,60},{80,80}})));
+  parameter LoadwStepDown loadwStepDown2[nStepDown]
+    annotation (Placement(transformation(extent={{60,60},{80,80}})));
 
   parameter ACConverter aCConverter[nConverter]
     annotation (Placement(transformation(extent={{60,20},{80,40}})));

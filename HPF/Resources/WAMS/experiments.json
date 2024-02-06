@@ -107,5 +107,81 @@
     },
     "filters" : [ ],
     "isDefault" : true
+  } ],
+  "HPF.Templates.PAE_AC" : [ {
+    "created" : "2024-01-17T00:30:48.098Z",
+    "lastModified" : "2024-01-17T00:30:48.098Z",
+    "name" : "Experiment 1",
+    "expressions" : [ {
+      "name" : "aCDC_3pBidirectionalSimple.VAC_nom",
+      "expression" : "120"
+    } ],
+    "model" : "HPF.Templates.PAE_AC",
+    "settings" : {
+      "dynamic" : {
+        "stopTime" : 10.0
+      },
+      "steadyState" : { },
+      "custom" : { },
+      "simulationType" : "dynamic"
+    },
+    "filters" : [ ],
+    "isDefault" : true
+  } ],
+  "HPF.Templates.PAE_AC_Model" : [ {
+    "created" : "2024-01-24T22:49:25.524Z",
+    "lastModified" : "2024-01-24T22:49:25.524Z",
+    "name" : "Experiment 1",
+    "expressions" : [ ],
+    "model" : "HPF.Templates.PAE_AC_Model",
+    "settings" : {
+      "dynamic" : {
+        "stopTime" : 3.1536E7,
+        "interval" : 3600.0
+      },
+      "steadyState" : { },
+      "custom" : { },
+      "simulationType" : "dynamic"
+    },
+    "filters" : [ ],
+    "isDefault" : true
+  } ],
+  "HPF.Templates.PAE_AC_1" : [ {
+    "created" : "2024-01-17T00:30:48.098Z",
+    "lastModified" : "2024-01-17T00:30:48.098Z",
+    "name" : "Experiment 1",
+    "expressions" : [ {
+      "name" : "aCDC_3pBidirectionalSimple.VAC_nom",
+      "expression" : "120"
+    } ],
+    "model" : "HPF.Templates.PAE_AC_1",
+    "settings" : {
+      "dynamic" : {
+        "stopTime" : 10.0
+      },
+      "steadyState" : { },
+      "custom" : { },
+      "simulationType" : "dynamic"
+    },
+    "filters" : [ ],
+    "isDefault" : true
+  } ],
+  "HPF.Templates.PAE_single_phase" : [ {
+    "created" : "2024-01-25T00:19:05.033Z",
+    "lastModified" : "2024-01-25T00:19:05.033Z",
+    "name" : "Experiment 1",
+    "expressions" : [ ],
+    "model" : "HPF.Templates.PAE_single_phase",
+    "settings" : {
+      "dynamic" : {
+        "stopTime" : 3.1536E7,
+        "interval" : 3600.0
+      },
+      "steadyState" : { },
+      "custom" : { },
+      "simulationType" : "dynamic"
+    },
+    "filters" : [ ],
+    "isDefault" : true
   } ]
 }

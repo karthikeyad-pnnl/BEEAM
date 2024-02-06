@@ -19,7 +19,7 @@ model ACConverterwLoads
     annotation(Placement(visible = true,
       transformation(extent={{-56.25,-35},{-36.25,-15}})));
   replaceable parameter Data.ACConverterwLoads modelData
-    annotation (Placement(transformation(extent={{60,60},{80,80}})));
+    annotation (Placement(transformation(extent={{60.0,60.0},{80.0,80.0}},rotation = 0.0,origin = {0.0,0.0})));
 
   DC.Ground ground1
     annotation (Placement(transformation(extent={{0,-40},{20,-20}})));

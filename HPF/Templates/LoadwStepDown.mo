@@ -7,7 +7,7 @@ model LoadwStepDown
                                             constrainedby
     HPF.DC.DC2DC_Converters.Interface
     annotation(Placement(transformation(
-      extent = {{-50.0,-8.666666666666666},{-30.0,11.333333333333334}},
+      extent = {{-50.0,-8.0},{-30.0,12.0}},
       origin = {0.0,0.0},rotation = 0.0)),
       choices(
       choice(redeclare replaceable HPF.DC.DC2DC_Converters.StepDown dcdc_Converter
@@ -44,17 +44,16 @@ equation
         color={0,0,255}));
     end for;
     connect(p,dcdc_Converter.p1)
-      annotation(Line(points={{-100,0},{-100,17.33},{-50,17.33},{-50,11.3333}},color = {0,0,255}));
+      annotation(Line(points={{-100,0},{-100,17.33},{-50,17.33},{-50,12}},color = {0,0,255}));
     connect(dcdc_Converter.n1,n)
-      annotation(Line(points={{-50,-8.66667},{-50,-24},{100,-24},{100,0}},
+      annotation(Line(points={{-50,-8},{-50,-24},{100,-24},{100,0}},
         color = {0,0,255}));
   connect(ground.p, dcdc_Converter.n2)
-    annotation (Line(points={{-14,-38},{-22,-38},
-          {-22,-8.66667},{-30,-8.66667}}, color={0,0,255}));
-  connect(schedule.y[1], onePort.u) annotation (Line(points={{-50,59},{-50,40},{
-          76,40},{76,0},{65,0},{65,-0.2}}, color={0,0,127}));
+    annotation (Line(points={{-14,-38},{-22,-38},{-22,-8},{-30,-8}}, color={0,0,255}));
   connect(resistor11.n, onePort.p)
     annotation (Line(points={{10,30},{60,30},{60,10}}, color={0,0,255}));
+    connect(schedule[1].y,onePort.u) annotation(Line(points = {{-50,59},{-50,53},{71,53},{71,-0.19999999999999896},{65,-0.19999999999999896}},color = {0,0,127}));
+    
     annotation(Icon(coordinateSystem(
       preserveAspectRatio = false,
       extent = {{-100.0,-100.0},{100.0,100.0}}),

@@ -8,7 +8,7 @@ package DC2DC_StepDown "DC to DC step down converter model data record"
       Converter characteristics
         - output voltage
     */
-    parameter Modelica.Units.SI.Voltage V=5.0
+    parameter Modelica.Units.SI.Voltage V=45
       annotation (Dialog(group="Converter characteristics"));
     /*
       Converter model stuff    
@@ -63,4 +63,23 @@ package DC2DC_StepDown "DC to DC step down converter model data record"
   </html>"));
 
   end Igor_PoE_Driver_53W;
+
+  record zero_loss
+    extends .Modelica.Icons.Record;
+
+    /*(create dialog sections using annotation)
+      Converter characteristics
+        - output voltage
+    */
+    parameter .Modelica.Units.SI.Voltage V=30
+      annotation (Dialog(group="Converter characteristics"));
+    /*
+      Converter model stuff    
+    */
+    parameter Real alpha = 0.0 annotation (Dialog(group = "Converter efficiency model"));
+    parameter Real beta = 0.0 annotation (Dialog(group = "Converter efficiency model"));
+    parameter Real gamma = 0.0 annotation (Dialog(group = "Converter efficiency model"));
+    parameter Real Pnom = 1.0 annotation (Dialog(group = "PLoss calculations"));
+    annotation(defaultComponentPrefixes = "parameter");
+  end zero_loss;
 end DC2DC_StepDown;

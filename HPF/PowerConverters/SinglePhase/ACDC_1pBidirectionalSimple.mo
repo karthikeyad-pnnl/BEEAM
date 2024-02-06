@@ -1,4 +1,4 @@
-﻿within HPF.PowerConverters.SinglePhase;
+within HPF.PowerConverters.SinglePhase;
 model ACDC_1pBidirectionalSimple
   extends HPF.PowerConverters.SinglePhase.ACDC_1pConverterBase;
   import Modelica.ComplexMath.j;
