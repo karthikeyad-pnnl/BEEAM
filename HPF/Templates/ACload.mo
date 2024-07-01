@@ -5,7 +5,7 @@ model ACload
     .HPF.SinglePhase.Interface.HPin_P hPin_B annotation(Placement(transformation(extent = {{149.3644870635269,-8.635512936473072},{158.6355129364731,0.6355129364730718}},origin = {0.0,0.0},rotation = 0.0)));
     .HPF.SinglePhase.Interface.HPin_P hPin_C annotation(Placement(transformation(extent = {{148.82354836165376,-29.17645163834619},{159.17645163834624,-18.82354836165381}},origin = {0.0,0.0},rotation = 0.0)));
     .HPF.SinglePhase.Interface.HPin_N hPin_N annotation(Placement(transformation(extent = {{148.37327421138465,-55.62672578861538},{159.62672578861535,-44.37327421138462}},origin = {0.0,0.0},rotation = 0.0)));
-    .Modelica.Blocks.Sources.CombiTimeTable ac_schedule(tableOnFile = true) annotation(Placement(transformation(extent = {{-60.0,-22.0},{-40.0,-2.0}},origin = {0.0,0.0},rotation = 0.0)));
+    .Modelica.Blocks.Sources.CombiTimeTable ac_schedule(tableOnFile = true,timeScale = 3600) annotation(Placement(transformation(extent = {{-60.0,-22.0},{-40.0,-2.0}},origin = {0.0,0.0},rotation = 0.0)));
     .Modelica.ComplexBlocks.ComplexMath.RealToComplex realToComplex annotation(Placement(transformation(extent = {{35.5,-18.0},{45.5,-8.0}},rotation = 0.0,origin = {0.0,0.0})));
     .Modelica.Blocks.Math.Gain gain(k = 0.95) annotation(HideResult = true,Placement(transformation(extent = {{12.0,-18.0},{24.0,-6.0}},rotation = 0.0,origin = {0.0,0.0})));
     .HPF.Loads.ThreePhase.AC_LoadIdealWye aC_LoadIdealWye(V_nom = 120,P_nom = 100) annotation(Placement(transformation(extent = {{77.0,-22.5},{57.0,-2.5}},origin = {0.0,0.0},rotation = 0.0)));

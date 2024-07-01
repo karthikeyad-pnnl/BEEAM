@@ -46,7 +46,7 @@ equation
   Q1 = sign(PF) * P1 * sqrt(1/(PF^2) - 1);
 
   // Energy balance
-  P_AC = P_DC + P_Loss;
+  P_AC - P_DC  = abs(P_Loss);
 
   // Current injections: fundamental
   phaseLN.i[1].re = (P1 * phaseLN.v[1].re + Q1 * phaseLN.v[1].im) / (phaseLN.v[1].re ^ 2 + phaseLN.v[1].im ^ 2);

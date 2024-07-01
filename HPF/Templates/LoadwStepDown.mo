@@ -28,11 +28,12 @@ model LoadwStepDown
   Modelica.Blocks.Sources.CombiTimeTable schedule[nLoad](
     fileName=modelData.fileName,
     tableName=modelData.tableName,
-    tableOnFile=fill(true, nLoad))
+    tableOnFile=fill(true, nLoad),timeScale = fill(3600,nLoad))
     annotation (Placement(visible=true, transformation(
         origin={-50,70},
         extent={{-10,-10},{10,10}},
         rotation=-90)));
+    .Modelica.Blocks.Math.Gain gain[nLoad](k=modelData.Pnom) annotation(Placement(transformation(extent = {{8,42},{28,62}},origin = {0,0},rotation = 0)));
 
 equation
     for i in 1:nLoad loop
@@ -48,11 +49,12 @@ equation
     connect(dcdc_Converter.n1,n)
       annotation(Line(points={{-50,-8},{-50,-24},{100,-24},{100,0}},
         color = {0,0,255}));
-  connect(ground.p, dcdc_Converter.n2)
+    connect(ground.p, dcdc_Converter.n2)
     annotation (Line(points={{-14,-38},{-22,-38},{-22,-8},{-30,-8}}, color={0,0,255}));
-  connect(resistor11.n, onePort.p)
+    connect(resistor11.n, onePort.p)
     annotation (Line(points={{10,30},{60,30},{60,10}}, color={0,0,255}));
-    connect(schedule[1].y,onePort.u) annotation(Line(points = {{-50,59},{-50,53},{71,53},{71,-0.19999999999999896},{65,-0.19999999999999896}},color = {0,0,127}));
+    connect(schedule[1].y,gain.u) annotation(Line(points = {{-50,59},{-50,52},{6,52}},color = {0,0,127}));
+    connect(gain.y,onePort.u) annotation(Line(points = {{29,52},{71,52},{71,-0.19999999999999896},{65,-0.19999999999999896}},color = {0,0,127}));
     
     annotation(Icon(coordinateSystem(
       preserveAspectRatio = false,

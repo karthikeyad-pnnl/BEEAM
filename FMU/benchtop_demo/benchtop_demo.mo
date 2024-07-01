@@ -145,7 +145,7 @@ equation
   connect('in_fmu1'.conditioned_zone_temp, add.u2) annotation (Line(points={{184,
           60},{192,60},{192,-88},{158,-88}}, color={0,0,127}));
   annotation (
-    uses(HPF(version = "0.1.0-beta"), Modelica(version = "3.2.3")),
+    uses(HPF(version = "0.1.0-beta"), Modelica(version = "4.0.0")),
     experiment(
       StopTime=345600,
       Interval=60,

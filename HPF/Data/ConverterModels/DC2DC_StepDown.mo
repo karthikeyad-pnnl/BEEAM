@@ -82,4 +82,23 @@ package DC2DC_StepDown "DC to DC step down converter model data record"
     parameter Real Pnom = 1.0 annotation (Dialog(group = "PLoss calculations"));
     annotation(defaultComponentPrefixes = "parameter");
   end zero_loss;
+
+  record mppt
+    extends .Modelica.Icons.Record;
+
+    /*(create dialog sections using annotation)
+      Converter characteristics
+        - output voltage
+    */
+    parameter .Modelica.Units.SI.Voltage V=380
+      annotation (Dialog(group="Converter characteristics"));
+    /*
+      Converter model stuff    
+    */
+    parameter Real alpha = 0 annotation (Dialog(group = "Converter efficiency model"));
+    parameter Real beta = 0.01546067 annotation (Dialog(group = "Converter efficiency model"));
+    parameter Real gamma = 0.00659505 annotation (Dialog(group = "Converter efficiency model"));
+    parameter Real Pnom = 600 annotation (Dialog(group = "PLoss calculations"));
+    annotation(defaultComponentPrefixes = "parameter");
+  end mppt;
 end DC2DC_StepDown;

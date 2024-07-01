@@ -2,8 +2,9 @@ Template1
 LoadwStepDown
 Examples
 ACConverterwLoads
-PAE_AC
-PAE_AC_Model
+PAE_template
+PAE_template_modular
+PAE_Model_DC
 PAE_AC_1
 PAE_single_phase
 Data

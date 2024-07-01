@@ -1,4 +1,4 @@
-﻿within HPF.PowerConverters.ThreePhase;
+within HPF.PowerConverters.ThreePhase;
 model ACDC_3pInverterSimple
   extends HPF.PowerConverters.ThreePhase.ACDC_3pConverterBase;
   import Modelica.ComplexMath.j;
@@ -40,18 +40,26 @@ model ACDC_3pInverterSimple
   Real P_AC(start = P_nom) "Total AC power output";
 
   // DC power output
-  Real P_DC = DC_Port.pwr "Total DC power input";
+  Real P_DC = -DC_Port.pwr "Total DC power input";
 
 equation
   // Loss calculation
-  P_Loss = HPF.PowerConverters.HelperFunctions.homotopyTransition(P_AC, -P_stby, 0, P_stby, (P_nom * (alpha + beta * (P_AC/P_nom) + gamma * (P_AC/P_nom)^2)));
-
+  //P_Loss = HPF.PowerConverters.HelperFunctions.homotopyTransition(P_AC, 0, alpha*P_nom,(P_nom * (alpha + beta * (-P_AC/P_nom) + gamma * (-P_AC/P_nom)^2)), (P_nom * (alpha + beta * (P_DC/P_nom) + gamma * (P_DC/P_nom)^2)));
+    
+  P_Loss = HPF.PowerConverters.HelperFunctions.homotopyTransition(P_AC, 0, P_stby, P_stby, (P_nom * (alpha + beta * (P_AC/P_nom) + gamma * (P_AC/P_nom)^2)));
+  //if P_AC < 0 then
+    //P_Loss = HPF.PowerConverters.HelperFunctions.homotopyTransition(P_AC, -P_stby, 0, P_stby, (P_nom * (alpha + beta * (-P_AC/P_nom) + gamma * (-P_AC/P_nom)^2)));
+  //else
+    //P_Loss = HPF.PowerConverters.HelperFunctions.homotopyTransition(P_AC, 0, P_stby, P_stby, (P_nom * (alpha + beta * (P_DC/P_nom) + gamma * (P_DC/P_nom)^2)));
+  //end if;
   // Real/reactive power at fundamental
+ 
   P1 = P_AC - (sum(PA_h[2:systemDef.numHrm]) + sum(PB_h[2:systemDef.numHrm]) + sum(PC_h[2:systemDef.numHrm]));
   Q1 = sign(PF) * P1 * sqrt(1/(PF^2) - 1);
 
-  // Energy balance
-  P_DC = P_AC + P_Loss;
+  // Energy balance 
+  //P_DC = HPF.PowerConverters.HelperFunctions.homotopyTransition(P_AC, 0, P_nom, P_AC + P_Loss, P_AC - P_Loss);  
+  P_AC = P_DC + P_Loss;
 
   // Current injections: fundamental (negative sign to reverse power flow direction)
   phaseA.i[1].re = -((P1/3) * phaseA.v[1].re + (Q1/3) * phaseA.v[1].im) / (phaseA.v[1].re ^ 2 + phaseA.v[1].im ^ 2);
