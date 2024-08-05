@@ -11,7 +11,7 @@ model medoff_template_2
     parameter Integer nconverter_lumB = modelData.nconverter_lumB;
     parameter Integer nconverter_lumC = modelData.nconverter_lumC;
     
-    replaceable parameter .HPF.Templates.Data.medoff_record_2 modelData annotation(Placement(transformation(extent = {{-86.0,74.0},{-66.0,94.0}},origin = {0.0,0.0},rotation = 0.0)));
+    replaceable parameter .HPF.Templates.Data.Examples.medium_office_3 modelData annotation(Placement(transformation(extent = {{-86.0,74.0},{-66.0,94.0}},origin = {0.0,0.0},rotation = 0.0)));
     
     //Transformer
     .HPF.Transformers.ThreePhase.Symmetric.D1Y d1Y(
@@ -35,7 +35,7 @@ model medoff_template_2
     
     //PV
     .HPF.Sources.DC.FixedVoltage_VariablePower fixedVoltage_VariablePower(v_out = 660) annotation(Placement(transformation(extent = {{-10.0,10.0},{10.0,-10.0}},origin = {-68.0,-76.0},rotation = -90.0)));
-    .Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(tableOnFile = true,tableName = "pv_profile",fileName = .ModelicaServices.ExternalReferences.loadResource("modelica://PrototypeBuildingElectricalModels/Data/LoadProfiles/pv_san_diego_roof.txt"),timeScale = 3600) annotation(Placement(transformation(extent = {{-106,-86},{-86,-66}},origin = {0,0},rotation = 0)));
+    .Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(tableOnFile = true,tableName = "pv_profile",fileName = .ModelicaServices.ExternalReferences.loadResource("modelica://PrototypeBuildingElectricalModels/Data/LoadProfiles/pv_san_diego_roof.txt"),timeScale = 3600,smoothness = Modelica.Blocks.Types.Smoothness.ConstantSegments,extrapolation = Modelica.Blocks.Types.Extrapolation.HoldLastPoint) annotation(Placement(transformation(extent = {{-106,-86},{-86,-66}},origin = {0,0},rotation = 0)));
     
     //PV inverter
     .HPF.PowerConverters.ThreePhase.ACDC_3pInverterSimple aCDC_3pInverterSimple(
@@ -79,7 +79,7 @@ model medoff_template_2
     
     .HPF.Cables.NEC_CableModelDC dccable_lumA[modelData.nStepDown_lumA] annotation(Placement(transformation(extent = {{88.0,4.0},{108.0,24.0}},origin = {0.0,0.0},rotation = 0.0)));
     
-    .HPF.Templates.LoadwStepDown lum_phaseA[modelData.nStepDown_lumA](redeclare .HPF.DC.DC2DC_Converters.StepDown dcdc_Converter, modelData = modelData.lum_phaseA) annotation(Placement(transformation(extent = {{126.0,-4.0},{146.0,16.0}},origin = {0.0,0.0},rotation = 0.0)));
+    .HPF.Templates.LoadwStepDown lum_phaseA[modelData.nStepDown_lumA](redeclare .HPF.DC.DC2DC_Converters.DummyShort dcdc_Converter, modelData = modelData.lum_phaseA) annotation(Placement(transformation(extent = {{126.0,-4.0},{146.0,16.0}},origin = {0.0,0.0},rotation = 0.0)));
     
     //Lighting load Phase B
     .HPF.Cables.NEC_CableModel accable_phaseB annotation(Placement(transformation(extent = {{6.357625860849144,-35.64237413915085},{21.642374139150856,-20.357625860849147}},origin = {0.0,0.0},rotation = 0.0)));
@@ -89,7 +89,7 @@ model medoff_template_2
     
     .HPF.Cables.NEC_CableModelDC dccable_lumB[modelData.nStepDown_lumB] annotation(Placement(transformation(extent = {{90.19999999999999,-35.349999999999994},{110.19999999999999,-15.349999999999998}},origin = {0.0,0.0},rotation = 0.0)));
     
-    .HPF.Templates.LoadwStepDown lum_phaseB[modelData.nStepDown_lumB](modelData = modelData.lum_phaseB,redeclare replaceable .HPF.DC.DC2DC_Converters.StepDown dcdc_Converter) annotation(Placement(transformation(extent = {{126.19999999999999,-43.349999999999994},{146.2,-23.349999999999994}},origin = {0.0,0.0},rotation = 0.0)));
+    .HPF.Templates.LoadwStepDown lum_phaseB[modelData.nStepDown_lumB](modelData = modelData.lum_phaseB,redeclare replaceable .HPF.DC.DC2DC_Converters.DummyShort dcdc_Converter) annotation(Placement(transformation(extent = {{126.19999999999999,-43.349999999999994},{146.2,-23.349999999999994}},origin = {0.0,0.0},rotation = 0.0)));
     
     //Lighting load Phase C
     .HPF.Cables.NEC_CableModel accable_phaseC annotation(Placement(transformation(extent = {{1.9015270193247744,-72.09847298067523},{18.098472980675226,-55.901527019324774}},origin = {0.0,0.0},rotation = 0.0)));
@@ -99,7 +99,8 @@ model medoff_template_2
     
     .HPF.Cables.NEC_CableModelDC dccable_lumC[modelData.nStepDown_lumC] annotation(Placement(transformation(extent = {{90.19999999999999,-70.6},{110.19999999999999,-50.599999999999994}},origin = {0.0,0.0},rotation = 0.0)));
     
-    .HPF.Templates.LoadwStepDown lum_phaseC[modelData.nStepDown_lumC](modelData = modelData.lum_phaseC,redeclare replaceable .HPF.DC.DC2DC_Converters.StepDown dcdc_Converter) annotation(Placement(transformation(extent = {{126.19999999999999,-78.6},{146.2,-58.599999999999994}},origin = {0.0,0.0},rotation = 0.0)));
+    .HPF.Templates.LoadwStepDown lum_phaseC[modelData.nStepDown_lumC](modelData = modelData.lum_phaseC,redeclare replaceable .HPF.DC.DC2DC_Converters.DummyShort dcdc_Converter) annotation(Placement(transformation(extent = {{126.19999999999999,-78.6},{146.2,-58.599999999999994}},origin = {0.0,0.0},rotation = 0.0)));
+    inner .HPF.SystemDef systemDef annotation(Placement(transformation(extent = {{-102,32},{-74,56}},origin = {0,0},rotation = 0)));
     
     
 equation

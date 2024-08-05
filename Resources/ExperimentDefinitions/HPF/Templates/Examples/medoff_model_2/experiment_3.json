@@ -1,6 +1,6 @@
 {
   "version" : "2",
-  "id" : "9e0808a8-b5da-4f03-9059-6aa1fd2608a0",
+  "id" : "edeafd08-b8de-4205-b48b-6762386f03f3",
   "experiment" : {
     "base" : {
       "analysis" : {
@@ -9,7 +9,7 @@
         "choices" : [ {
           "type" : "dynamic",
           "parameters" : {
-            "final_time" : 3153600,
+            "final_time" : 31536000,
             "interval" : 900,
             "start_time" : 0
           },
@@ -18,7 +18,7 @@
             "ncp" : 500
           },
           "solverOptions" : {
-            "store_event_points" : false,
+            "store_event_points" : true,
             "tolerance" : 0.1
           },
           "compilerOptions" : {
@@ -47,8 +47,8 @@
     }
   },
   "metadata" : {
-    "created" : "2024-06-25 19:47:43.783968525",
-    "lastModified" : "2024-07-18T20:21:34.931296869Z",
-    "name" : "Experiment 1"
+    "created" : "2024-07-18 21:47:28.723122844",
+    "lastModified" : "2024-07-29T21:47:01.889072044Z",
+    "name" : "Experiment 3"
   }
 }

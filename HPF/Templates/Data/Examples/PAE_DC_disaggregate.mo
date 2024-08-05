@@ -47,7 +47,7 @@ record PAE_DC_disaggregate
           nLoad=1,
           loadNames={"data center"},
           stepDownName="stepDown2",
-          stepDownData=.HPF.Data.ConverterModels.DC2DC_StepDown.Igor_PoE_Driver_53W(Pnom=5, V=45),
+          stepDownData=.HPF.Data.ConverterModels.DC2DC_StepDown.Laptop_18V_90W_LapChrg5(Pnom=5, V=45),
           R={0},
           tableName={"schedule"},
           fileName={.ModelicaServices.ExternalReferences.loadResource("modelica://HPF/Data/load_profiles/it_schedule.txt")}),

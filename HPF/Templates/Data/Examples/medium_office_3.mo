@@ -1914,7 +1914,7 @@ lumconv_phaseA={
                 P_DCmin=0.0,
                 alpha=0.010058, beta=0.008198182154825016, gamma=0.03548539119679481)
         ,
-            .HPF.Templates.Data.ACConverter(name="http://speckle.xyz/streams/1fed8e620e/objects/9019f2c693ba57301770014821ef4ee4",
+            .HPF.Templates.Data.ACConverter(name="http://speckle.xyz/streams/1fed8e620e/objects/9019f2c693ba**********4821ef4ee4",
                 V_Rect=45,
                 nomP=31,
                 nomV=277,

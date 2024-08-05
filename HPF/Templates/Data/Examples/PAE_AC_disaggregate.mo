@@ -91,7 +91,7 @@ record PAE_AC_disaggregate
           vAngle=0,
           P_stby=0,
           P_DCmin=0.0,
-          alpha=0.09161150405812991, beta=0.2683202806385506, gamma=-0.3148619527410665),
+          alpha=0.05531240440138575, beta=0.06780368678680267, gamma=0.07505497363565158),
           .HPF.Templates.Data.ACConverter(name="exterior lighting",
           V_Rect=45,
           nomP=2,
@@ -107,7 +107,7 @@ record PAE_AC_disaggregate
           vAngle=0,
           P_stby=0,
           P_DCmin=0.0,
-          alpha=0.008122771962440066, beta=0.09499859366055308, gamma=0.1083769644301148)});
+          alpha=0.01076653054519267, beta=0.09204302152859999, gamma=0.03388135098131486)});
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)));
 end PAE_AC_disaggregate;
