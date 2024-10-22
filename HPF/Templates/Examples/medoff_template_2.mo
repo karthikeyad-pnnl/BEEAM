@@ -11,7 +11,7 @@ model medoff_template_2
     parameter Integer nconverter_lumB = modelData.nconverter_lumB;
     parameter Integer nconverter_lumC = modelData.nconverter_lumC;
     
-    replaceable parameter .HPF.Templates.Data.Examples.medium_office_3 modelData annotation(Placement(transformation(extent = {{-86.0,74.0},{-66.0,94.0}},origin = {0.0,0.0},rotation = 0.0)));
+    replaceable parameter .HPF.Templates.Data.Examples.medium_office_SD modelData annotation(Placement(transformation(extent = {{-86.0,74.0},{-66.0,94.0}},origin = {0.0,0.0},rotation = 0.0)));
     
     //Transformer
     .HPF.Transformers.ThreePhase.Symmetric.D1Y d1Y(
@@ -35,7 +35,7 @@ model medoff_template_2
     
     //PV
     .HPF.Sources.DC.FixedVoltage_VariablePower fixedVoltage_VariablePower(v_out = 660) annotation(Placement(transformation(extent = {{-10.0,10.0},{10.0,-10.0}},origin = {-68.0,-76.0},rotation = -90.0)));
-    .Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(tableOnFile = true,tableName = "pv_profile",fileName = .ModelicaServices.ExternalReferences.loadResource("modelica://PrototypeBuildingElectricalModels/Data/LoadProfiles/pv_san_diego_roof.txt"),timeScale = 3600,smoothness = Modelica.Blocks.Types.Smoothness.ConstantSegments,extrapolation = Modelica.Blocks.Types.Extrapolation.HoldLastPoint) annotation(Placement(transformation(extent = {{-106,-86},{-86,-66}},origin = {0,0},rotation = 0)));
+    .Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(tableOnFile = true,tableName = "pv_profile",fileName = .ModelicaServices.ExternalReferences.loadResource("modelica://PrototypeBuildingElectricalModels/Data/LoadProfiles/pv_san_diego_roof.txt"),timeScale = 1,smoothness = Modelica.Blocks.Types.Smoothness.ConstantSegments,extrapolation = Modelica.Blocks.Types.Extrapolation.HoldLastPoint) annotation(Placement(transformation(extent = {{-106,-86},{-86,-66}},origin = {0,0},rotation = 0)));
     
     //PV inverter
     .HPF.PowerConverters.ThreePhase.ACDC_3pInverterSimple aCDC_3pInverterSimple(
@@ -60,7 +60,7 @@ model medoff_template_2
     .HPF.DC.Ground ground4 annotation(Placement(transformation(extent = {{-64,-120},{-44,-100}},origin = {0,0},rotation = 0)));
     
     //AC load
-    .HPF.Templates.ACload aCload(ac_schedule(tableName = "Mechanical",fileName = .ModelicaServices.ExternalReferences.loadResource("modelica://PrototypeBuildingElectricalModels/Data/LoadProfiles/San-Diego-Mechanical_LP.txt")),gain(k = 1),aC_LoadIdealWye(P_nom = 100,V_nom = 277)) annotation(Placement(transformation(extent = {{10.0,-10.0},{-10.0,10.0}},origin = {-12.0,52.0},rotation = 90.0)));
+    .HPF.Templates.ACload aCload(ac_schedule(tableName = "Mechanical",fileName = .ModelicaServices.ExternalReferences.loadResource("modelica://PrototypeBuildingElectricalModels/Data/LoadProfiles/San-Diego-Mechanical_LP.txt"),timeScale = 3600),aC_LoadIdealWye(P_nom = 100,V_nom = 277)) annotation(Placement(transformation(extent = {{10.0,-10.0},{-10.0,10.0}},origin = {-12.0,52.0},rotation = 90.0)));
     
     
     //Lighting load Phase A

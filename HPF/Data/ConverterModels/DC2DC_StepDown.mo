@@ -13,9 +13,9 @@ package DC2DC_StepDown "DC to DC step down converter model data record"
     /*
       Converter model stuff    
     */
-    parameter Real alpha = 1.0 annotation (Dialog(group = "Converter efficiency model"));
-    parameter Real beta = 1.0 annotation (Dialog(group = "Converter efficiency model"));
-    parameter Real gamma = 1.0 annotation (Dialog(group = "Converter efficiency model"));
+    parameter Real alpha = 0.0 annotation (Dialog(group = "Converter efficiency model"));
+    parameter Real beta = 0.0 annotation (Dialog(group = "Converter efficiency model"));
+    parameter Real gamma = 0.0 annotation (Dialog(group = "Converter efficiency model"));
     parameter Real Pnom = 1.0 annotation (Dialog(group = "PLoss calculations"));
     annotation(defaultComponentPrefixes = "parameter");
   end ModelData;
@@ -32,7 +32,7 @@ package DC2DC_StepDown "DC to DC step down converter model data record"
   end Laptop_18V_90W_LapChrg4;
 
   record Laptop_18V_90W_LapChrg5
-    extends HPF.Data.ConverterModels.DC2DC_StepDown.ModelData(final V = 18.5, final alpha = 1.2611, final beta = -0.001, final gamma = 0.0011);
+    extends HPF.Data.ConverterModels.DC2DC_StepDown.ModelData(final V = 18.5, final Pnom=90, final alpha = 1.2611, final beta = -0.001, final gamma = 0.0011);
     annotation (defaultComponentPrefixes = "parameter",
       defaultComponentName = "laptop_18V_90W_LapChrg5",
       Documentation(info="<html>

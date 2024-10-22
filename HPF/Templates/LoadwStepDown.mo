@@ -1,9 +1,10 @@
 within HPF.Templates;
 model LoadwStepDown
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
+  parameter HPF.Templates.Data.LoadwStepDown modelData
+    annotation (Placement(transformation(extent={{60,60},{80,80}})));
   final parameter Integer nLoad = modelData.nLoad;
-  replaceable HPF.DC.DC2DC_Converters.Interface dcdc_Converter(
-    final modelData=modelData.stepDownData, name=modelData.stepDownName)
+  replaceable .HPF.DC.DC2DC_Converters.Interface dcdc_Converter(final modelData = modelData.stepDownData, name = modelData.stepDownName)
                                             constrainedby
     HPF.DC.DC2DC_Converters.Interface
     annotation(Placement(transformation(
@@ -17,8 +18,7 @@ model LoadwStepDown
   HPF.DC.Variable_DC_Load onePort[nLoad](name=modelData.loadNames)
     annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},
       origin={60,0},      rotation = -90.0)));
-  parameter HPF.Templates.Data.LoadwStepDown modelData
-    annotation (Placement(transformation(extent={{60,60},{80,80}})));
+
   Modelica.Electrical.Analog.Basic.Resistor resistor11[nLoad](R=modelData.R)
     annotation (Placement(visible=true,
       transformation(origin={0,30}, extent={{-10,10},{10,-10}})));
@@ -28,11 +28,11 @@ model LoadwStepDown
   Modelica.Blocks.Sources.CombiTimeTable schedule[nLoad](
     fileName=modelData.fileName,
     tableName=modelData.tableName,
-    tableOnFile=fill(true, nLoad),timeScale = fill(3600,nLoad),smoothness = fill(Modelica.Blocks.Types.Smoothness.ConstantSegments,nLoad),extrapolation = fill(Modelica.Blocks.Types.Extrapolation.HoldLastPoint,nLoad))
+    tableOnFile=fill(true, nLoad),timeScale = fill(1,nLoad),smoothness = fill(Modelica.Blocks.Types.Smoothness.ConstantSegments,nLoad),extrapolation = fill(Modelica.Blocks.Types.Extrapolation.HoldLastPoint,nLoad))
     annotation (Placement(visible=true, transformation(
-        origin={-50,70},
-        extent={{-10,-10},{10,10}},
-        rotation=-90)));
+        origin={-50.0,70.0},
+        extent={{-10.0,-10.0},{10.0,10.0}},
+        rotation=-90.0)));
     .Modelica.Blocks.Math.Gain gain[nLoad](k=modelData.Pnom) annotation(Placement(transformation(extent = {{8,42},{28,62}},origin = {0,0},rotation = 0)));
 
 equation

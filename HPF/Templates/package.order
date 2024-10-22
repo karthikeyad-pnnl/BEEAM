@@ -3,6 +3,7 @@ LoadwStepDown
 Examples
 ACConverterwLoads
 PAE_template
+PAE_template_MPPT
 PAE_template_modular
 PAE_Model_AC
 PAE_Model_DC

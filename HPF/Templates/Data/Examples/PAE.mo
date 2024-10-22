@@ -7,16 +7,16 @@ record PAE
       R={0},
       wireGaugeDC={.HPF.Types.WireGaugeDC.guage_POE_Patch},
       length={0},
-      loadwStepDown2={.HPF.Templates.Data.LoadwStepDown(
+      loadwStepDown={.HPF.Templates.Data.LoadwStepDown(
           nLoad=1,
           loadNames={"load1"},
           stepDownName="stepDown1",
           stepDownData=.HPF.Data.ConverterModels.DC2DC_StepDown.zero_loss(Pnom=50),
           R={0},
           tableName={"schedule"},
-          fileName={.ModelicaServices.ExternalReferences.loadResource("modelica://HPF/Data/load_profiles/20_schedule.txt")})
+          fileName={.ModelicaServices.ExternalReferences.loadResource("modelica://HPF/Data/load_profiles/50_schedule.txt")})
          },
-      loadwStepDown={.HPF.Templates.Data.LoadwStepDown(
+      loadwStepDown2={.HPF.Templates.Data.LoadwStepDown(
           nLoad=1,
           loadNames={"load2"},
           stepDownName="stepDown2",
