@@ -13,10 +13,10 @@ package DC2DC_StepDown "DC to DC step down converter model data record"
     /*
       Converter model stuff    
     */
-    parameter Real alpha = 0.0 annotation (Dialog(group = "Converter efficiency model"));
-    parameter Real beta = 0.0 annotation (Dialog(group = "Converter efficiency model"));
-    parameter Real gamma = 0.0 annotation (Dialog(group = "Converter efficiency model"));
-    parameter Real Pnom = 1.0 annotation (Dialog(group = "PLoss calculations"));
+    parameter Real alpha annotation (Dialog(group = "Converter efficiency model"));
+    parameter Real beta annotation (Dialog(group = "Converter efficiency model"));
+    parameter Real gamma annotation (Dialog(group = "Converter efficiency model"));
+    parameter Real Pnom annotation (Dialog(group = "PLoss calculations"));
     annotation(defaultComponentPrefixes = "parameter");
   end ModelData;
 

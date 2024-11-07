@@ -18,7 +18,7 @@ record LoadwStepDown
   //Load parameters
   parameter String tableName[nLoad]=fill("schedule",  nLoad)
     "Table name on file or in function usertab (see docu)";
-  parameter String fileName[nLoad]=fill(ModelicaServices.ExternalReferences.loadResource("modelica://HPF/Data/load_profiles/schedule.txt"), nLoad)
+  parameter String fileName[nLoad]//=fill(ModelicaServices.ExternalReferences.loadResource("modelica://HPF/Data/load_profiles/schedule.txt"), nLoad)
     "File where matrix is stored";
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(

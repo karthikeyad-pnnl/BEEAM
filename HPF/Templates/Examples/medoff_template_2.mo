@@ -79,27 +79,27 @@ model medoff_template_2
     
     .HPF.Cables.NEC_CableModelDC dccable_lumA[modelData.nStepDown_lumA] annotation(Placement(transformation(extent = {{88.0,4.0},{108.0,24.0}},origin = {0.0,0.0},rotation = 0.0)));
     
-    .HPF.Templates.LoadwStepDown lum_phaseA[modelData.nStepDown_lumA](redeclare .HPF.DC.DC2DC_Converters.DummyShort dcdc_Converter, modelData = modelData.lum_phaseA) annotation(Placement(transformation(extent = {{126.0,-4.0},{146.0,16.0}},origin = {0.0,0.0},rotation = 0.0)));
+    .HPF.Templates.LoadwStepDown lum_phaseA[modelData.nStepDown_lumA](modelData = modelData.lum_phaseA) annotation(Placement(transformation(extent = {{126.0,-4.0},{146.0,16.0}},origin = {0.0,0.0},rotation = 0.0)));
     
     //Lighting load Phase B
-    .HPF.Cables.NEC_CableModel accable_phaseB annotation(Placement(transformation(extent = {{6.357625860849144,-35.64237413915085},{21.642374139150856,-20.357625860849147}},origin = {0.0,0.0},rotation = 0.0)));
-    .HPF.Cables.NEC_CableModel accable_lumB[nconverter_lumB] annotation(Placement(transformation(extent = {{32.19999999999999,-38.849999999999994},{52.19999999999999,-18.849999999999998}},origin = {0.0,0.0},rotation = 0.0)));
+    .HPF.Cables.NEC_CableModel accable_phaseB annotation(Placement(transformation(extent = {{4.357625860849144,-37.64237413915085},{19.642374139150856,-22.357625860849147}},origin = {0.0,0.0},rotation = 0.0)));
+    .HPF.Cables.NEC_CableModel accable_lumB[nconverter_lumB] annotation(Placement(transformation(extent = {{26.0,-40.0},{46.0,-20.0}},origin = {0.0,0.0},rotation = 0.0)));
     
     .HPF.PowerConverters.SinglePhase.ACDC_1pRectifierSimple lumconv_phaseB[nconverter_lumB](gamma = modelData.lumconv_phaseB.gamma,beta = modelData.lumconv_phaseB.beta,alpha = modelData.lumconv_phaseB.alpha,P_DCmin = modelData.lumconv_phaseB.P_DCmin,P_stby = modelData.lumconv_phaseB.P_stby,vAngle = modelData.lumconv_phaseB.vAngle,VAC_nom = modelData.lumconv_phaseB.nomV,P_nom = modelData.lumconv_phaseB.nomP,VDC_nom = modelData.lumconv_phaseB.V_Rect) annotation(Placement(transformation(extent = {{60.19999999999999,-47.349999999999994},{80.19999999999999,-27.349999999999994}},origin = {0.0,0.0},rotation = 0.0)));
     
     .HPF.Cables.NEC_CableModelDC dccable_lumB[modelData.nStepDown_lumB] annotation(Placement(transformation(extent = {{90.19999999999999,-35.349999999999994},{110.19999999999999,-15.349999999999998}},origin = {0.0,0.0},rotation = 0.0)));
     
-    .HPF.Templates.LoadwStepDown lum_phaseB[modelData.nStepDown_lumB](modelData = modelData.lum_phaseB,redeclare replaceable .HPF.DC.DC2DC_Converters.DummyShort dcdc_Converter) annotation(Placement(transformation(extent = {{126.19999999999999,-43.349999999999994},{146.2,-23.349999999999994}},origin = {0.0,0.0},rotation = 0.0)));
+    .HPF.Templates.LoadwStepDown lum_phaseB[modelData.nStepDown_lumB](modelData = modelData.lum_phaseB) annotation(Placement(transformation(extent = {{126.19999999999999,-43.349999999999994},{146.2,-23.349999999999994}},origin = {0.0,0.0},rotation = 0.0)));
     
     //Lighting load Phase C
-    .HPF.Cables.NEC_CableModel accable_phaseC annotation(Placement(transformation(extent = {{1.9015270193247744,-72.09847298067523},{18.098472980675226,-55.901527019324774}},origin = {0.0,0.0},rotation = 0.0)));
-    .HPF.Cables.NEC_CableModel accable_lumC[nconverter_lumC] annotation(Placement(transformation(extent = {{30.19999999999999,-72.1},{50.19999999999999,-52.099999999999994}},origin = {0.0,0.0},rotation = 0.0)));
+    .HPF.Cables.NEC_CableModel accable_phaseC annotation(Placement(transformation(extent = {{3.9015270193247744,-72.09847298067523},{20.098472980675226,-55.901527019324774}},origin = {0.0,0.0},rotation = 0.0)));
+    .HPF.Cables.NEC_CableModel accable_lumC[nconverter_lumC] annotation(Placement(transformation(extent = {{28.0,-74.0},{48.0,-54.0}},origin = {0.0,0.0},rotation = 0.0)));
     
     .HPF.PowerConverters.SinglePhase.ACDC_1pRectifierSimple lumconv_phaseC[nconverter_lumC](gamma = modelData.lumconv_phaseC.gamma,beta = modelData.lumconv_phaseC.beta,alpha = modelData.lumconv_phaseC.alpha,P_DCmin = modelData.lumconv_phaseC.P_DCmin,P_stby = modelData.lumconv_phaseC.P_stby,vAngle = modelData.lumconv_phaseC.vAngle,VAC_nom = modelData.lumconv_phaseC.nomV,P_nom = modelData.lumconv_phaseC.nomP,VDC_nom = modelData.lumconv_phaseC.V_Rect) annotation(Placement(transformation(extent = {{60.19999999999999,-82.1},{80.19999999999999,-62.099999999999994}},origin = {0.0,0.0},rotation = 0.0)));
     
     .HPF.Cables.NEC_CableModelDC dccable_lumC[modelData.nStepDown_lumC] annotation(Placement(transformation(extent = {{90.19999999999999,-70.6},{110.19999999999999,-50.599999999999994}},origin = {0.0,0.0},rotation = 0.0)));
     
-    .HPF.Templates.LoadwStepDown lum_phaseC[modelData.nStepDown_lumC](modelData = modelData.lum_phaseC,redeclare replaceable .HPF.DC.DC2DC_Converters.DummyShort dcdc_Converter) annotation(Placement(transformation(extent = {{126.19999999999999,-78.6},{146.2,-58.599999999999994}},origin = {0.0,0.0},rotation = 0.0)));
+    .HPF.Templates.LoadwStepDown lum_phaseC[modelData.nStepDown_lumC](modelData = modelData.lum_phaseC) annotation(Placement(transformation(extent = {{126.19999999999999,-78.6},{146.2,-58.599999999999994}},origin = {0.0,0.0},rotation = 0.0)));
     inner .HPF.SystemDef systemDef annotation(Placement(transformation(extent = {{-102,32},{-74,56}},origin = {0,0},rotation = 0)));
     
     
@@ -188,7 +188,7 @@ equation
     connect(aCload.hPin_C,d1Y.pinSec_C) annotation(Line(points = {{-9.600000000000003,36.6},{-9.600000000000003,-14},{-18,-14}},color = {92,53,102}));
     connect(aCload.hPin_N,d1Y.pinSec_N) annotation(Line(points = {{-7.0000000000000036,36.599999999999994},{-7.0000000000000036,-22},{-18,-22}},color = {117,80,123}));
     connect(d1Y.pinSec_A,accable_phaseA.pin_p) annotation(Line(points = {{-18,2},{1.2125449912996267,2}},color = {92,53,102}));
-    connect(d1Y.pinSec_B,accable_phaseB.pin_p) annotation(Line(points = {{-18,-6},{-2,-6},{-2,-28},{6.357625860849144,-28}},color = {92,53,102}));
-    connect(d1Y.pinSec_C,accable_phaseC.pin_p) annotation(Line(points = {{-18,-14},{-2,-14},{-2,-64},{1.9015270193247744,-64}},color = {92,53,102}));
+    connect(d1Y.pinSec_B,accable_phaseB.pin_p) annotation(Line(points = {{-18,-6},{-2,-6},{-2,-30},{4.357625860849144,-30}},color = {92,53,102}));
+    connect(d1Y.pinSec_C,accable_phaseC.pin_p) annotation(Line(points = {{-18,-14},{-2,-14},{-2,-64},{3.9015270193247744,-64}},color = {92,53,102}));
 
 end medoff_template_2;
