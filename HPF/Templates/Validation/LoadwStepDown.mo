@@ -1,14 +1,14 @@
 within HPF.Templates.Validation;
 model LoadwStepDown
     extends Modelica.Icons.Example;
-    .HPF.Templates.LoadwStepDown loadwStepDown(modelData=loadwStepDown2,dcdc_Converter(i2(fixed = false)),schedule(timeScale = 3600)) annotation(Placement(transformation(extent = {{70,-10},{90,10}},origin = {0,0},rotation = 0)));
+    .HPF.Templates.LoadwStepDown loadwStepDown(modelData=loadwStepDown2,dcdc_Converter(i2(fixed = false),n2(i(start = 0.1, fixed=true))),schedule(timeScale = {900})) annotation(Placement(transformation(extent = {{70.0,-10.0},{90.0,10.0}},origin = {0.0,0.0},rotation = 0.0)));
     .HPF.Templates.Data.LoadwStepDown loadwStepDown2(
           nLoad=1,
           loadNames={"load1"},
           stepDownName="stepDown1",
           stepDownData=HPF.Data.ConverterModels.DC2DC_StepDown.zero_loss(Pnom=6360),
-          Pnom={6000},
-          R={1},
+          Pnom={0},
+          R={0},
           tableName={"L1-Core-Lights"},
           fileName={ModelicaServices.ExternalReferences.loadResource("modelica://PrototypeBuildingElectricalModels/Data/LoadProfiles/San-Diego-L1_Light_LP.txt")})
         annotation(Placement(transformation(extent = {{-4.0,52.0},{16.0,72.0}},origin = {0.0,0.0},rotation = 0.0)));

@@ -12,11 +12,11 @@ model LoadwStepDown
       origin = {0.0,0.0},rotation = 0.0)));
   HPF.DC.Variable_DC_Load onePort[nLoad](name=modelData.loadNames)
     annotation(Placement(transformation(extent = {{-10.0,-10.0},{10.0,10.0}},
-      origin={52.0,8.0},      rotation = -90.0)));
+      origin={60.0,2.0},      rotation = -90.0)));
 
   Modelica.Electrical.Analog.Basic.Resistor resistor11[nLoad](R=modelData.R)
     annotation (Placement(visible=true,
-      transformation(origin={0.0,0.0}, extent={{-2.0,36.0},{18.0,16.0}},rotation = 0.0)));
+      transformation(origin={0.0,0.0}, extent={{2.0,28.0},{22.0,8.0}},rotation = 0.0)));
 
   DC.Ground ground
     annotation (Placement(transformation(extent={{-24,-58},{-4,-38}})));
@@ -24,7 +24,7 @@ model LoadwStepDown
   Modelica.Blocks.Sources.CombiTimeTable schedule[nLoad](
     fileName=modelData.fileName,
     tableName=modelData.tableName,
-    tableOnFile=fill(true, nLoad),timeScale = fill(1,nLoad),smoothness = fill(Modelica.Blocks.Types.Smoothness.ConstantSegments,nLoad),extrapolation = fill(Modelica.Blocks.Types.Extrapolation.HoldLastPoint,nLoad))
+    tableOnFile=fill(true, nLoad),timeScale = fill(3600,nLoad),smoothness = fill(Modelica.Blocks.Types.Smoothness.ConstantSegments,nLoad),extrapolation = fill(Modelica.Blocks.Types.Extrapolation.HoldLastPoint,nLoad))
     annotation (Placement(visible=true, transformation(
         origin={-50.0,70.0},
         extent={{-10.0,-10.0},{10.0,10.0}},
@@ -32,7 +32,7 @@ model LoadwStepDown
     
   Modelica.Blocks.Math.Gain gain[nLoad](k=modelData.Pnom) 
     annotation(Placement(transformation(extent = {{8,42},{28,62}},origin = {0,0},rotation = 0)));
-    .Modelica.Blocks.Sources.Constant const(k = 0.6) annotation(Placement(transformation(extent = {{-62,28},{-42,48}},origin = {0,0},rotation = 0)));
+    .Modelica.Blocks.Sources.Constant const(k = 0) annotation(Placement(transformation(extent = {{-62,28},{-42,48}},origin = {0,0},rotation = 0)));
     .Modelica.Blocks.Routing.Replicator replicator(nout = nLoad) annotation(Placement(transformation(extent = {{-24,42},{-4,62}},origin = {0,0},rotation = 0)));
 
 equation
@@ -52,7 +52,7 @@ equation
         color = {0,0,255}));
     connect(ground.p, dcdc_Converter.n2)
     annotation (Line(points={{-14,-38},{-22,-38},{-22,-8},{-30,-8}}, color={0,0,255}));
-    connect(gain.y,onePort.u) annotation(Line(points = {{29,52},{71,52},{71,7.800000000000001},{57,7.800000000000001}},color = {0,0,127}));
+    connect(gain.y,onePort.u) annotation(Line(points = {{29,52},{71,52},{71,1.8000000000000012},{65,1.8000000000000012}},color = {0,0,127}));
     connect(replicator.y,gain.u) annotation(Line(points = {{-3,52},{6,52}},color = {0,0,127}));
     connect(schedule[1].y[1],replicator.u) annotation(Line(points = {{-50,59},{-50,52},{-26,52}},color = {0,0,127}));
     

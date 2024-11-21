@@ -9,8 +9,8 @@
         "choices" : [ {
           "type" : "dynamic",
           "parameters" : {
-            "final_time" : 1,
-            "interval" : 0.002,
+            "final_time" : 86400,
+            "interval" : 60,
             "start_time" : 0
           },
           "simulationOptions" : {
@@ -47,7 +47,7 @@
   },
   "metadata" : {
     "created" : "2024-11-06 01:49:49.479448334",
-    "lastModified" : "2024-11-06 01:49:49.479448334",
+    "lastModified" : "2024-11-09T01:36:12.982330396Z",
     "name" : "Experiment 1"
   }
 }
